@@ -13,6 +13,7 @@ require (
 	golang.org/x/oauth2 v0.1.0
 	golang.org/x/term v0.1.0
 	golang.org/x/tools v0.2.0
+	gopkg.in/yaml.v2 v2.2.2
 	modernc.org/sqlite v1.19.4
 )
 
