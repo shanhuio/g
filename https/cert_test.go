@@ -13,19 +13,28 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-package dags
+package https
 
-// Repo is the overview dependency structure of a repository.
-type Repo struct {
-	Name     string
-	RepoTopo *M
-	PkgTopos map[string]*M
+import (
+	"testing"
+
+	"shanhu.io/pub/errcode"
+)
+
+func TestNewCACert(t *testing.T) {
+	cert, err := NewCACert("test.shanhu.io")
+	if err != nil {
+		t.Fatalf("NewCACert() got error: %s", err)
+	}
+
+	if _, err := cert.X509KeyPair(); err != nil {
+		t.Fatalf("convert to tls cert got error: %s", err)
+	}
 }
 
-// NewRepo creates an empty overview for a repo.
-func NewRepo(name string) *Repo {
-	return &Repo{
-		Name:     name,
-		PkgTopos: make(map[string]*M),
+func TestMakeRSACertWithNoHost(t *testing.T) {
+	_, err := MakeRSACert(&CertConfig{}, 0)
+	if !errcode.IsInvalidArg(err) {
+		t.Errorf("expect invalid arg error without hosts, got %s", err)
 	}
 }

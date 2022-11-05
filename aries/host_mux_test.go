@@ -18,7 +18,7 @@ package aries
 import (
 	"testing"
 
-	"shanhu.io/aries/https/httpstest"
+	"shanhu.io/pub/https/httpstest"
 	"shanhu.io/pub/httputil"
 )
 
