@@ -18,7 +18,7 @@ package httputil
 import (
 	"testing"
 
-	"io/ioutil"
+	"io"
 )
 
 func TestClientGetCode(t *testing.T) {
@@ -55,7 +55,7 @@ func TestClientGet(t *testing.T) {
 		t.Fatal(err)
 	}
 	defer resp.Body.Close()
-	got, err := ioutil.ReadAll(resp.Body)
+	got, err := io.ReadAll(resp.Body)
 	if err != nil {
 		t.Fatal(err)
 	}

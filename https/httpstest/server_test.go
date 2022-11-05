@@ -18,14 +18,14 @@ package httpstest
 import (
 	"testing"
 
-	"io/ioutil"
+	"io"
 	"net/http"
 
 	"shanhu.io/pub/aries"
 )
 
 func checkBody(t *testing.T, resp *http.Response, msg string) {
-	bs, err := ioutil.ReadAll(resp.Body)
+	bs, err := io.ReadAll(resp.Body)
 	if err != nil {
 		t.Fatalf("read body: %s", err)
 	}

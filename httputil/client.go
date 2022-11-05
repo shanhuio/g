@@ -20,7 +20,6 @@ import (
 	"context"
 	"encoding/json"
 	"io"
-	"io/ioutil"
 	"net/http"
 	"net/url"
 
@@ -206,7 +205,7 @@ func (c *Client) GetBytes(p string) ([]byte, error) {
 		return nil, err
 	}
 	defer resp.Body.Close()
-	return ioutil.ReadAll(resp.Body)
+	return io.ReadAll(resp.Body)
 }
 
 // JSONGet gets the content of a path and decodes the response
@@ -233,7 +232,7 @@ func (c *Client) JSONGet(p string, resp interface{}) error {
 // to w.
 func (c *Client) Post(p string, r io.Reader, w io.Writer) error {
 	if r != nil {
-		r = ioutil.NopCloser(r)
+		r = io.NopCloser(r)
 	}
 	req, err := c.req(http.MethodPost, p, r)
 	if err != nil {

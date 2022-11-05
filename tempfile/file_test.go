@@ -18,7 +18,7 @@ package tempfile
 import (
 	"testing"
 
-	"io/ioutil"
+	"io"
 	"os"
 	"reflect"
 
@@ -51,7 +51,7 @@ func TestFileReadBack(t *testing.T) {
 
 	ne(f.Reset())
 
-	readBack, err := ioutil.ReadAll(f)
+	readBack, err := io.ReadAll(f)
 	ne(err)
 
 	if !reflect.DeepEqual(msg, readBack) {

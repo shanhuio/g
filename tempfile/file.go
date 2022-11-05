@@ -16,7 +16,7 @@
 package tempfile
 
 import (
-	"io/ioutil"
+	"io"
 	"os"
 )
 
@@ -29,7 +29,7 @@ type File struct {
 
 // NewFile creates a new temp file.
 func NewFile(dir, prefix string) (*File, error) {
-	f, err := ioutil.TempFile(dir, prefix)
+	f, err := os.CreateTemp(dir, prefix)
 	if err != nil {
 		return nil, err
 	}
@@ -41,7 +41,7 @@ func NewFile(dir, prefix string) (*File, error) {
 
 // Reset is an alias for Seek(0, 0) on the file.
 func (f *File) Reset() error {
-	_, err := f.File.Seek(0, os.SEEK_SET)
+	_, err := f.File.Seek(0, io.SeekStart)
 	return err
 }
 

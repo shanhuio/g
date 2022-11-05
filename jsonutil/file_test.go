@@ -18,7 +18,6 @@ package jsonutil
 import (
 	"testing"
 
-	"io/ioutil"
 	"os"
 	"path/filepath"
 	"reflect"
@@ -103,7 +102,7 @@ func TestWriteFile(t *testing.T) {
 }
 
 func TestWriteFileReadable(t *testing.T) {
-	f, err := ioutil.TempFile("", "jsonfile-test")
+	f, err := os.CreateTemp("", "jsonfile-test")
 	if err != nil {
 		t.Fatal(err)
 	}

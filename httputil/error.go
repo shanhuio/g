@@ -17,7 +17,7 @@ package httputil
 
 import (
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"strings"
 
@@ -65,7 +65,7 @@ func AddErrCode(statusCode int, err error) error {
 
 // RespError returns the error from an HTTP response.
 func RespError(resp *http.Response) error {
-	bs, err := ioutil.ReadAll(resp.Body)
+	bs, err := io.ReadAll(resp.Body)
 	if err != nil {
 		return err
 	}
