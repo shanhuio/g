@@ -20,7 +20,6 @@ import (
 	"errors"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"log"
 	"sync"
 	"time"
@@ -107,7 +106,7 @@ func (tr *transport) handleMessage(r io.Reader) error {
 	}
 
 	// TODO(h8liu): mark this as an invalid message?
-	if _, err := io.Copy(ioutil.Discard, r); err != nil {
+	if _, err := io.Copy(io.Discard, r); err != nil {
 		return err
 	}
 	if ex.typ == msgShutdown {
@@ -124,7 +123,7 @@ func (tr *transport) serveRead() error {
 		}
 		switch typ {
 		case websocket.TextMessage:
-			bs, err := ioutil.ReadAll(r)
+			bs, err := io.ReadAll(r)
 			if err != nil {
 				return err
 			}

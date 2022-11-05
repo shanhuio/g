@@ -18,7 +18,6 @@ package objects
 import (
 	"bytes"
 	"io"
-	"io/ioutil"
 	"sync"
 
 	"shanhu.io/pub/hashutil"
@@ -47,11 +46,11 @@ func (m *mem) Open(h string) (io.ReadCloser, error) {
 		return nil, notFound(h)
 	}
 
-	return ioutil.NopCloser(bytes.NewBuffer(bs)), nil
+	return io.NopCloser(bytes.NewBuffer(bs)), nil
 }
 
 func (m *mem) Create(r io.Reader) (string, error) {
-	bs, err := ioutil.ReadAll(r)
+	bs, err := io.ReadAll(r)
 	if err != nil {
 		return "", err
 	}

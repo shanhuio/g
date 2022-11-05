@@ -18,7 +18,6 @@ package objects
 import (
 	"bytes"
 	"io"
-	"io/ioutil"
 )
 
 type mappedStore struct {
@@ -36,7 +35,7 @@ func (b *mappedStore) Open(key string) (io.ReadCloser, error) {
 		return nil, err
 	}
 
-	return ioutil.NopCloser(bytes.NewReader(bs)), nil
+	return io.NopCloser(bytes.NewReader(bs)), nil
 }
 
 func (b *mappedStore) Create(r io.Reader) (string, error) {

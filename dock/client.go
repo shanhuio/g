@@ -17,7 +17,6 @@ package dock
 
 import (
 	"io"
-	"io/ioutil"
 	"net/http"
 	"net/url"
 
@@ -96,7 +95,7 @@ func (c *Client) poke(p string, q url.Values) error {
 
 func (c *Client) put(p string, q url.Values, r io.Reader) error {
 	u := apiURLQuery(p, q)
-	return c.client.Put(u, ioutil.NopCloser(r))
+	return c.client.Put(u, io.NopCloser(r))
 }
 
 func (c *Client) get(p string, q url.Values) (*http.Response, error) {

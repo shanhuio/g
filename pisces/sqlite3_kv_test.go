@@ -18,7 +18,6 @@ package pisces
 import (
 	"testing"
 
-	"io/ioutil"
 	"os"
 	"path/filepath"
 
@@ -27,7 +26,7 @@ import (
 )
 
 func TestSqlite3KV(t *testing.T) {
-	dir, err := ioutil.TempDir("", "pisces")
+	dir, err := os.MkdirTemp("", "pisces")
 	if err != nil {
 		t.Fatal(err)
 	}

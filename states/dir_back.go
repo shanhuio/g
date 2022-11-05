@@ -16,7 +16,6 @@
 package states
 
 import (
-	"io/ioutil"
 	"net/url"
 	"os"
 	"path/filepath"
@@ -37,7 +36,7 @@ func (b *dirBack) filepath(key string) string {
 }
 
 func (b *dirBack) Get(_ C, key string) ([]byte, error) {
-	bs, err := ioutil.ReadFile(b.filepath(key))
+	bs, err := os.ReadFile(b.filepath(key))
 	return bs, errcode.FromOS(err)
 }
 

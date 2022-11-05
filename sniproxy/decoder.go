@@ -18,7 +18,6 @@ package sniproxy
 import (
 	"fmt"
 	"io"
-	"io/ioutil"
 )
 
 type decoder struct {
@@ -59,7 +58,7 @@ func (d *decoder) rest() []byte {
 	if d.err != nil {
 		return nil
 	}
-	bs, err := ioutil.ReadAll(d.r)
+	bs, err := io.ReadAll(d.r)
 	d.n += int64(len(bs))
 	d.err = err
 	return bs

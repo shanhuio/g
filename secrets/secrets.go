@@ -17,7 +17,7 @@ package secrets
 
 import (
 	"encoding/json"
-	"io/ioutil"
+	"os"
 	"path/filepath"
 	"strings"
 
@@ -84,7 +84,7 @@ func (s *dirSecrets) Get(k string) ([]byte, error) {
 		return nil, err
 	}
 	f := filepath.Join(s.dir, k)
-	bs, err := ioutil.ReadFile(f)
+	bs, err := os.ReadFile(f)
 	if err != nil {
 		return nil, errcode.FromOS(err)
 	}

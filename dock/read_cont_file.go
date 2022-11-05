@@ -19,7 +19,6 @@ import (
 	"archive/tar"
 	"bytes"
 	"io"
-	"io/ioutil"
 
 	"shanhu.io/pub/errcode"
 )
@@ -50,7 +49,7 @@ func ReadContFile(c *Cont, f string) ([]byte, error) {
 			return nil, errcode.InvalidArgf("not a regular file")
 		}
 
-		bs, err := ioutil.ReadAll(r)
+		bs, err := io.ReadAll(r)
 		if err != nil {
 			return nil, errcode.Annotate(err, "read file content")
 		}

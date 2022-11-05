@@ -29,7 +29,7 @@ type endpointAddr struct {
 	addr string
 }
 
-func (*endpointAddr) Network() string { return "homedrive-fabrics" }
+func (*endpointAddr) Network() string { return "sniproxy" }
 
 func (a *endpointAddr) String() string { return a.addr }
 

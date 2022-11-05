@@ -19,7 +19,7 @@ import (
 	"testing"
 
 	"bytes"
-	"io/ioutil"
+	"io"
 
 	"shanhu.io/pub/errcode"
 	"shanhu.io/pub/hashutil"
@@ -63,7 +63,7 @@ func testObjects(t *testing.T, b Objects) {
 	}
 	defer r.Close()
 
-	bs, err = ioutil.ReadAll(r)
+	bs, err = io.ReadAll(r)
 	if err != nil {
 		t.Fatal(err)
 	}
