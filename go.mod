@@ -4,6 +4,7 @@ go 1.19
 
 require (
 	github.com/digitalocean/godo v1.89.0
+	github.com/gorilla/websocket v1.5.0
 	github.com/lib/pq v1.10.7
 	github.com/microcosm-cc/bluemonday v1.0.21
 	github.com/minio/minio-go/v7 v7.0.43
