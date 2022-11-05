@@ -13,31 +13,44 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-package gomod
+package osutil
 
 import (
 	"testing"
+
+	"os"
+	"path"
 )
 
-func TestModulePath(t *testing.T) {
-	for _, test := range []struct {
-		content, mod string
-	}{
-		{`module shanhu.io/pub`, "shanhu.io/pub"},
-		{"  module    shanhu.io/pub\t\t\t\n\nextra", "shanhu.io/pub"},
-		{`module "shanhu.io/pub/v1"`, "shanhu.io/pub/v1"},
-		{`module "shanhu.io/pub"`, "shanhu.io/pub"},
-		{"// comment\nmodule x // tail\nnext line", "x"},
-		{"module `x` // tail", "x"},
-	} {
-		got, err := modulePath([]byte(test.content))
-		if err != nil {
-			t.Errorf("modulePath(%q) got error: %s", test.content, err)
-		} else if got != test.mod {
-			t.Errorf(
-				"modulePath(%q), want %q, got %q",
-				test.content, test.mod, got,
-			)
-		}
+func TestIsDir(t *testing.T) {
+	d := t.TempDir()
+
+	ok, err := IsDir(d)
+	if err != nil {
+		t.Fatal("check is dir: ", err)
+	}
+	if !ok {
+		t.Errorf("IsDir(%q) should return true", d)
+	}
+
+	f := path.Join(d, "post")
+	if err := os.WriteFile(f, []byte("post"), 0600); err != nil {
+		t.Fatal("write file: ", err)
+	}
+
+	ok, err = IsDir(f)
+	if err != nil {
+		t.Fatal("check file is dir: ", err)
+	}
+	if ok {
+		t.Errorf("IsDir(%q) should return false", f)
+	}
+
+	ok, err = IsDir(path.Join(d, "ghost"))
+	if err != nil {
+		t.Fatal("check ghost dir: ", err)
+	}
+	if ok {
+		t.Errorf("IsDir(%q) should return false", f)
 	}
 }

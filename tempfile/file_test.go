@@ -22,7 +22,7 @@ import (
 	"os"
 	"reflect"
 
-	"shanhu.io/misc/osutil"
+	"shanhu.io/pub/osutil"
 )
 
 func testFileExist(t *testing.T, name string) bool {

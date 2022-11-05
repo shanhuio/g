@@ -24,7 +24,7 @@ import (
 	"io"
 	"net"
 
-	"shanhu.io/misc/errcode"
+	"shanhu.io/pub/errcode"
 )
 
 func serveEchoBack(c net.Conn, messageLen int) error {

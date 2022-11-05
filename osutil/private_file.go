@@ -13,31 +13,33 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-package gomod
+package osutil
 
 import (
-	"testing"
+	"os"
+
+	"shanhu.io/pub/errcode"
 )
 
-func TestModulePath(t *testing.T) {
-	for _, test := range []struct {
-		content, mod string
-	}{
-		{`module shanhu.io/pub`, "shanhu.io/pub"},
-		{"  module    shanhu.io/pub\t\t\t\n\nextra", "shanhu.io/pub"},
-		{`module "shanhu.io/pub/v1"`, "shanhu.io/pub/v1"},
-		{`module "shanhu.io/pub"`, "shanhu.io/pub"},
-		{"// comment\nmodule x // tail\nnext line", "x"},
-		{"module `x` // tail", "x"},
-	} {
-		got, err := modulePath([]byte(test.content))
-		if err != nil {
-			t.Errorf("modulePath(%q) got error: %s", test.content, err)
-		} else if got != test.mod {
-			t.Errorf(
-				"modulePath(%q), want %q, got %q",
-				test.content, test.mod, got,
-			)
-		}
+// CheckPrivateFile checks if the file is of the right permission bits.
+func CheckPrivateFile(f string) error {
+	info, err := os.Stat(f)
+	if err != nil {
+		return err
 	}
+	mod := info.Mode() & 0777
+	if mod != 0600 {
+		return errcode.InvalidArgf(
+			"file %q is not of perm 0600 but %#o", f, mod,
+		)
+	}
+	return err
+}
+
+// ReadPrivateFile reads the confent of a file. The file must be mode 0600.
+func ReadPrivateFile(f string) ([]byte, error) {
+	if err := CheckPrivateFile(f); err != nil {
+		return nil, err
+	}
+	return os.ReadFile(f)
 }

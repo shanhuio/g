@@ -18,7 +18,7 @@ package pathutil
 import (
 	"strings"
 
-	"shanhu.io/text/lexing"
+	"shanhu.io/pub/lexing"
 )
 
 // ValidPathRune checks if r is a valid rune in the path.

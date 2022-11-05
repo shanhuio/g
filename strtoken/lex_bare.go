@@ -16,7 +16,7 @@
 package strtoken
 
 import (
-	"shanhu.io/text/lexing"
+	"shanhu.io/pub/lexing"
 )
 
 func isBareRune(r rune) bool {

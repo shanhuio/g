@@ -13,31 +13,31 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-package gomod
+package osutil
 
 import (
-	"testing"
+	"os"
 )
 
-func TestModulePath(t *testing.T) {
-	for _, test := range []struct {
-		content, mod string
-	}{
-		{`module shanhu.io/pub`, "shanhu.io/pub"},
-		{"  module    shanhu.io/pub\t\t\t\n\nextra", "shanhu.io/pub"},
-		{`module "shanhu.io/pub/v1"`, "shanhu.io/pub/v1"},
-		{`module "shanhu.io/pub"`, "shanhu.io/pub"},
-		{"// comment\nmodule x // tail\nnext line", "x"},
-		{"module `x` // tail", "x"},
-	} {
-		got, err := modulePath([]byte(test.content))
-		if err != nil {
-			t.Errorf("modulePath(%q) got error: %s", test.content, err)
-		} else if got != test.mod {
-			t.Errorf(
-				"modulePath(%q), want %q, got %q",
-				test.content, test.mod, got,
-			)
+// Exist checks if a path exists.
+func Exist(path string) (bool, error) {
+	if _, err := os.Stat(path); err != nil {
+		if os.IsNotExist(err) {
+			return false, nil
 		}
+		return false, err
 	}
+	return true, nil
+}
+
+// IsRegular checks if a path is a regular file.
+func IsRegular(path string) (bool, error) {
+	stat, err := os.Stat(path)
+	if err != nil {
+		if os.IsNotExist(err) {
+			return false, nil
+		}
+		return false, err
+	}
+	return stat.Mode().IsRegular(), nil
 }

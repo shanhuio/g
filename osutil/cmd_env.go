@@ -13,31 +13,26 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-package gomod
+package osutil
 
 import (
-	"testing"
+	"fmt"
+	"os"
+	"os/exec"
 )
 
-func TestModulePath(t *testing.T) {
-	for _, test := range []struct {
-		content, mod string
-	}{
-		{`module shanhu.io/pub`, "shanhu.io/pub"},
-		{"  module    shanhu.io/pub\t\t\t\n\nextra", "shanhu.io/pub"},
-		{`module "shanhu.io/pub/v1"`, "shanhu.io/pub/v1"},
-		{`module "shanhu.io/pub"`, "shanhu.io/pub"},
-		{"// comment\nmodule x // tail\nnext line", "x"},
-		{"module `x` // tail", "x"},
-	} {
-		got, err := modulePath([]byte(test.content))
-		if err != nil {
-			t.Errorf("modulePath(%q) got error: %s", test.content, err)
-		} else if got != test.mod {
-			t.Errorf(
-				"modulePath(%q), want %q, got %q",
-				test.content, test.mod, got,
-			)
-		}
+// CmdAddEnv adds an environment variable to cmd and returns true. If v is an
+// empty string, nothing is added, and it returns false.
+func CmdAddEnv(cmd *exec.Cmd, k, v string) bool {
+	if v == "" {
+		return false
 	}
+	cmd.Env = append(cmd.Env, fmt.Sprintf("%s=%s", k, v))
+	return true
+}
+
+// CmdCopyEnv copies the value of environment variable k to cmd. If the value
+// is empty, returns false; otherwise returns true.
+func CmdCopyEnv(cmd *exec.Cmd, k string) bool {
+	return CmdAddEnv(cmd, k, os.Getenv(k))
 }
