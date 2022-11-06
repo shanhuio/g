@@ -16,6 +16,7 @@ require (
 	golang.org/x/tools v0.2.0
 	gopkg.in/yaml.v2 v2.2.2
 	modernc.org/sqlite v1.19.4
+	shanhu.io/gcimporter v0.0.0-20220809023309-46562c2255f7
 )
 
 require (
