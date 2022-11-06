@@ -18,6 +18,7 @@ package creds
 import (
 	"context"
 	"net/http"
+	"net/url"
 	"time"
 
 	"shanhu.io/pub/errcode"
@@ -74,23 +75,23 @@ func NewLogin(p *Endpoint) (*Login, error) {
 
 	lg := &Login{endPoint: &cp}
 	if !p.Homeless {
-		lg.credsStore = newHomeCredsStore(p.Server)
+		lg.credsStore = newHomeCredsStore(p.Server.String())
 	}
 	return lg, nil
 }
 
 // NewRobotLogin is a shorthand for NewLogin(NewRobot())
 func NewRobotLogin(
-	user, server, key string, tr http.RoundTripper,
+	server *url.URL, user, keyFile string, tr http.RoundTripper,
 ) (*Login, error) {
-	return NewLogin(NewRobot(user, server, key, tr))
+	return NewLogin(NewRobot(server, user, keyFile, tr))
 }
 
 func (lg *Login) check(cs *Creds) (bool, error) {
 	if cs.User != lg.endPoint.User {
 		return false, nil
 	}
-	if cs.Server != lg.endPoint.Server {
+	if cs.Server != lg.endPoint.Server.String() {
 		return false, nil
 	}
 
@@ -172,9 +173,9 @@ func (lg *Login) Dial() (*httputil.Client, error) {
 		return nil, err
 	}
 
-	c, err := httputil.NewTokenClient(lg.endPoint.Server, tok)
-	if err != nil {
-		return nil, err
+	c := &httputil.Client{
+		Server:      lg.endPoint.Server,
+		TokenSource: httputil.NewStaticToken(tok),
 	}
 	c.Transport = lg.endPoint.Transport
 	return c, nil
@@ -218,9 +219,14 @@ func DialAsUser(user, server string) (*httputil.Client, error) {
 	if user == "" {
 		return Dial(server)
 	}
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, errcode.Annotate(err, "parse server")
+	}
+
 	ep := &Endpoint{
 		User:   user,
-		Server: server,
+		Server: serverURL,
 	}
 	login, err := NewLogin(ep)
 	if err != nil {

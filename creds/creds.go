@@ -18,6 +18,7 @@ package creds
 import (
 	"crypto/rsa"
 	"net/http"
+	"net/url"
 	"time"
 
 	"shanhu.io/pub/errcode"
@@ -36,7 +37,7 @@ type Creds struct {
 
 // Request contains the configuration to create a credential.
 type Request struct {
-	Server string
+	Server *url.URL
 	User   string
 	Key    *rsa.PrivateKey
 	TTL    time.Duration
@@ -53,13 +54,10 @@ func NewCredsFromRequest(req *Request) (*Creds, error) {
 		return nil, err
 	}
 
-	cs := &Creds{Server: req.Server}
-
-	c, err := httputil.NewClient(req.Server)
-	if err != nil {
-		return nil, err
+	c := &httputil.Client{
+		Server:    req.Server,
+		Transport: req.Transport,
 	}
-	c.Transport = req.Transport
 
 	sr := &signinapi.Request{
 		User:        req.User,
@@ -67,6 +65,8 @@ func NewCredsFromRequest(req *Request) (*Creds, error) {
 		TTLDuration: timeutil.NewDuration(req.TTL),
 	}
 	sr.FillLegacyTTL()
+
+	cs := new(Creds)
 	if err := c.Call("/pubkey/signin", sr, &cs.Creds); err != nil {
 		return nil, err
 	}
@@ -78,12 +78,14 @@ func NewCredsFromRequest(req *Request) (*Creds, error) {
 	}
 
 	cs.Creds.FixTime()
+	cs.Server = req.Server.String() // Fill the server address
+
 	return cs, nil
 }
 
 // NewCreds creates a new user credential by dialing the server using
 // the given RSA private key.
-func NewCreds(server, user string, k *rsa.PrivateKey) (*Creds, error) {
+func NewCreds(server *url.URL, user string, k *rsa.PrivateKey) (*Creds, error) {
 	req := &Request{
 		Server: server,
 		User:   user,

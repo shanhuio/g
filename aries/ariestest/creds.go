@@ -31,7 +31,7 @@ func Login(c *httputil.Client, user, key string) error {
 	}
 	endPoint := &creds.Endpoint{
 		User:      user,
-		Server:    c.Server.String(),
+		Server:    c.Server,
 		Key:       keyBytes,
 		Transport: c.Transport,
 		Homeless:  true,

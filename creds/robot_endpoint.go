@@ -17,6 +17,7 @@ package creds
 
 import (
 	"net/http"
+	"net/url"
 
 	"shanhu.io/pub/errcode"
 	"shanhu.io/pub/httputil"
@@ -26,7 +27,7 @@ import (
 
 // RobotEndpoint is an endpoint for robots.
 type RobotEndpoint struct {
-	Server    string
+	Server    *url.URL
 	User      string
 	Key       []byte
 	Transport http.RoundTripper
@@ -59,9 +60,10 @@ func (ep *RobotEndpoint) Dial() (*httputil.Client, error) {
 	if err != nil {
 		return nil, errcode.Annotate(err, "get creds")
 	}
-	client, err := httputil.NewTokenClient(ep.Server, creds.Token)
-	if err != nil {
-		return nil, err
+
+	client := &httputil.Client{
+		Server:      ep.Server,
+		TokenSource: httputil.NewStaticToken(creds.Token),
 	}
 	if ep.Transport != nil {
 		client.Transport = ep.Transport

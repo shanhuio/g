@@ -17,14 +17,17 @@ package creds
 
 import (
 	"net/http"
+	"net/url"
 	"os"
 	"os/user"
+
+	"shanhu.io/misc/errcode"
 )
 
 // Endpoint contains the login stub configuration.
 type Endpoint struct {
 	// Server is the server's prefix URL.
-	Server string
+	Server *url.URL
 
 	// User is an optional user name. If blank will use OS user name, or the
 	// value of SHANHU_USER environment variable if exists.
@@ -64,15 +67,21 @@ func NewEndpoint(server string) (*Endpoint, error) {
 	if err != nil {
 		return nil, err
 	}
-	return &Endpoint{User: user, Server: server}, nil
+	u, err := url.Parse(server)
+	if err != nil {
+		return nil, errcode.Annotate(err, "parse URL")
+	}
+	return &Endpoint{User: user, Server: u}, nil
 }
 
 // NewRobot creates a new robot endpoint.
-func NewRobot(user, server, key string, tr http.RoundTripper) *Endpoint {
+func NewRobot(
+	server *url.URL, user, keyFile string, tr http.RoundTripper,
+) *Endpoint {
 	return &Endpoint{
 		Server:    server,
 		User:      user,
-		PemFile:   key,
+		PemFile:   keyFile,
 		Homeless:  true,
 		NoTTY:     true,
 		Transport: tr,
