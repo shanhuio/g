@@ -3,13 +3,13 @@ module shanhu.io/pub
 go 1.19
 
 require (
-	github.com/digitalocean/godo v1.89.0
+	github.com/digitalocean/godo v1.90.0
 	github.com/gorilla/websocket v1.5.0
 	github.com/lib/pq v1.10.7
 	github.com/microcosm-cc/bluemonday v1.0.21
 	github.com/minio/minio-go/v7 v7.0.43
 	github.com/russross/blackfriday v1.6.0
-	golang.org/x/crypto v0.2.0
+	golang.org/x/crypto v0.3.0
 	golang.org/x/lint v0.0.0-20210508222113-6edffad5e616
 	golang.org/x/net v0.2.0
 	golang.org/x/oauth2 v0.2.0
@@ -30,7 +30,7 @@ require (
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/kballard/go-shellquote v0.0.0-20180428030007-95032a82bc51 // indirect
 	github.com/klauspost/compress v1.15.12 // indirect
-	github.com/klauspost/cpuid/v2 v2.2.0 // indirect
+	github.com/klauspost/cpuid/v2 v2.2.1 // indirect
 	github.com/kr/pretty v0.3.0 // indirect
 	github.com/mattn/go-isatty v0.0.16 // indirect
 	github.com/minio/md5-simd v1.1.2 // indirect
@@ -57,5 +57,5 @@ require (
 	modernc.org/memory v1.4.0 // indirect
 	modernc.org/opt v0.1.3 // indirect
 	modernc.org/strutil v1.1.3 // indirect
-	modernc.org/token v1.0.1 // indirect
+	modernc.org/token v1.1.0 // indirect
 )
