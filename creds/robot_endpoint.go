@@ -16,6 +16,7 @@
 package creds
 
 import (
+	"context"
 	"net/http"
 	"net/url"
 
@@ -50,23 +51,16 @@ func (ep *RobotEndpoint) Dial() (*httputil.Client, error) {
 		return nil, errcode.Annotate(err, "parse key")
 	}
 
-	req := &Request{
-		Server:    ep.Server,
-		User:      ep.User,
-		Key:       k,
-		Transport: ep.Transport,
-	}
-	creds, err := NewCredsFromRequest(req)
-	if err != nil {
-		return nil, errcode.Annotate(err, "get creds")
+	tokenSrc := NewCachingTokenSource(ep.Server, ep.User, k)
+
+	if _, err := tokenSrc.Token(context.TODO(), ep.Transport); err != nil {
+		return nil, errcode.Annotate(err, "get token")
 	}
 
 	client := &httputil.Client{
 		Server:      ep.Server,
-		TokenSource: httputil.NewStaticToken(creds.Token),
-	}
-	if ep.Transport != nil {
-		client.Transport = ep.Transport
+		TokenSource: tokenSrc,
+		Transport:   ep.Transport,
 	}
 	return client, nil
 }

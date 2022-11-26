@@ -31,7 +31,7 @@ func signIn(
 
 	const ttl = 30 * time.Minute
 
-	c := &httputil.Client{Server: req.server}
+	c := &httputil.Client{Server: req.server, Transport: tr}
 	sr := &signinapi.Request{
 		User:        req.user,
 		SignedTime:  signed,
@@ -43,6 +43,12 @@ func signIn(
 	if err := c.CallContext(ctx, "/pubkey/signin", sr, creds); err != nil {
 		return nil, errcode.Annotate(err, "sign in")
 	}
+	if creds.User != req.user {
+		return nil, errcode.Internalf(
+			"sign in as user %q, got %q", req.user, creds.User,
+		)
+	}
+
 	creds.FixTime()
 
 	return creds, nil
