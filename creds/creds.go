@@ -16,16 +16,13 @@
 package creds
 
 import (
+	"context"
 	"crypto/rsa"
 	"net/http"
 	"net/url"
 	"time"
 
-	"shanhu.io/pub/errcode"
-	"shanhu.io/pub/httputil"
-	"shanhu.io/pub/signer"
 	"shanhu.io/pub/signin/signinapi"
-	"shanhu.io/pub/timeutil"
 )
 
 // Creds is the credential that is cached after logging in. This can also be
@@ -49,38 +46,21 @@ type Request struct {
 // NewCredsFromRequest creates a new user credential by dialing the server
 // using the given RSA private key.
 func NewCredsFromRequest(req *Request) (*Creds, error) {
-	signed, err := signer.RSASignTime(req.Key)
+	sr := &signInRequest{
+		server: req.Server,
+		user:   req.User,
+		key:    req.Key,
+	}
+
+	creds, err := signIn(context.TODO(), req.Transport, sr)
 	if err != nil {
 		return nil, err
 	}
 
-	c := &httputil.Client{
-		Server:    req.Server,
-		Transport: req.Transport,
-	}
-
-	sr := &signinapi.Request{
-		User:        req.User,
-		SignedTime:  signed,
-		TTLDuration: timeutil.NewDuration(req.TTL),
-	}
-	sr.FillLegacyTTL()
-
-	cs := new(Creds)
-	if err := c.Call("/pubkey/signin", sr, &cs.Creds); err != nil {
-		return nil, err
-	}
-
-	if got := cs.Creds.User; got != req.User {
-		return nil, errcode.Internalf(
-			"login as user %q, got %q", req.User, got,
-		)
-	}
-
-	cs.Creds.FixTime()
-	cs.Server = req.Server.String() // Fill the server address
-
-	return cs, nil
+	return &Creds{
+		Creds:  *creds,
+		Server: req.Server.String(),
+	}, nil
 }
 
 // NewCreds creates a new user credential by dialing the server using
