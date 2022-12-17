@@ -17,9 +17,9 @@ package timeutil
 
 import (
 	"testing"
-	"time"
 
 	"crypto/rand"
+	"time"
 )
 
 func TestChallenge(t *testing.T) {
