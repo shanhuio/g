@@ -16,7 +16,7 @@ require (
 	golang.org/x/term v0.3.0
 	golang.org/x/tools v0.4.0
 	gopkg.in/yaml.v2 v2.4.0
-	modernc.org/sqlite v1.20.0
+	modernc.org/sqlite v1.20.1
 	shanhu.io/gcimporter v0.0.0-20220809023309-46562c2255f7
 )
 
@@ -30,9 +30,9 @@ require (
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/kballard/go-shellquote v0.0.0-20180428030007-95032a82bc51 // indirect
 	github.com/klauspost/compress v1.15.13 // indirect
-	github.com/klauspost/cpuid/v2 v2.2.2 // indirect
+	github.com/klauspost/cpuid/v2 v2.2.3 // indirect
 	github.com/kr/pretty v0.3.0 // indirect
-	github.com/mattn/go-isatty v0.0.16 // indirect
+	github.com/mattn/go-isatty v0.0.17 // indirect
 	github.com/minio/md5-simd v1.1.2 // indirect
 	github.com/minio/sha256-simd v1.0.0 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
