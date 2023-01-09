@@ -49,7 +49,6 @@ type SSHCertExchange struct {
 	tokener Tokener
 
 	caPublicKey *rsa.PublicKey
-	signer      *signer.Signer
 	ch          *Challenger
 	nowFunc     func() time.Time
 }
@@ -91,7 +90,6 @@ func NewSSHCertExchange(tok Tokener, conf *SSHCertExchangeConfig) (
 	return &SSHCertExchange{
 		tokener:     tok,
 		caPublicKey: caPubKey,
-		signer:      signer,
 		ch:          ch,
 		nowFunc:     timeutil.NowFunc(conf.Now),
 	}, nil
@@ -110,9 +108,7 @@ func (s *SSHCertExchange) apiSignIn(
 	}
 
 	// Parse Certificate.
-	certKey, _, _, _, err := ssh.ParseAuthorizedKey(
-		[]byte(req.Certificate),
-	)
+	certKey, _, _, _, err := ssh.ParseAuthorizedKey([]byte(req.Certificate))
 	if err != nil {
 		return nil, errcode.Annotate(err, "parse certificate")
 	}
