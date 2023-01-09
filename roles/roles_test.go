@@ -16,9 +16,9 @@
 package roles
 
 import (
-	"context"
 	"testing"
 
+	"context"
 	"time"
 
 	"shanhu.io/pub/identity"
