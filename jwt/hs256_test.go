@@ -16,6 +16,7 @@
 package jwt
 
 import (
+	"context"
 	"testing"
 
 	"time"
@@ -35,13 +36,15 @@ func TestHS256(t *testing.T) {
 		Sub: "h8liu",
 	}
 
-	tokStr, err := EncodeAndSign(c, h)
+	ctx := context.Background()
+
+	tokStr, err := EncodeAndSign(ctx, c, h)
 	if err != nil {
 		t.Fatal("encode: ", err)
 	}
 	t.Log(tokStr)
 
-	tok, err := DecodeAndVerify(tokStr, h, now)
+	tok, err := DecodeAndVerify(ctx, tokStr, h, now)
 	if err != nil {
 		t.Fatal("decode: ", err)
 	}

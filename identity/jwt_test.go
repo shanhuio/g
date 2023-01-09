@@ -16,6 +16,7 @@
 package identity
 
 import (
+	"context"
 	"testing"
 
 	"time"
@@ -24,6 +25,8 @@ import (
 )
 
 func TestJWT(t *testing.T) {
+	ctx := context.Background()
+
 	now := time.Now()
 	core := NewMemCore(func() time.Time { return now })
 
@@ -42,7 +45,7 @@ func TestJWT(t *testing.T) {
 		Sub: "core.homedrv",
 	}
 
-	encoded, err := jwt.EncodeAndSign(claim, signer)
+	encoded, err := jwt.EncodeAndSign(ctx, claim, signer)
 	if err != nil {
 		t.Fatal("generate token: ", err)
 	}
@@ -50,7 +53,7 @@ func TestJWT(t *testing.T) {
 	t.Log("token: ", encoded)
 
 	v := newJWTVerifier(core)
-	decoded, err := jwt.DecodeAndVerify(encoded, v, now)
+	decoded, err := jwt.DecodeAndVerify(ctx, encoded, v, now)
 	if err != nil {
 		t.Fatal("decode and verify token: ", err)
 	}

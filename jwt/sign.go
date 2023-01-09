@@ -17,6 +17,7 @@ package jwt
 
 import (
 	"bytes"
+	"context"
 	"io"
 
 	"shanhu.io/pub/errcode"
@@ -25,11 +26,11 @@ import (
 // Signer signs the token, returns the signature and the header.
 type Signer interface {
 	Header() (*Header, error)
-	Sign(h *Header, data []byte) ([]byte, error)
+	Sign(ctx context.Context, h *Header, data []byte) ([]byte, error)
 }
 
 // EncodeAndSign signs and encodes a claim set and signs it.
-func EncodeAndSign(c *ClaimSet, s Signer) (string, error) {
+func EncodeAndSign(ctx context.Context, c *ClaimSet, s Signer) (string, error) {
 	h, err := s.Header()
 	if err != nil {
 		return "", errcode.Annotate(err, "get header")
@@ -47,7 +48,7 @@ func EncodeAndSign(c *ClaimSet, s Signer) (string, error) {
 	io.WriteString(buf, hb)
 	io.WriteString(buf, ".")
 	io.WriteString(buf, cb)
-	sig, err := s.Sign(h, buf.Bytes())
+	sig, err := s.Sign(ctx, h, buf.Bytes())
 	if err != nil {
 		return "", errcode.Annotate(err, "signing token")
 	}

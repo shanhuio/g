@@ -194,7 +194,9 @@ func (c *simpleCore) RemoveKey(id string) error {
 	return nil
 }
 
-func (c *simpleCore) Sign(key string, blob []byte) (*Signature, error) {
+func (c *simpleCore) Sign(ctx context.Context, key string, blob []byte) (
+	*Signature, error,
+) {
 	id := new(simpleData)
 	if err := c.store.Load(id); err != nil {
 		return nil, errcode.Annotate(err, "load identity")

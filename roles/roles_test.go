@@ -16,6 +16,7 @@
 package roles
 
 import (
+	"context"
 	"testing"
 
 	"time"
@@ -66,12 +67,13 @@ func TestRoles(t *testing.T) {
 		t.Fatal("setup id: ", err)
 	}
 
-	self, err := identity.SignSelf(core, name, host, now)
+	ctx := context.Background()
+	self, err := identity.SignSelf(ctx, core, name, host, now)
 	if err != nil {
 		t.Fatal("self-sign ID token: ", err)
 	}
 
-	if _, err := b.VerifySelfToken(name, self, now); err != nil {
+	if _, err := b.VerifySelfToken(ctx, name, self, now); err != nil {
 		t.Fatal("verify self-sign ID token: ", err)
 	}
 }

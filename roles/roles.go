@@ -16,6 +16,7 @@
 package roles
 
 import (
+	"context"
 	"sort"
 	"time"
 
@@ -215,9 +216,9 @@ func (b *Roles) SetupWithCode(
 }
 
 // VerifySelfToken checks the self-signed JWT token.
-func (b *Roles) VerifySelfToken(name, token string, t time.Time) (
-	*jwt.Token, error,
-) {
+func (b *Roles) VerifySelfToken(
+	ctx context.Context, name, token string, t time.Time,
+) (*jwt.Token, error) {
 	r, err := b.get(name)
 	if err != nil {
 		return nil, err
@@ -228,5 +229,5 @@ func (b *Roles) VerifySelfToken(name, token string, t time.Time) (
 	if r.Identity == nil {
 		return nil, errcode.Unauthorizedf("no identity found")
 	}
-	return identity.VerifySelfToken(token, name, b.host, r.Identity, t)
+	return identity.VerifySelfToken(ctx, token, name, b.host, r.Identity, t)
 }

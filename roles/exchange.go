@@ -51,7 +51,7 @@ func (x *Exchange) Exchange(c *aries.C, req *SignInRequest) (
 ) {
 	t := time.Now()
 	if _, err := x.roles.VerifySelfToken(
-		req.User, req.SelfToken, t,
+		c.Context, req.User, req.SelfToken, t,
 	); err != nil {
 		return nil, altAuthErr(err, "verify self token")
 	}

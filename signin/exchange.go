@@ -77,8 +77,10 @@ func (x *Exchange) Exchange(c *aries.C, req *signinapi.Request) (
 		return nil, errcode.Annotate(err, "prepare for checking")
 	}
 
+	ctx := c.Context
+
 	now := x.now()
-	tok, err := jwt.DecodeAndVerify(req.AccessToken, x.verifier, now)
+	tok, err := jwt.DecodeAndVerify(ctx, req.AccessToken, x.verifier, now)
 	if err != nil {
 		return nil, errcode.Annotate(err, "invalid token")
 	}

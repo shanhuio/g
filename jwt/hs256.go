@@ -16,6 +16,7 @@
 package jwt
 
 import (
+	"context"
 	"crypto/hmac"
 	"crypto/sha256"
 	"time"
@@ -55,13 +56,17 @@ func (h *HS256) mac(data []byte) []byte {
 }
 
 // Sign signs the HS256 signature.
-func (h *HS256) Sign(_ *Header, data []byte) ([]byte, error) {
+func (h *HS256) Sign(ctx context.Context, _ *Header, data []byte) (
+	[]byte, error,
+) {
 	return h.mac(data), nil
 }
 
 // Verify verifies the HS256 signature.
-func (h *HS256) Verify(header *Header, data, sig []byte, _ time.Time) error {
-	if err := checkHeader(header, h.header); err != nil {
+func (h *HS256) Verify(
+	ctx context.Context, hdr *Header, data, sig []byte, _ time.Time,
+) error {
+	if err := checkHeader(hdr, h.header); err != nil {
 		return err
 	}
 	want := h.mac(data)

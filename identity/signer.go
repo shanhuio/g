@@ -15,6 +15,10 @@
 
 package identity
 
+import (
+	"context"
+)
+
 // Signature is the result of signing.
 type Signature struct {
 	KeyID string
@@ -27,5 +31,5 @@ type Signer interface {
 
 	// Sign signs a blob of data using the given identity key.
 	// When key is an empty string, it might use any key to sign.
-	Sign(key string, blob []byte) (*Signature, error)
+	Sign(ctx context.Context, key string, blob []byte) (*Signature, error)
 }

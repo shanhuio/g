@@ -16,6 +16,7 @@
 package identity
 
 import (
+	"context"
 	"time"
 
 	"shanhu.io/pub/errcode"
@@ -41,7 +42,9 @@ type SignConfig struct {
 }
 
 // SignToken signs a self token or an access token.
-func SignToken(signer Signer, config *SignConfig) (string, error) {
+func SignToken(ctx context.Context, signer Signer, config *SignConfig) (
+	string, error,
+) {
 	id := UserAtDomain(config.User, config.Domain)
 	sub := id
 	expiry := config.Expiry
@@ -71,28 +74,29 @@ func SignToken(signer Signer, config *SignConfig) (string, error) {
 		Exp: config.Time.Add(expiry).Unix(),
 	}
 
-	return jwt.EncodeAndSign(claims, NewJWTSigner(signer))
+	return jwt.EncodeAndSign(ctx, claims, NewJWTSigner(signer))
 }
 
 // SignSelf creates a self token.
-func SignSelf(signer Signer, user, domain string, t time.Time) (
+func SignSelf(ctx context.Context, s Signer, user, domain string, t time.Time) (
 	string, error,
 ) {
-	return SignToken(signer, &SignConfig{
+	config := &SignConfig{
 		User:   user,
 		Domain: domain,
 		Issuer: Self,
 		Time:   t,
-	})
+	}
+	return SignToken(ctx, s, config)
 }
 
 // VerifySelfToken verifies a self-signed ID token that is presented to
 // its owner host.
 func VerifySelfToken(
-	token, user, host string, card Card, t time.Time,
+	ctx context.Context, token, user, host string, card Card, t time.Time,
 ) (*jwt.Token, error) {
 	v := NewJWTVerifier(card)
-	decoded, err := jwt.DecodeAndVerify(token, v, t)
+	decoded, err := jwt.DecodeAndVerify(ctx, token, v, t)
 	if err != nil {
 		return nil, err
 	}

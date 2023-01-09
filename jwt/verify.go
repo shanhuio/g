@@ -16,6 +16,7 @@
 package jwt
 
 import (
+	"context"
 	"strings"
 	"time"
 
@@ -24,26 +25,28 @@ import (
 
 // Verifier verifies the token.
 type Verifier interface {
-	Verify(h *Header, data, sig []byte, t time.Time) error
+	Verify(ctx context.Context, h *Header, data, sig []byte, t time.Time) error
 }
 
 // DecodeAndVerify decodes and verifies a token.
-func DecodeAndVerify(token string, v Verifier, t time.Time) (*Token, error) {
+func DecodeAndVerify(
+	ctx context.Context, token string, v Verifier, t time.Time,
+) (*Token, error) {
 	decoded, err := Decode(token)
 	if err != nil {
 		return nil, errcode.Annotate(err, "decode token")
 	}
-	if err := Verify(decoded, v, t); err != nil {
+	if err := Verify(ctx, decoded, v, t); err != nil {
 		return nil, err
 	}
 	return decoded, nil
 }
 
 // Verify verifies if a decoded token has the valid signature.
-func Verify(tok *Token, v Verifier, t time.Time) error {
+func Verify(ctx context.Context, tok *Token, v Verifier, t time.Time) error {
 	if v != nil {
 		if err := v.Verify(
-			tok.Header, tok.Payload, tok.Signature, t,
+			ctx, tok.Header, tok.Payload, tok.Signature, t,
 		); err != nil {
 			return errcode.Annotate(err, "verify signature")
 		}

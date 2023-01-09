@@ -16,6 +16,7 @@
 package identity
 
 import (
+	"context"
 	"crypto"
 	"crypto/rsa"
 	"crypto/sha256"
@@ -49,8 +50,10 @@ func (s *jwtSigner) Header() (*jwt.Header, error) {
 	}, nil
 }
 
-func (s *jwtSigner) Sign(h *jwt.Header, data []byte) ([]byte, error) {
-	sig, err := s.signer.Sign(h.KeyID, data)
+func (s *jwtSigner) Sign(
+	ctx context.Context, h *jwt.Header, data []byte,
+) ([]byte, error) {
+	sig, err := s.signer.Sign(ctx, h.KeyID, data)
 	if err != nil {
 		return nil, err
 	}
@@ -83,7 +86,7 @@ func NewJWTVerifier(card Card) jwt.Verifier {
 }
 
 func (v *jwtVerifier) Verify(
-	h *jwt.Header, data, sig []byte, t time.Time,
+	ctx context.Context, h *jwt.Header, data, sig []byte, t time.Time,
 ) error {
 	if h.Alg != jwt.AlgRS256 {
 		return errcode.InvalidArgf("alg %q not supported", h.Alg)
