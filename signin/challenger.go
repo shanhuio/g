@@ -26,11 +26,12 @@ import (
 	"shanhu.io/pub/timeutil"
 )
 
-// ChallengeSourceConfig is the configuration to create a challenge source.
-type ChallengeSourceConfig struct {
+// ChallengerConfig is the configuration to create a challenge source.
+type ChallengerConfig struct {
 	Signer *signer.Signer
 	Now    func() time.Time
 	Rand   io.Reader
+	Window time.Duration
 }
 
 // Challenger is a source that can serve challenges.
@@ -38,18 +39,24 @@ type Challenger struct {
 	signer  *signer.Signer
 	nowFunc func() time.Time
 	rand    io.Reader
+	window  time.Duration
 }
 
 // NewChallenger creates a challenge source.
-func NewChallenger(config *ChallengeSourceConfig) *Challenger {
+func NewChallenger(config *ChallengerConfig) *Challenger {
 	r := config.Rand
 	if r == nil {
 		r = rand.Reader
+	}
+	w := config.Window
+	if w <= time.Duration(0) {
+		w = 30 * time.Second
 	}
 	return &Challenger{
 		signer:  config.Signer,
 		nowFunc: timeutil.NowFunc(config.Now),
 		rand:    r,
+		window:  w,
 	}
 }
 
@@ -66,4 +73,10 @@ func (s *Challenger) Serve(
 		Challenge: signed,
 		Time:      ch.T,
 	}, nil
+}
+
+// Check checks if a challenge is valid.
+func (s *Challenger) Check(bs []byte) (*timeutil.Challenge, error) {
+	now := s.nowFunc()
+	return s.signer.CheckChallenge(bs, now, s.window)
 }

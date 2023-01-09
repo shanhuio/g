@@ -150,7 +150,7 @@ func (s *Signer) NewSignedChallenge(t time.Time, rand io.Reader) (
 
 // CheckChallenge checks if a challenge is properly signed and if the time
 // is after mustAfter.
-func (s *Signer) CheckChallenge(bs []byte, mustAfter time.Time) (
+func (s *Signer) CheckChallenge(bs []byte, now time.Time, w time.Duration) (
 	*timeutil.Challenge, error,
 ) {
 	ch := new(timeutil.Challenge)
@@ -159,9 +159,14 @@ func (s *Signer) CheckChallenge(bs []byte, mustAfter time.Time) (
 		return nil, errcode.Annotate(err, "invalid challenge")
 	}
 
+	// Challenge issue time.
 	t := timeutil.Time(ch.T)
-	if t.Before(mustAfter) {
-		return nil, errcode.InvalidArgf("challenge too old")
+
+	if now.Before(t) {
+		return nil, errcode.InvalidArgf("challenge is from the future")
+	}
+	if now.After(t.Add(w)) {
+		return nil, errcode.InvalidArgf("challenge expired")
 	}
 	return ch, nil
 }

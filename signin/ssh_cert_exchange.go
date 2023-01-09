@@ -86,7 +86,10 @@ func NewSSHCertExchange(tok Tokener, conf *SSHCertExchangeConfig) (
 		return nil, errcode.Annotate(err, "read CA public key")
 	}
 	signer := signer.New(conf.ChallengeKey)
-	ch := NewChallenger(&ChallengeSourceConfig{Signer: signer})
+	ch := NewChallenger(&ChallengerConfig{
+		Signer: signer,
+		Now:    conf.Now,
+	})
 	return &SSHCertExchange{
 		tokener:     tok,
 		caPublicKey: caPubKey,
@@ -105,6 +108,10 @@ func (s *SSHCertExchange) apiSignIn(
 	user := record.User
 	if user == "" {
 		return nil, errcode.InvalidArgf("user name is empty")
+	}
+
+	if _, err := s.ch.Check(record.Challenge); err != nil {
+		return nil, errcode.Annotate(err, "challenge check failed")
 	}
 
 	// Parse Certificate.
