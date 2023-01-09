@@ -50,7 +50,7 @@ type SSHCertExchange struct {
 
 	caPublicKey *rsa.PublicKey
 	ch          *Challenger
-	nowFunc     func() time.Time
+	now         func() time.Time
 }
 
 func caPublicKeyFromConfig(conf *SSHCertExchangeConfig) (
@@ -94,7 +94,7 @@ func NewSSHCertExchange(tok Tokener, conf *SSHCertExchangeConfig) (
 		tokener:     tok,
 		caPublicKey: caPubKey,
 		ch:          ch,
-		nowFunc:     timeutil.NowFunc(conf.Now),
+		now:         timeutil.NowFunc(conf.Now),
 	}, nil
 }
 
@@ -139,7 +139,7 @@ func (s *SSHCertExchange) apiSignIn(
 	}
 
 	// Check the time and the certificate.
-	checker := &ssh.CertChecker{Clock: s.nowFunc}
+	checker := &ssh.CertChecker{Clock: s.now}
 	if err := checker.CheckCert(user, cert); err != nil {
 		return nil, errcode.Annotate(err, "check certificate failed")
 	}

@@ -36,10 +36,10 @@ type ChallengerConfig struct {
 
 // Challenger is a source that can serve challenges.
 type Challenger struct {
-	signer  *signer.Signer
-	nowFunc func() time.Time
-	rand    io.Reader
-	window  time.Duration
+	signer *signer.Signer
+	now    func() time.Time
+	rand   io.Reader
+	window time.Duration
 }
 
 // NewChallenger creates a challenge source.
@@ -53,10 +53,10 @@ func NewChallenger(config *ChallengerConfig) *Challenger {
 		w = 30 * time.Second
 	}
 	return &Challenger{
-		signer:  config.Signer,
-		nowFunc: timeutil.NowFunc(config.Now),
-		rand:    r,
-		window:  w,
+		signer: config.Signer,
+		now:    timeutil.NowFunc(config.Now),
+		rand:   r,
+		window: w,
 	}
 }
 
@@ -64,7 +64,7 @@ func NewChallenger(config *ChallengerConfig) *Challenger {
 func (s *Challenger) Serve(
 	c *aries.C, req *signinapi.ChallengeRequest,
 ) (*signinapi.ChallengeResponse, error) {
-	t := s.nowFunc()
+	t := s.now()
 	signed, ch, err := s.signer.NewSignedChallenge(t, s.rand)
 	if err != nil {
 		return nil, err
@@ -77,6 +77,6 @@ func (s *Challenger) Serve(
 
 // Check checks if a challenge is valid.
 func (s *Challenger) Check(bs []byte) (*timeutil.Challenge, error) {
-	now := s.nowFunc()
+	now := s.now()
 	return s.signer.CheckChallenge(bs, now, s.window)
 }
