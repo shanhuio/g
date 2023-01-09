@@ -64,7 +64,7 @@ func FindKey(ag agent.Agent, comment string) (*agent.Key, error) {
 }
 
 func findKey(ag agent.Agent, comment string) (*agent.Key, error) {
-	k, err := findKey(ag, comment)
+	k, err := FindKey(ag, comment)
 	if err != nil {
 		if errcode.IsNotFound(err) { // converts not found error into internal.
 			return nil, errcode.Add(errcode.Internal, err)
