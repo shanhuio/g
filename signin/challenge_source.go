@@ -33,20 +33,20 @@ type ChallengeSourceConfig struct {
 	Rand   io.Reader
 }
 
-// ChallengeSource is a source that can serve challenges.
-type ChallengeSource struct {
+// Challenger is a source that can serve challenges.
+type Challenger struct {
 	signer  *signer.Signer
 	nowFunc func() time.Time
 	rand    io.Reader
 }
 
-// NewChallengeSource creates a challenge source.
-func NewChallengeSource(config *ChallengeSourceConfig) *ChallengeSource {
+// NewChallenger creates a challenge source.
+func NewChallenger(config *ChallengeSourceConfig) *Challenger {
 	r := config.Rand
 	if r == nil {
 		r = rand.Reader
 	}
-	return &ChallengeSource{
+	return &Challenger{
 		signer:  config.Signer,
 		nowFunc: timeutil.NowFunc(config.Now),
 		rand:    r,
@@ -54,7 +54,7 @@ func NewChallengeSource(config *ChallengeSourceConfig) *ChallengeSource {
 }
 
 // Serve serves a challenge.
-func (s *ChallengeSource) Serve(
+func (s *Challenger) Serve(
 	c *aries.C, req *signinapi.ChallengeRequest,
 ) (*signinapi.ChallengeResponse, error) {
 	t := s.nowFunc()

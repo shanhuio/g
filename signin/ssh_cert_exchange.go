@@ -49,8 +49,8 @@ type SSHCertExchange struct {
 	tokener Tokener
 
 	caPublicKey *rsa.PublicKey
-	chSigner    *signer.Signer
-	chSrc       *ChallengeSource
+	signer      *signer.Signer
+	ch          *Challenger
 	nowFunc     func() time.Time
 }
 
@@ -86,13 +86,13 @@ func NewSSHCertExchange(tok Tokener, conf *SSHCertExchangeConfig) (
 	if err != nil {
 		return nil, errcode.Annotate(err, "read CA public key")
 	}
-	ch := signer.New(conf.ChallengeKey)
-	chSrc := NewChallengeSource(&ChallengeSourceConfig{Signer: ch})
+	signer := signer.New(conf.ChallengeKey)
+	ch := NewChallenger(&ChallengeSourceConfig{Signer: signer})
 	return &SSHCertExchange{
 		tokener:     tok,
 		caPublicKey: caPubKey,
-		chSigner:    ch,
-		chSrc:       chSrc,
+		signer:      signer,
+		ch:          ch,
 		nowFunc:     timeutil.NowFunc(conf.Now),
 	}, nil
 }
@@ -161,7 +161,7 @@ func (s *SSHCertExchange) apiSignIn(
 // credentials.
 func (s *SSHCertExchange) API() *aries.Router {
 	r := aries.NewRouter()
-	r.Call("challenge", s.chSrc.Serve)
+	r.Call("challenge", s.ch.Serve)
 	r.Call("signin", s.apiSignIn)
 	return r
 }

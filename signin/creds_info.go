@@ -33,7 +33,7 @@ type CredsInfo struct {
 
 const userDataKey = "user"
 
-// ApplyCredsInfo applies the credential into the context.
+// ApplyCredsInfo applies the credential into the aries context.
 func ApplyCredsInfo(c *aries.C, info *CredsInfo) {
 	if !info.Valid {
 		c.User = ""
@@ -48,7 +48,7 @@ func ApplyCredsInfo(c *aries.C, info *CredsInfo) {
 	}
 }
 
-// UserData fetches the user data in the context.
+// UserData fetches the user data in the aries context.
 func UserData(c *aries.C) interface{} {
 	v, ok := c.Data[userDataKey]
 	if !ok {
