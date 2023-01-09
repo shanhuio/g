@@ -60,7 +60,7 @@ func TestJWT(t *testing.T) {
 
 	keyID := decoded.Header.KeyID
 
-	pub, err := signer.rsaPublicKeyPEM(keyID)
+	pub, err := signer.rsaPublicKeyPEM(ctx, keyID)
 	if err != nil {
 		t.Fatal("read public key: ", err)
 	}

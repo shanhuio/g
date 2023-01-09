@@ -73,10 +73,6 @@ func (x *Exchange) Exchange(c *aries.C, req *signinapi.Request) (
 		return nil, errcode.InvalidArgf("access token missing")
 	}
 
-	if err := x.card.Prepare(c.Context); err != nil {
-		return nil, errcode.Annotate(err, "prepare for checking")
-	}
-
 	ctx := c.Context
 
 	now := x.now()

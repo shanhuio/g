@@ -33,8 +33,8 @@ type jwtSigner struct {
 	signer Signer
 }
 
-func (s *jwtSigner) Header() (*jwt.Header, error) {
-	id, err := s.signer.Identity()
+func (s *jwtSigner) Header(ctx context.Context) (*jwt.Header, error) {
+	id, err := s.signer.Identity(ctx)
 	if err != nil {
 		return nil, errcode.Annotate(err, "fetch identity")
 	}
@@ -60,8 +60,10 @@ func (s *jwtSigner) Sign(
 	return sig.Sig, nil
 }
 
-func publicKeyFromCard(card Card, keyID string) (*PublicKey, error) {
-	id, err := card.Identity()
+func publicKeyFromCard(ctx context.Context, card Card, keyID string) (
+	*PublicKey, error,
+) {
+	id, err := card.Identity(ctx)
 	if err != nil {
 		return nil, errcode.Annotate(err, "fetch identity")
 	}
@@ -92,7 +94,7 @@ func (v *jwtVerifier) Verify(
 		return errcode.InvalidArgf("alg %q not supported", h.Alg)
 	}
 
-	k, err := publicKeyFromCard(v.card, h.KeyID)
+	k, err := publicKeyFromCard(ctx, v.card, h.KeyID)
 	if err != nil {
 		return errcode.Annotate(err, "find public key")
 	}
@@ -111,8 +113,10 @@ func (v *jwtVerifier) Verify(
 	return rsa.VerifyPKCS1v15(pub, crypto.SHA256, hash[:], sig)
 }
 
-func (s *jwtSigner) rsaPublicKeyPEM(keyID string) ([]byte, error) {
-	pub, err := publicKeyFromCard(s.signer, keyID)
+func (s *jwtSigner) rsaPublicKeyPEM(ctx context.Context, keyID string) (
+	[]byte, error,
+) {
+	pub, err := publicKeyFromCard(ctx, s.signer, keyID)
 	if err != nil {
 		return nil, errcode.Annotate(err, "find public key")
 	}

@@ -31,7 +31,7 @@ type RemoteCard struct {
 	apiPath string
 
 	mu          sync.Mutex
-	cached      *Identity
+	cache       *Identity
 	cacheExpire time.Time
 
 	now func() time.Time
@@ -69,20 +69,15 @@ func (c *RemoteCard) refresh(ctx context.Context) error {
 	if err := c.client.Call(c.apiPath, req, id); err != nil {
 		return err
 	}
-	c.cached = id
+	c.cache = id
 
 	// Refresh at least once per hour.
 	c.cacheExpire = c.now().Add(time.Hour)
 	return nil
 }
 
-// Prepare makes sure the cache is valid for use.
-// The context is currently ignored.
-func (c *RemoteCard) Prepare(ctx context.Context) error {
-	c.mu.Lock()
-	defer c.mu.Unlock()
-
-	if c.cached == nil {
+func (c *RemoteCard) ensure(ctx context.Context) error {
+	if c.cache == nil {
 		return c.refresh(ctx)
 	}
 	now := c.now()
@@ -92,7 +87,7 @@ func (c *RemoteCard) Prepare(ctx context.Context) error {
 
 	const grace = time.Minute * 10
 	cut := now.Add(grace).Unix()
-	for _, k := range c.cached.PublicKeys {
+	for _, k := range c.cache.PublicKeys {
 		if k.NotValidAfter >= cut {
 			return nil // Found a key that isn't expiring soon.
 		}
@@ -103,12 +98,15 @@ func (c *RemoteCard) Prepare(ctx context.Context) error {
 
 // Identity returns the identity that is fetched from the remote API
 // endpoint.
-func (c *RemoteCard) Identity() (*Identity, error) {
+func (c *RemoteCard) Identity(ctx context.Context) (*Identity, error) {
 	c.mu.Lock()
 	defer c.mu.Unlock()
 
-	if c.cached == nil {
+	if err := c.ensure(ctx); err != nil {
+		return nil, err
+	}
+	if c.cache == nil {
 		return nil, errcode.NotFoundf("identity not found")
 	}
-	return c.cached, nil
+	return c.cache, nil
 }

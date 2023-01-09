@@ -135,9 +135,7 @@ func (c *simpleCore) Init(config *CoreConfig) (*Identity, error) {
 	return id, nil
 }
 
-func (c *simpleCore) Prepare(ctx context.Context) error { return nil }
-
-func (c *simpleCore) Identity() (*Identity, error) {
+func (c *simpleCore) Identity(ctx context.Context) (*Identity, error) {
 	id := new(simpleData)
 	if err := c.store.Load(id); err != nil {
 		return nil, errcode.Annotate(err, "load identity")

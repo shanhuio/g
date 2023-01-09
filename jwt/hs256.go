@@ -44,7 +44,7 @@ func NewHS256(key []byte, kid string) *HS256 {
 }
 
 // Header returns the JWT header for this signer.
-func (h *HS256) Header() (*Header, error) {
+func (h *HS256) Header(ctx context.Context) (*Header, error) {
 	cp := *h.header
 	return &cp, nil
 }

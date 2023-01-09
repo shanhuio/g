@@ -25,13 +25,13 @@ import (
 
 // Signer signs the token, returns the signature and the header.
 type Signer interface {
-	Header() (*Header, error)
+	Header(ctx context.Context) (*Header, error)
 	Sign(ctx context.Context, h *Header, data []byte) ([]byte, error)
 }
 
 // EncodeAndSign signs and encodes a claim set and signs it.
 func EncodeAndSign(ctx context.Context, c *ClaimSet, s Signer) (string, error) {
-	h, err := s.Header()
+	h, err := s.Header(ctx)
 	if err != nil {
 		return "", errcode.Annotate(err, "get header")
 	}
