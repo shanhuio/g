@@ -16,6 +16,7 @@
 package sshsignin
 
 import (
+	"context"
 	"encoding/json"
 
 	"golang.org/x/crypto/ssh"
@@ -75,7 +76,9 @@ func findKey(ag agent.Agent, comment string) (*agent.Key, error) {
 }
 
 // Dial signs in a server and returns the credentials.
-func Dial(server string, config *Config) (*httputil.Client, error) {
+func Dial(ctx context.Context, server string, config *Config) (
+	*httputil.Client, error,
+) {
 	user, err := config.user()
 	if err != nil {
 		return nil, errcode.Annotate(err, "get user name")
@@ -103,7 +106,7 @@ func Dial(server string, config *Config) (*httputil.Client, error) {
 	chReq := &signinapi.ChallengeRequest{}
 	chResp := new(signinapi.ChallengeResponse)
 	const chPath = "/ssh/challenge"
-	if err := client.Call(chPath, chReq, chResp); err != nil {
+	if err := client.CallContext(ctx, chPath, chReq, chResp); err != nil {
 		return nil, errcode.Annotate(err, "get challenge")
 	}
 
@@ -132,7 +135,7 @@ func Dial(server string, config *Config) (*httputil.Client, error) {
 	}
 
 	creds := new(signinapi.Creds)
-	if err := client.Call("/ssh/signin", req, creds); err != nil {
+	if err := client.CallContext(ctx, "/ssh/signin", req, creds); err != nil {
 		return nil, err
 	}
 

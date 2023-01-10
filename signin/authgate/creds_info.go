@@ -13,7 +13,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-package frontdesk
+package authgate
 
 import (
 	"shanhu.io/pub/aries"
@@ -31,8 +31,6 @@ type CredsInfo struct {
 	Data interface{}
 }
 
-const userDataKey = "user"
-
 // ApplyCredsInfo applies the credential into the aries context.
 func ApplyCredsInfo(c *aries.C, info *CredsInfo) {
 	if !info.Valid {
@@ -44,15 +42,6 @@ func ApplyCredsInfo(c *aries.C, info *CredsInfo) {
 	c.User = info.User
 	c.UserLevel = info.UserLevel
 	if info.Data != nil {
-		c.Data[userDataKey] = info.Data
+		c.UserData = info.Data
 	}
-}
-
-// UserData fetches the user data in the aries context.
-func UserData(c *aries.C) interface{} {
-	v, ok := c.Data[userDataKey]
-	if !ok {
-		return nil
-	}
-	return v
 }

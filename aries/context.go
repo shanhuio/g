@@ -30,6 +30,7 @@ type C struct {
 
 	User      string
 	UserLevel int // 0 for normal user. 0 with empty User is anonymous.
+	UserData  interface{}
 
 	Req     *http.Request
 	Resp    http.ResponseWriter

@@ -25,14 +25,15 @@ import (
 	"shanhu.io/pub/errcode"
 	"shanhu.io/pub/signer"
 	"shanhu.io/pub/signin"
+	"shanhu.io/pub/signin/authgate"
 )
 
 // Module is a module that handles stuff related to oauth.
 type Module struct {
 	config    *Config
-	gate      *signin.Gate
+	gate      *authgate.Gate
 	providers []provider
-	pubKey    *signin.PublicKeyExchange
+	pubKey    *authgate.PublicKeyExchange
 
 	redirect       string
 	signInRedirect string
@@ -53,7 +54,7 @@ func NewModule(config *Config) *Module {
 		signInRedirect = redirect
 	}
 
-	gate := signin.NewGate(&signin.GateConfig{
+	gate := authgate.New(&authgate.Config{
 		SessionKey:      config.SessionKey,
 		SessionLifeTime: config.SessionLifeTime,
 		SessionRefresh:  config.SessionRefresh,
@@ -69,7 +70,7 @@ func NewModule(config *Config) *Module {
 	}
 
 	if config.KeyRegistry != nil {
-		ret.pubKey = signin.NewPublicKeyExchange(
+		ret.pubKey = authgate.NewPublicKeyExchange(
 			gate, config.KeyRegistry,
 		)
 	}
@@ -123,7 +124,7 @@ func (m *Module) signOut(c *aries.C) error {
 			return err
 		}
 	}
-	signin.ClearGateCookie(c)
+	authgate.ClearCookie(c)
 	c.Redirect(m.redirect)
 	return nil
 }

@@ -13,7 +13,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-package frontdesk
+package authgate
 
 import (
 	"time"
@@ -34,9 +34,8 @@ func defaultCheck(user string) (interface{}, int, error) {
 	return nil, lvl, nil
 }
 
-// GateConfig contains configuration for initializing an
-// identity gate.
-type GateConfig struct {
+// Config contains configuration for initializing an identity gate.
+type Config struct {
 	SessionKey      []byte
 	SessionLifeTime time.Duration
 	SessionRefresh  time.Duration
@@ -44,8 +43,8 @@ type GateConfig struct {
 	Check func(user string) (interface{}, int, error)
 }
 
-// Gate is a token checking gate that checks the auth token
-// and saves the checking result in the context.
+// Gate is a token checking gate that checks the session token and saves the
+// checking result in the context.
 type Gate struct {
 	sessions       *signer.Sessions
 	sessionRefresh time.Duration
@@ -53,8 +52,8 @@ type Gate struct {
 	check func(user string) (interface{}, int, error)
 }
 
-// NewGate creates a new auth token checking gate.
-func NewGate(config *GateConfig) *Gate {
+// New creates a new session token checking gate.
+func New(config *Config) *Gate {
 	sessionLifeTime := config.SessionLifeTime
 	if sessionLifeTime <= 0 {
 		sessionLifeTime = timeutil.Week
@@ -135,8 +134,8 @@ func (g *Gate) SetupCookie(c *aries.C, user string) {
 	c.WriteCookie(cookieKey, token.Token, token.Expire)
 }
 
-// ClearGateCookie clears the gate's session cookie.
-func ClearGateCookie(c *aries.C) {
+// ClearCookie clears the gate's session cookie.
+func ClearCookie(c *aries.C) {
 	c.ClearCookie(cookieKey)
 }
 
@@ -154,7 +153,7 @@ func (g *Gate) CheckAndSetup(c *aries.C) (bool, error) {
 
 	if creds.TokenType == TokenCookie {
 		if !creds.Valid {
-			ClearGateCookie(c)
+			ClearCookie(c)
 		} else if creds.NeedRefresh {
 			g.SetupCookie(c, creds.User)
 		}
