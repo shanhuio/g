@@ -13,13 +13,14 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-package signin
+package frontdesk
 
 import (
 	"time"
 
 	"shanhu.io/pub/aries"
 	"shanhu.io/pub/signer"
+	"shanhu.io/pub/signin"
 	"shanhu.io/pub/timeutil"
 )
 
@@ -120,9 +121,9 @@ func (g *Gate) Check(c *aries.C) (*CredsInfo, error) {
 
 // Token returns an auth token that is valid for ttl. It returns the token
 // and the expiry time.
-func (g *Gate) Token(user string, ttl time.Duration) *Token {
+func (g *Gate) Token(user string, ttl time.Duration) *signin.Token {
 	token, expire := g.sessions.New([]byte(user), ttl)
-	return &Token{
+	return &signin.Token{
 		Token:  token,
 		Expire: expire,
 	}

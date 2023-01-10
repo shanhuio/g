@@ -13,7 +13,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-package signin
+package frontdesk
 
 import (
 	"time"
@@ -22,6 +22,7 @@ import (
 	"shanhu.io/pub/errcode"
 	"shanhu.io/pub/identity"
 	"shanhu.io/pub/jwt"
+	"shanhu.io/pub/signin"
 	"shanhu.io/pub/signin/signinapi"
 	"shanhu.io/pub/timeutil"
 )
@@ -47,13 +48,13 @@ type Exchange struct {
 	issuer   string
 	card     identity.Card
 	verifier jwt.Verifier
-	tokener  Tokener
+	tokener  signin.Tokener
 	now      func() time.Time
 }
 
 // NewExchange creates an exchange that exchnages access tokens
 // for session tokens from tok.
-func NewExchange(tok Tokener, config *ExchangeConfig) *Exchange {
+func NewExchange(tok signin.Tokener, config *ExchangeConfig) *Exchange {
 	return &Exchange{
 		audience: config.Audience,
 		issuer:   config.Issuer,
@@ -96,5 +97,5 @@ func (x *Exchange) Exchange(c *aries.C, req *signinapi.Request) (
 	}
 
 	token := x.tokener.Token(req.User, ttl)
-	return TokenCreds(req.User, token), nil
+	return signin.TokenCreds(req.User, token), nil
 }

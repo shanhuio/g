@@ -13,7 +13,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-package signin
+package frontdesk
 
 import (
 	"crypto/rsa"
@@ -25,6 +25,7 @@ import (
 	"shanhu.io/pub/errcode"
 	"shanhu.io/pub/rsautil"
 	"shanhu.io/pub/signer"
+	"shanhu.io/pub/signin"
 	"shanhu.io/pub/signin/signinapi"
 	"shanhu.io/pub/timeutil"
 )
@@ -46,7 +47,7 @@ type SSHCertExchangeConfig struct {
 // SSHCertExchange is a service stub that provides session tokens if the
 // user signs a challenge and the SSH certificate of it.
 type SSHCertExchange struct {
-	tokener Tokener
+	tokener signin.Tokener
 
 	caPublicKey *rsa.PublicKey
 	ch          *Challenger
@@ -78,7 +79,7 @@ func caPublicKeyFromConfig(conf *SSHCertExchangeConfig) (
 
 // NewSSHCertExchange creates a new SSH certificate exchange that exchanges
 // signed challenges for session tokens.
-func NewSSHCertExchange(tok Tokener, conf *SSHCertExchangeConfig) (
+func NewSSHCertExchange(tok signin.Tokener, conf *SSHCertExchangeConfig) (
 	*SSHCertExchange, error,
 ) {
 	caPubKey, err := caPublicKeyFromConfig(conf)
@@ -157,7 +158,7 @@ func (s *SSHCertExchange) apiSignIn(
 	// Get a token.
 	ttl := timeutil.TimeDuration(record.TTL)
 	token := s.tokener.Token(user, ttl)
-	return TokenCreds(user, token), nil
+	return signin.TokenCreds(user, token), nil
 }
 
 // API returns the API router stub for signing in with SSH certificate

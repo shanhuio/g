@@ -13,7 +13,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-package signin
+package frontdesk
 
 import (
 	"time"
@@ -22,20 +22,21 @@ import (
 	"shanhu.io/pub/errcode"
 	"shanhu.io/pub/keyreg"
 	"shanhu.io/pub/signer"
+	"shanhu.io/pub/signin"
 	"shanhu.io/pub/signin/signinapi"
 )
 
 // PublicKeyExchange handles sign in using a public key registry. The request
 // presents a signed time using the user's private key to authenticate.
 type PublicKeyExchange struct {
-	tokener     Tokener
+	tokener     signin.Tokener
 	keyRegistry keyreg.KeyRegistry
 }
 
 // NewPublicKeyExchange creates a legacy public key based credential exchange
 // where the client presents a signed time with its private key.
 func NewPublicKeyExchange(
-	tok Tokener, reg keyreg.KeyRegistry,
+	tok signin.Tokener, reg keyreg.KeyRegistry,
 ) *PublicKeyExchange {
 	return &PublicKeyExchange{
 		tokener:     tok,
@@ -71,5 +72,5 @@ func (x *PublicKeyExchange) Exchange(c *aries.C, req *signinapi.Request) (
 
 	ttl := req.GetTTL()
 	token := x.tokener.Token(req.User, ttl)
-	return TokenCreds(req.User, token), nil
+	return signin.TokenCreds(req.User, token), nil
 }
