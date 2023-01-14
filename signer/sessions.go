@@ -24,19 +24,28 @@ import (
 
 // Sessions signs a session data so that the server can run statelessly.
 type Sessions struct {
-	s   *Signer
-	ttl time.Duration
+	s          *Signer
+	ttl        time.Duration
+	refreshTTL time.Duration
 
 	// TimeFunc is an optional function for reading the current timestamp.
 	// When it is nil, the Sessions object uses time.Now().
 	TimeFunc func() time.Time
 }
 
+func refreshTTL(ttl time.Duration) time.Duration {
+	if ttl <= 0 {
+		return time.Duration(0)
+	}
+	return ttl / 5
+}
+
 // NewSessions creates a new session store.
 func NewSessions(key []byte, ttl time.Duration) *Sessions {
 	return &Sessions{
-		s:   New(key),
-		ttl: ttl,
+		s:          New(key),
+		ttl:        ttl,
+		refreshTTL: refreshTTL(ttl),
 	}
 }
 
@@ -118,4 +127,9 @@ func (s *Sessions) CheckState(session string) bool {
 		return false
 	}
 	return len(bs) == 0
+}
+
+// NeedRefresh returns if it is recommended to refresh for a new token.
+func (s *Sessions) NeedRefresh(ttl time.Duration) bool {
+	return ttl < s.refreshTTL
 }

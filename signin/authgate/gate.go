@@ -36,9 +36,10 @@ func defaultCheck(user string) (interface{}, int, error) {
 
 // Config contains configuration for initializing an identity gate.
 type Config struct {
+	Sessions *signer.Sessions
+
 	SessionKey      []byte
 	SessionLifeTime time.Duration
-	SessionRefresh  time.Duration
 
 	Check func(user string) (interface{}, int, error)
 }
@@ -46,23 +47,21 @@ type Config struct {
 // Gate is a token checking gate that checks the session token and saves the
 // checking result in the context.
 type Gate struct {
-	sessions       *signer.Sessions
-	sessionRefresh time.Duration
+	sessions *signer.Sessions
 
 	check func(user string) (interface{}, int, error)
 }
 
 // New creates a new session token checking gate.
 func New(config *Config) *Gate {
-	sessionLifeTime := config.SessionLifeTime
-	if sessionLifeTime <= 0 {
-		sessionLifeTime = timeutil.Week
+	sessions := config.Sessions
+	if sessions == nil {
+		sessionLifeTime := config.SessionLifeTime
+		if sessionLifeTime <= 0 {
+			sessionLifeTime = timeutil.Week
+		}
+		sessions = signer.NewSessions(config.SessionKey, sessionLifeTime)
 	}
-	sessionRefresh := config.SessionRefresh
-	if sessionRefresh <= 0 || sessionRefresh > sessionLifeTime {
-		sessionRefresh = sessionLifeTime / 5 * 4
-	}
-	sessions := signer.NewSessions(config.SessionKey, sessionLifeTime)
 
 	check := config.Check
 	if check == nil {
@@ -70,9 +69,8 @@ func New(config *Config) *Gate {
 	}
 
 	return &Gate{
-		sessions:       sessions,
-		sessionRefresh: sessionRefresh,
-		check:          check,
+		sessions: sessions,
+		check:    check,
 	}
 }
 
@@ -96,7 +94,7 @@ func (g *Gate) CheckToken(token, typ string) (*CredsInfo, error) {
 	if !ok {
 		return info, nil
 	}
-	info.NeedRefresh = left < g.sessionRefresh
+	info.NeedRefresh = g.sessions.NeedRefresh(left)
 
 	user := string(bs)
 	dat, lvl, err := g.check(user)

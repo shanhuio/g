@@ -72,7 +72,6 @@ type Config struct {
 	StateKey        []byte
 	SessionKey      []byte
 	SessionLifeTime time.Duration
-	SessionRefresh  time.Duration
 
 	Bypass         string
 	Redirect       string

@@ -57,7 +57,6 @@ func NewModule(config *Config) *Module {
 	gate := authgate.New(&authgate.Config{
 		SessionKey:      config.SessionKey,
 		SessionLifeTime: config.SessionLifeTime,
-		SessionRefresh:  config.SessionRefresh,
 		Check:           config.Check,
 	})
 
