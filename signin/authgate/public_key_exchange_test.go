@@ -1,3 +1,18 @@
+// Copyright (C) 2023  Shanhu Tech Inc.
+//
+// This program is free software: you can redistribute it and/or modify it
+// under the terms of the GNU Affero General Public License as published by the
+// Free Software Foundation, either version 3 of the License, or (at your
+// option) any later version.
+//
+// This program is distributed in the hope that it will be useful, but WITHOUT
+// ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+// FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License
+// for more details.
+//
+// You should have received a copy of the GNU Affero General Public License
+// along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
 package authgate
 
 import (
@@ -7,6 +22,7 @@ import (
 	"shanhu.io/pub/aries"
 	"shanhu.io/pub/httputil"
 	"shanhu.io/pub/keyreg"
+	"shanhu.io/pub/keyreg/testkeys"
 	"shanhu.io/pub/rsautil"
 	"shanhu.io/pub/signer"
 	"shanhu.io/pub/signin/signinapi"
@@ -15,16 +31,11 @@ import (
 func TestPublicKeyExchange(t *testing.T) {
 	const user = "h8liu"
 
-	pri, pub, err := rsautil.GenerateKey(nil, 1024)
-	if err != nil {
-		t.Fatal("generate rsa key: ", err)
-	}
-
-	pubKey, err := rsautil.NewPublicKey(pub)
+	pubKey, err := rsautil.NewPublicKey([]byte(testkeys.Pub1))
 	if err != nil {
 		t.Fatal("compile public key: ", err)
 	}
-	priKey, err := rsautil.ParsePrivateKey(pri)
+	priKey, err := rsautil.ParsePrivateKey([]byte(testkeys.Pem1))
 	if err != nil {
 		t.Fatal("parse private key: ", err)
 	}
@@ -39,7 +50,7 @@ func TestPublicKeyExchange(t *testing.T) {
 	r.Index(aries.StringFunc("index"))
 	r.Call("/signin", ex.Exchange)
 
-	const secret = "mikimakibubabu"
+	const secret = "mikima-kibubabu"
 	u := aries.NewRouter()
 	r.Get("/secret", aries.StringFunc(secret))
 
