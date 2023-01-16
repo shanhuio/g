@@ -26,19 +26,19 @@ import (
 	"shanhu.io/pub/signin/signinapi"
 )
 
-// PublicKeyExchange handles sign in using a public key registry. The request
+// LegacyExchange handles sign in using a public key registry. The request
 // presents a signed time using the user's private key to authenticate.
-type PublicKeyExchange struct {
+type LegacyExchange struct {
 	tokener     signin.Tokener
 	keyRegistry keyreg.KeyRegistry
 }
 
-// NewPublicKeyExchange creates a legacy public key based credential exchange
+// NewLegacyExchange creates a legacy public key based credential exchange
 // where the client presents a signed time with its private key.
-func NewPublicKeyExchange(
+func NewLegacyExchange(
 	tok signin.Tokener, reg keyreg.KeyRegistry,
-) *PublicKeyExchange {
-	return &PublicKeyExchange{
+) *LegacyExchange {
+	return &LegacyExchange{
 		tokener:     tok,
 		keyRegistry: reg,
 	}
@@ -46,7 +46,7 @@ func NewPublicKeyExchange(
 
 // Exchange handles the request to exchange a public-key signed timestamp to a
 // token.
-func (x *PublicKeyExchange) Exchange(c *aries.C, req *signinapi.Request) (
+func (x *LegacyExchange) Exchange(c *aries.C, req *signinapi.Request) (
 	*signinapi.Creds, error,
 ) {
 	if req.SignedTime == nil {

@@ -33,7 +33,7 @@ type Module struct {
 	config    *Config
 	gate      *authgate.Gate
 	providers []provider
-	pubKey    *authgate.PublicKeyExchange
+	pubKey    *authgate.LegacyExchange
 
 	redirect       string
 	signInRedirect string
@@ -69,7 +69,7 @@ func NewModule(config *Config) *Module {
 	}
 
 	if config.KeyRegistry != nil {
-		ret.pubKey = authgate.NewPublicKeyExchange(
+		ret.pubKey = authgate.NewLegacyExchange(
 			gate, config.KeyRegistry,
 		)
 	}

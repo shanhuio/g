@@ -28,7 +28,7 @@ import (
 	"shanhu.io/pub/signin/signinapi"
 )
 
-func TestPublicKeyExchange(t *testing.T) {
+func TestLegacyExchange(t *testing.T) {
 	const user = "h8liu"
 
 	pubKey, err := rsautil.NewPublicKey([]byte(testkeys.Pub1))
@@ -44,7 +44,7 @@ func TestPublicKeyExchange(t *testing.T) {
 	kr.Set(user, []*rsautil.PublicKey{pubKey})
 
 	gate := New(&Config{SessionKey: []byte("test-key")})
-	ex := NewPublicKeyExchange(gate, kr)
+	ex := NewLegacyExchange(gate, kr)
 
 	r := aries.NewRouter()
 	r.Index(aries.StringFunc("index"))
