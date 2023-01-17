@@ -16,8 +16,9 @@
 package authgate
 
 import (
-	"net/http/httptest"
 	"testing"
+
+	"net/http/httptest"
 
 	"shanhu.io/pub/aries"
 	"shanhu.io/pub/httputil"
