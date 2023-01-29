@@ -3,10 +3,10 @@ module shanhu.io/pub
 go 1.19
 
 require (
-	github.com/digitalocean/godo v1.93.0
+	github.com/digitalocean/godo v1.95.0
 	github.com/gorilla/websocket v1.5.0
 	github.com/lib/pq v1.10.7
-	github.com/microcosm-cc/bluemonday v1.0.21
+	github.com/microcosm-cc/bluemonday v1.0.22
 	github.com/minio/minio-go/v7 v7.0.47
 	github.com/russross/blackfriday v1.6.0
 	golang.org/x/crypto v0.5.0
@@ -16,7 +16,7 @@ require (
 	golang.org/x/term v0.4.0
 	golang.org/x/tools v0.5.0
 	gopkg.in/yaml.v2 v2.4.0
-	modernc.org/sqlite v1.20.2
+	modernc.org/sqlite v1.20.3
 	shanhu.io/gcimporter v0.0.0-20220809023309-46562c2255f7
 )
 
@@ -37,7 +37,7 @@ require (
 	github.com/minio/sha256-simd v1.0.0 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.2 // indirect
-	github.com/remyoudompheng/bigfft v0.0.0-20220927061507-ef77025ab5aa // indirect
+	github.com/remyoudompheng/bigfft v0.0.0-20230129092748-24d4a6f8daec // indirect
 	github.com/rs/xid v1.4.0 // indirect
 	github.com/sirupsen/logrus v1.9.0 // indirect
 	golang.org/x/mod v0.7.0 // indirect
