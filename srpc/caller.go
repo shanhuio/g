@@ -22,34 +22,71 @@
 package srpc
 
 import (
+	"bytes"
+	"context"
+	"encoding/json"
+	"net/http"
 	"net/url"
+	"path"
 
 	"shanhu.io/pub/errcode"
 )
 
 // Caller is an RPC caller that can call
 type Caller struct {
+	server *url.URL
+	client *http.Client
 }
 
-// NewCallerMust returns a caller where the address must be valid.
-func NewCallerMust(addr string) *Caller {
-	c, err := NewCaller(addr)
-	if err != nil {
-		panic(err)
+// NewCaller returns a caller that calls to the specific URL.
+func NewCaller(server *url.URL) *Caller {
+	return &Caller{
+		server: server,
+		client: &http.Client{},
 	}
-	return c
 }
 
-// NewCaller creates a new caller based on the given address.
-func NewCaller(addr string) (*Caller, error) {
-	u, err := url.Parse(addr)
+const contentTypeJSON = "application/json"
+
+// Call performs a JSON RPC call on the specified method path.
+func (c *Caller) Call(
+	ctx context.Context, p string, req, resp interface{},
+) error {
+	reqBytes, err := json.Marshal(req)
 	if err != nil {
-		return nil, errcode.Annotate(err, "parse address")
+		return errcode.Annotate(err, "marshal request")
 	}
-	return NewURLCaller(u), nil
-}
+	reqBody := bytes.NewReader(reqBytes)
 
-// NewURLCaller returns a caller that calls to the specific URL.
-func NewURLCaller(server *url.URL) *Caller {
-	panic("TODO")
+	u := *c.server
+	u.Path = path.Join(u.Path, p)
+
+	httpReq, err := http.NewRequestWithContext(
+		ctx, http.MethodPost, u.String(), reqBody,
+	)
+	if err != nil {
+		return errcode.Annotate(err, "make http request")
+	}
+
+	// Content-Length will be already set by NewRequestWithContext.
+
+	httpReq.Header.Set("Content-Type", contentTypeJSON)
+	httpReq.Header.Set("Accept", contentTypeJSON)
+
+	httpResp, err := c.client.Do(httpReq)
+	if err != nil {
+		return err
+	}
+	defer httpResp.Body.Close()
+
+	if !isSuccessStatus(httpResp.StatusCode) {
+		return respError(httpResp)
+	}
+
+	dec := json.NewDecoder(httpResp.Body)
+	if err := dec.Decode(resp); err != nil {
+		return errcode.Annotate(err, "unmarshal response")
+	}
+
+	return nil
 }
