@@ -157,5 +157,5 @@ modernc.org/tcl v1.15.0 h1:oY+JeD11qVVSgVvodMJsu7Edf8tr5E/7tuhF5cNYz34=
 modernc.org/token v1.1.0 h1:Xl7Ap9dKaEs5kLoOQeQmPWevfnk/DM5qcLcYlA8ys6Y=
 modernc.org/token v1.1.0/go.mod h1:UGzOrNV1mAFSEB63lOFHIpNRUVMvYTc6yu1SMY/XTDM=
 modernc.org/z v1.7.0 h1:xkDw/KepgEjeizO2sNco+hqYkU12taxQFqPEmgm1GWE=
-shanhu.io/gcimporter v0.0.0-20220809023309-46562c2255f7 h1:jSnFonLk6rcZtZTQiaB5Zu1ZK8FUpfgS/qBZOK1H14Y=
-shanhu.io/gcimporter v0.0.0-20220809023309-46562c2255f7/go.mod h1:d21aFZDfjwqWmctALQDSYk1SJG9OpgaKvXk1NjJa7kE=
+shanhu.io/gcimporter v0.0.0-20230206104318-38ca03fa3ae1 h1:cD96Yb4r0BKnVNv7wGQsCeBAkOvYtYkCDUSp+jW5qMg=
+shanhu.io/gcimporter v0.0.0-20230206104318-38ca03fa3ae1/go.mod h1:d21aFZDfjwqWmctALQDSYk1SJG9OpgaKvXk1NjJa7kE=
