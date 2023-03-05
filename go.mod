@@ -9,11 +9,11 @@ require (
 	github.com/microcosm-cc/bluemonday v1.0.22
 	github.com/minio/minio-go/v7 v7.0.49
 	github.com/russross/blackfriday v1.6.0
-	golang.org/x/crypto v0.6.0
+	golang.org/x/crypto v0.7.0
 	golang.org/x/lint v0.0.0-20210508222113-6edffad5e616
-	golang.org/x/net v0.7.0
-	golang.org/x/oauth2 v0.5.0
-	golang.org/x/term v0.5.0
+	golang.org/x/net v0.8.0
+	golang.org/x/oauth2 v0.6.0
+	golang.org/x/term v0.6.0
 	golang.org/x/tools v0.6.0
 	gopkg.in/yaml.v2 v2.4.0
 	modernc.org/sqlite v1.21.0
@@ -40,9 +40,9 @@ require (
 	github.com/remyoudompheng/bigfft v0.0.0-20230129092748-24d4a6f8daec // indirect
 	github.com/rs/xid v1.4.0 // indirect
 	github.com/sirupsen/logrus v1.9.0 // indirect
-	golang.org/x/mod v0.8.0 // indirect
-	golang.org/x/sys v0.5.0 // indirect
-	golang.org/x/text v0.7.0 // indirect
+	golang.org/x/mod v0.9.0 // indirect
+	golang.org/x/sys v0.6.0 // indirect
+	golang.org/x/text v0.8.0 // indirect
 	golang.org/x/time v0.3.0 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
 	google.golang.org/protobuf v1.28.1 // indirect
