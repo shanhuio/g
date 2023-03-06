@@ -23,12 +23,18 @@ import (
 // Token is a bearer token. It also embeds a refresh recommendation
 // and an expiration time point.
 type Token struct {
-	Token   string
+	Token string
+
+	// If the current time is after this time point, the caller should try to
+	// refresh the token using the refresh function.
 	Refresh time.Time
-	Expire  time.Time
+
+	// If time is after this time point, the caller should stop using this
+	// token for requests.
+	Expire time.Time
 }
 
 // Tokener in an interface that issues token for authentication.
 type Tokener interface {
-	Token(ctx context.Context) (*Token, error)
+	Token(ctx context.Context, lastToken string) (*Token, error)
 }
