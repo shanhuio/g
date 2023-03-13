@@ -3,10 +3,10 @@ module shanhu.io/pub
 go 1.19
 
 require (
-	github.com/digitalocean/godo v1.97.0
+	github.com/digitalocean/godo v1.98.0
 	github.com/gorilla/websocket v1.5.0
 	github.com/lib/pq v1.10.7
-	github.com/microcosm-cc/bluemonday v1.0.22
+	github.com/microcosm-cc/bluemonday v1.0.23
 	github.com/minio/minio-go/v7 v7.0.49
 	github.com/russross/blackfriday v1.6.0
 	golang.org/x/crypto v0.7.0
@@ -14,7 +14,7 @@ require (
 	golang.org/x/net v0.8.0
 	golang.org/x/oauth2 v0.6.0
 	golang.org/x/term v0.6.0
-	golang.org/x/tools v0.6.0
+	golang.org/x/tools v0.7.0
 	gopkg.in/yaml.v2 v2.4.0
 	modernc.org/sqlite v1.21.0
 	shanhu.io/gcimporter v0.0.0-20230206104318-38ca03fa3ae1
@@ -23,7 +23,7 @@ require (
 require (
 	github.com/aymerick/douceur v0.2.0 // indirect
 	github.com/dustin/go-humanize v1.0.1 // indirect
-	github.com/golang/protobuf v1.5.2 // indirect
+	github.com/golang/protobuf v1.5.3 // indirect
 	github.com/google/go-querystring v1.1.0 // indirect
 	github.com/google/uuid v1.3.0 // indirect
 	github.com/gorilla/css v1.0.0 // indirect
@@ -45,7 +45,7 @@ require (
 	golang.org/x/text v0.8.0 // indirect
 	golang.org/x/time v0.3.0 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
-	google.golang.org/protobuf v1.28.1 // indirect
+	google.golang.org/protobuf v1.29.0 // indirect
 	gopkg.in/check.v1 v1.0.0-20180628173108-788fd7840127 // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
 	gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b // indirect
