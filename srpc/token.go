@@ -36,5 +36,7 @@ type Token struct {
 
 // Tokener in an interface that issues token for authentication.
 type Tokener interface {
+	// Token refreshes the token. If lastToken is empty, it will issue a new
+	// token. Otherwise, it will refresh the token using the lastToken.
 	Token(ctx context.Context, lastToken string) (*Token, error)
 }

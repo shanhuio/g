@@ -36,13 +36,22 @@ import (
 type Caller struct {
 	server *url.URL
 	client *http.Client
+
+	tokener Tokener
 }
 
 // NewCaller returns a caller that calls to the specific URL.
 func NewCaller(server *url.URL) *Caller {
+	return NewTokenCaller(server, nil)
+}
+
+// NewTokenCaller returns a caller that calls to the specific URL with the given
+// tokener to provide auth tokens.
+func NewTokenCaller(server *url.URL, tokener Tokener) *Caller {
 	return &Caller{
-		server: server,
-		client: &http.Client{},
+		server:  server,
+		client:  &http.Client{},
+		tokener: tokener,
 	}
 }
 
