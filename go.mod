@@ -16,7 +16,7 @@ require (
 	golang.org/x/term v0.7.0
 	golang.org/x/tools v0.8.0
 	gopkg.in/yaml.v2 v2.4.0
-	modernc.org/sqlite v1.21.1
+	modernc.org/sqlite v1.22.0
 	shanhu.io/gcimporter v0.0.0-20230206104318-38ca03fa3ae1
 )
 
@@ -29,7 +29,7 @@ require (
 	github.com/gorilla/css v1.0.0 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/kballard/go-shellquote v0.0.0-20180428030007-95032a82bc51 // indirect
-	github.com/klauspost/compress v1.16.4 // indirect
+	github.com/klauspost/compress v1.16.5 // indirect
 	github.com/klauspost/cpuid/v2 v2.2.4 // indirect
 	github.com/kr/pretty v0.3.0 // indirect
 	github.com/mattn/go-isatty v0.0.18 // indirect
@@ -52,7 +52,7 @@ require (
 	lukechampine.com/uint128 v1.3.0 // indirect
 	modernc.org/cc/v3 v3.40.0 // indirect
 	modernc.org/ccgo/v3 v3.16.13 // indirect
-	modernc.org/libc v1.22.3 // indirect
+	modernc.org/libc v1.22.4 // indirect
 	modernc.org/mathutil v1.5.0 // indirect
 	modernc.org/memory v1.5.0 // indirect
 	modernc.org/opt v0.1.3 // indirect
