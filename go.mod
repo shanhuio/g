@@ -3,7 +3,7 @@ module shanhu.io/pub
 go 1.19
 
 require (
-	github.com/digitalocean/godo v1.98.0
+	github.com/digitalocean/godo v1.99.0
 	github.com/gorilla/websocket v1.5.0
 	github.com/lib/pq v1.10.7
 	github.com/microcosm-cc/bluemonday v1.0.23
@@ -16,7 +16,7 @@ require (
 	golang.org/x/term v0.7.0
 	golang.org/x/tools v0.8.0
 	gopkg.in/yaml.v2 v2.4.0
-	modernc.org/sqlite v1.22.0
+	modernc.org/sqlite v1.22.1
 	shanhu.io/gcimporter v0.0.0-20230206104318-38ca03fa3ae1
 )
 
@@ -52,7 +52,7 @@ require (
 	lukechampine.com/uint128 v1.3.0 // indirect
 	modernc.org/cc/v3 v3.40.0 // indirect
 	modernc.org/ccgo/v3 v3.16.13 // indirect
-	modernc.org/libc v1.22.4 // indirect
+	modernc.org/libc v1.22.5 // indirect
 	modernc.org/mathutil v1.5.0 // indirect
 	modernc.org/memory v1.5.0 // indirect
 	modernc.org/opt v0.1.3 // indirect
