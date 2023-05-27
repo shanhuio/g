@@ -7,7 +7,7 @@ require (
 	github.com/gorilla/websocket v1.5.0
 	github.com/lib/pq v1.10.7
 	github.com/microcosm-cc/bluemonday v1.0.24
-	github.com/minio/minio-go/v7 v7.0.53
+	github.com/minio/minio-go/v7 v7.0.55
 	github.com/russross/blackfriday v1.6.0
 	golang.org/x/crypto v0.9.0
 	golang.org/x/lint v0.0.0-20210508222113-6edffad5e616
@@ -34,7 +34,7 @@ require (
 	github.com/kr/pretty v0.3.0 // indirect
 	github.com/mattn/go-isatty v0.0.19 // indirect
 	github.com/minio/md5-simd v1.1.2 // indirect
-	github.com/minio/sha256-simd v1.0.0 // indirect
+	github.com/minio/sha256-simd v1.0.1 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.2 // indirect
 	github.com/remyoudompheng/bigfft v0.0.0-20230129092748-24d4a6f8daec // indirect
