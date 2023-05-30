@@ -29,7 +29,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"path"
 
 	"shanhu.io/pub/errcode"
 )
@@ -57,8 +56,6 @@ func NewTokenCaller(server *url.URL, tokener Tokener) *Caller {
 	}
 }
 
-const contentTypeJSON = "application/json"
-
 // Call performs a JSON RPC call on the specified method path.
 func (c *Caller) Call(
 	ctx context.Context, p string, req, resp interface{},
@@ -77,9 +74,7 @@ func (c *Caller) Call(
 		return errcode.Annotate(err, "marshal request")
 	}
 
-	u := *c.server
-	u.Path = path.Join("/", u.Path, p)
-
+	u := urlJoin(c.server, p)
 	getBody := func() (io.ReadCloser, error) {
 		return io.NopCloser(bytes.NewReader(reqBytes)), nil
 	}
@@ -90,7 +85,7 @@ func (c *Caller) Call(
 		Proto:      "HTTP/1.1",
 		ProtoMajor: 1,
 		ProtoMinor: 1,
-		URL:        &u,
+		URL:        u,
 		Header:     make(http.Header),
 		Body:       reqBody,
 		GetBody:    getBody,
