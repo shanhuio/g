@@ -25,6 +25,8 @@ import (
 	"bytes"
 	"context"
 	"encoding/json"
+	"fmt"
+	"io"
 	"net/http"
 	"net/url"
 	"path"
@@ -61,26 +63,47 @@ const contentTypeJSON = "application/json"
 func (c *Caller) Call(
 	ctx context.Context, p string, req, resp interface{},
 ) error {
+	var token *string
+	if c.tokener != nil {
+		t, err := c.tokener.Token(ctx)
+		if err != nil {
+			return errcode.Annotate(err, "get auth token")
+		}
+		token = &t
+	}
+
 	reqBytes, err := json.Marshal(req)
 	if err != nil {
 		return errcode.Annotate(err, "marshal request")
 	}
-	reqBody := bytes.NewReader(reqBytes)
 
 	u := *c.server
 	u.Path = path.Join(u.Path, p)
 
-	httpReq, err := http.NewRequestWithContext(
-		ctx, http.MethodPost, u.String(), reqBody,
-	)
+	getBody := func() (io.ReadCloser, error) {
+		return io.NopCloser(bytes.NewReader(reqBytes)), nil
+	}
+	reqBody, _ := getBody()
+
+	httpReq := (&http.Request{
+		Method:  http.MethodPost,
+		URL:     &u,
+		Header:  make(http.Header),
+		Body:    reqBody,
+		GetBody: getBody,
+
+		ContentLength: int64(len(reqBytes)),
+	}).WithContext(ctx)
+
 	if err != nil {
 		return errcode.Annotate(err, "make http request")
 	}
 
-	// Content-Length will be already set by NewRequestWithContext.
-
 	httpReq.Header.Set("Content-Type", contentTypeJSON)
 	httpReq.Header.Set("Accept", contentTypeJSON)
+	if token != nil {
+		httpReq.Header.Set("Authorization", "Bearer "+*token)
+	}
 
 	httpResp, err := c.client.Do(httpReq)
 	if err != nil {
@@ -90,6 +113,10 @@ func (c *Caller) Call(
 
 	if !isSuccessStatus(httpResp.StatusCode) {
 		return respError(httpResp)
+	}
+
+	if t := httpResp.Header.Get("Content-Type"); t != contentTypeJSON {
+		return fmt.Errorf("unexpected content type: %q", t)
 	}
 
 	dec := json.NewDecoder(httpResp.Body)
