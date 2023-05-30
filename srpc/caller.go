@@ -52,7 +52,7 @@ func NewCaller(server *url.URL) *Caller {
 func NewTokenCaller(server *url.URL, tokener Tokener) *Caller {
 	return &Caller{
 		server:  server,
-		client:  &http.Client{},
+		client:  http.DefaultClient,
 		tokener: tokener,
 	}
 }
@@ -78,7 +78,7 @@ func (c *Caller) Call(
 	}
 
 	u := *c.server
-	u.Path = path.Join(u.Path, p)
+	u.Path = path.Join("/", u.Path, p)
 
 	getBody := func() (io.ReadCloser, error) {
 		return io.NopCloser(bytes.NewReader(reqBytes)), nil
@@ -86,18 +86,17 @@ func (c *Caller) Call(
 	reqBody, _ := getBody()
 
 	httpReq := (&http.Request{
-		Method:  http.MethodPost,
-		URL:     &u,
-		Header:  make(http.Header),
-		Body:    reqBody,
-		GetBody: getBody,
+		Method:     http.MethodPost,
+		Proto:      "HTTP/1.1",
+		ProtoMajor: 1,
+		ProtoMinor: 1,
+		URL:        &u,
+		Header:     make(http.Header),
+		Body:       reqBody,
+		GetBody:    getBody,
 
 		ContentLength: int64(len(reqBytes)),
 	}).WithContext(ctx)
-
-	if err != nil {
-		return errcode.Annotate(err, "make http request")
-	}
 
 	httpReq.Header.Set("Content-Type", contentTypeJSON)
 	httpReq.Header.Set("Accept", contentTypeJSON)
@@ -105,7 +104,8 @@ func (c *Caller) Call(
 		httpReq.Header.Set("Authorization", "Bearer "+*token)
 	}
 
-	httpResp, err := c.client.Do(httpReq)
+	client := http.DefaultClient
+	httpResp, err := client.Do(httpReq)
 	if err != nil {
 		return err
 	}

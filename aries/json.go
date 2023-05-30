@@ -24,6 +24,8 @@ import (
 
 // ReplyJSON replies a JSON marshable object over the response.
 func ReplyJSON(c *C, v interface{}) error {
+	c.Resp.Header().Set("Content-Type", "application/json")
+
 	bs, err := json.Marshal(v)
 	if err != nil {
 		return errcode.Internalf("response encode error: %s", err)
