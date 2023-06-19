@@ -146,6 +146,7 @@ func (l *loader) readBuildFile(p string) {
 			for _, d := range n.sub.Dirs() {
 				subDirMap[d] = true
 			}
+			continue
 		}
 
 		l.register(n)

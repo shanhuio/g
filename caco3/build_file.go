@@ -39,6 +39,8 @@ func makeBuildFileNode(t string) interface{} {
 		return new(DockerRun)
 	case ruleDownload:
 		return new(Download)
+	case ruleSubBuilds:
+		return new(SubBuilds)
 	}
 	return nil
 }
@@ -124,7 +126,7 @@ func readBuildFile(env *env, p string) ([]*buildNode, []*lexing.Error) {
 			node.deps = meta.deps
 		}
 
-		if node.name == p || node.name == "" {
+		if node.typ == nodeRule && (node.name == p || node.name == "") {
 			errList.Errorf(r.Pos, "rule has no name")
 			continue
 		}

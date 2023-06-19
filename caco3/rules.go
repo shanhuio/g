@@ -16,13 +16,14 @@
 package caco3
 
 const (
+	ruleSubBuilds = "sub_builds" // not exactly a rule.
+
 	ruleFileSet     = "file_set"
 	ruleBundle      = "bundle"
 	ruleDockerPull  = "docker_pull"
 	ruleDockerBuild = "docker_build"
 	ruleDockerRun   = "docker_run"
 	ruleDownload    = "download"
-	ruleSubBuild    = "sub_build"
 )
 
 // FileSet selects a set of files.
