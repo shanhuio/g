@@ -137,14 +137,32 @@ func (l *loader) registerOuts(
 }
 
 func (l *loader) readBuildFile(p string) {
+	subDirMap := make(map[string]bool)
+
 	nodes, errs := readBuildFile(l.env, p)
 	l.errList.AddAll(errs)
 	for _, n := range nodes {
+		if n.typ == nodeSub {
+			for _, d := range n.sub.Dirs() {
+				subDirMap[d] = true
+			}
+		}
+
 		l.register(n)
 
 		if n.typ == nodeRule {
 			l.registerOuts(n.name, n.ruleMeta.outs, n.pos)
 		}
+	}
+
+	var subDirs []string
+	for subDir := range subDirMap {
+		subDirs = append(subDirs, subDir)
+	}
+	sort.Strings(subDirs)
+
+	for _, d := range subDirs {
+		l.readBuildFile(d)
 	}
 }
 

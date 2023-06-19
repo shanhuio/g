@@ -22,6 +22,7 @@ const (
 	ruleDockerBuild = "docker_build"
 	ruleDockerRun   = "docker_run"
 	ruleDownload    = "download"
+	ruleSubBuild    = "sub_build"
 )
 
 // FileSet selects a set of files.
@@ -103,4 +104,9 @@ type Download struct {
 	URL      string
 	Checksum string
 	Output   string
+}
+
+// SubBuilds is a rule to build a set of sub-builds.
+type SubBuilds struct {
+	Dirs []string
 }

@@ -15,34 +15,18 @@
 
 package caco3
 
-import (
-	"shanhu.io/pub/lexing"
-)
-
-const (
-	nodeSrc  = "src"
-	nodeRule = "rule"
-	nodeOut  = "out"
-	nodeRun  = "run"
-	nodeSub  = "sub"
-)
-
-type buildNode struct {
-	name string
-	typ  string
-	deps []string
-	pos  *lexing.Pos
-
-	ruleType string
-	rule     buildRule
-	ruleMeta *buildRuleMeta
-
-	sub *subBuilds
+type subBuilds struct {
+	dirs []string
+	rule *SubBuilds
 }
 
-func (n *buildNode) mainOut() string {
-	if m := n.ruleMeta; m != nil && len(m.outs) > 0 {
-		return m.outs[0]
+func newSubBuilds(env *env, p string, v *SubBuilds) *subBuilds {
+	var dirs []string
+	for _, d := range v.Dirs {
+		dirs = append(dirs, makeRelPath(p, d))
 	}
-	return ""
+
+	return &subBuilds{dirs: dirs, rule: v}
 }
+
+func (b *subBuilds) Dirs() []string { return b.dirs }

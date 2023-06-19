@@ -106,6 +106,9 @@ func readBuildFile(env *env, p string) ([]*buildNode, []*lexing.Error) {
 			node.rule = d
 		case *Bundle:
 			node.rule = newBundle(env, p, v)
+		case *SubBuilds:
+			node.sub = newSubBuilds(env, p, v)
+			node.typ = nodeSub
 		default:
 			errList.Errorf(r.Pos, "unknown type: %q", r.Type)
 			continue
