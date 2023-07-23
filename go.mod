@@ -3,20 +3,20 @@ module shanhu.io/pub
 go 1.19
 
 require (
-	github.com/digitalocean/godo v1.99.0
+	github.com/digitalocean/godo v1.100.0
 	github.com/gorilla/websocket v1.5.0
 	github.com/lib/pq v1.10.7
-	github.com/microcosm-cc/bluemonday v1.0.24
-	github.com/minio/minio-go/v7 v7.0.59
+	github.com/microcosm-cc/bluemonday v1.0.25
+	github.com/minio/minio-go/v7 v7.0.61
 	github.com/russross/blackfriday v1.6.0
-	golang.org/x/crypto v0.10.0
+	golang.org/x/crypto v0.11.0
 	golang.org/x/lint v0.0.0-20210508222113-6edffad5e616
-	golang.org/x/net v0.11.0
-	golang.org/x/oauth2 v0.9.0
-	golang.org/x/term v0.9.0
-	golang.org/x/tools v0.10.0
+	golang.org/x/net v0.12.0
+	golang.org/x/oauth2 v0.10.0
+	golang.org/x/term v0.10.0
+	golang.org/x/tools v0.11.0
 	gopkg.in/yaml.v2 v2.4.0
-	modernc.org/sqlite v1.23.1
+	modernc.org/sqlite v1.24.0
 	shanhu.io/gcimporter v0.0.0-20230206104318-38ca03fa3ae1
 )
 
