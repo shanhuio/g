@@ -18,7 +18,7 @@ package jwt
 import (
 	"encoding/json"
 
-	"shanhu.io/pub/errcode"
+	"shanhu.io/g/errcode"
 )
 
 // Header is the JWT header.

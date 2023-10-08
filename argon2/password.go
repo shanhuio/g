@@ -20,7 +20,7 @@ import (
 	"io"
 
 	"golang.org/x/crypto/argon2"
-	"shanhu.io/pub/errcode"
+	"shanhu.io/g/errcode"
 )
 
 // Password saves the password hashed with Argon2 algorithm.

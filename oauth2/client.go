@@ -22,10 +22,10 @@ import (
 	"net/url"
 
 	"golang.org/x/oauth2"
-	"shanhu.io/pub/aries"
-	"shanhu.io/pub/errcode"
-	"shanhu.io/pub/httputil"
-	"shanhu.io/pub/signer"
+	"shanhu.io/g/aries"
+	"shanhu.io/g/errcode"
+	"shanhu.io/g/httputil"
+	"shanhu.io/g/signer"
 )
 
 func stateCode(req *http.Request) (state, code string) {

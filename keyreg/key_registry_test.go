@@ -22,9 +22,9 @@ import (
 	"net/url"
 	"os"
 
-	"shanhu.io/pub/aries"
-	"shanhu.io/pub/errcode"
-	"shanhu.io/pub/rsautil"
+	"shanhu.io/g/aries"
+	"shanhu.io/g/errcode"
+	"shanhu.io/g/rsautil"
 )
 
 func TestMemKeyRegistry(t *testing.T) {

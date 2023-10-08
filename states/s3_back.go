@@ -18,7 +18,7 @@ package states
 import (
 	"net/url"
 
-	"shanhu.io/pub/s3util"
+	"shanhu.io/g/s3util"
 )
 
 type s3Back struct {

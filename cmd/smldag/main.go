@@ -22,9 +22,9 @@ import (
 	"os"
 	"strings"
 
-	"shanhu.io/pub/dags"
-	"shanhu.io/pub/godep"
-	"shanhu.io/pub/goload"
+	"shanhu.io/g/dags"
+	"shanhu.io/g/godep"
+	"shanhu.io/g/goload"
 )
 
 func exitIf(err error) {

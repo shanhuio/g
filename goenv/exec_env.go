@@ -22,7 +22,7 @@ import (
 	"os/exec"
 	"path/filepath"
 
-	"shanhu.io/pub/osutil"
+	"shanhu.io/g/osutil"
 )
 
 // ExecJob is an execution job to be executed in an execution environment.

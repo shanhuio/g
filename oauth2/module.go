@@ -21,11 +21,11 @@ import (
 	"sort"
 	"time"
 
-	"shanhu.io/pub/aries"
-	"shanhu.io/pub/errcode"
-	"shanhu.io/pub/signer"
-	"shanhu.io/pub/signin"
-	"shanhu.io/pub/signin/authgate"
+	"shanhu.io/g/aries"
+	"shanhu.io/g/errcode"
+	"shanhu.io/g/signer"
+	"shanhu.io/g/signin"
+	"shanhu.io/g/signin/authgate"
 )
 
 // Module is a module that handles stuff related to oauth.

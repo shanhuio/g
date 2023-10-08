@@ -24,7 +24,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"shanhu.io/pub/strutil"
+	"shanhu.io/g/strutil"
 )
 
 type staticFileSystem struct {

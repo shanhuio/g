@@ -30,7 +30,7 @@ import (
 	"net/http"
 	"net/url"
 
-	"shanhu.io/pub/errcode"
+	"shanhu.io/g/errcode"
 )
 
 // Caller is an RPC caller that can call

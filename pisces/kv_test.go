@@ -23,7 +23,7 @@ import (
 	"reflect"
 	"sort"
 
-	"shanhu.io/pub/errcode"
+	"shanhu.io/g/errcode"
 )
 
 type testData struct {

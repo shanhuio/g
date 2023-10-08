@@ -16,7 +16,7 @@
 package authgate
 
 import (
-	"shanhu.io/pub/aries"
+	"shanhu.io/g/aries"
 )
 
 // CredsInfo is the user credential information got from gate checking.

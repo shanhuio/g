@@ -18,9 +18,9 @@ package ariestest
 import (
 	"os"
 
-	"shanhu.io/pub/creds"
-	"shanhu.io/pub/errcode"
-	"shanhu.io/pub/httputil"
+	"shanhu.io/g/creds"
+	"shanhu.io/g/errcode"
+	"shanhu.io/g/httputil"
 )
 
 // Login log into a server and fetch the token for the given user.

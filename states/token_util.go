@@ -18,7 +18,7 @@ package states
 import (
 	"strings"
 
-	"shanhu.io/pub/errcode"
+	"shanhu.io/g/errcode"
 )
 
 // GetToken gets a token string from the given key. The fetched value is

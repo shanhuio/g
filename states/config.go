@@ -20,7 +20,7 @@ import (
 	"net/url"
 	"strings"
 
-	"shanhu.io/pub/s3util"
+	"shanhu.io/g/s3util"
 )
 
 func parseS3Endpoint(host string) (bucket, endpoint string) {

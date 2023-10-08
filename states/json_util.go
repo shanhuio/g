@@ -18,7 +18,7 @@ package states
 import (
 	"encoding/json"
 
-	"shanhu.io/pub/jsonx"
+	"shanhu.io/g/jsonx"
 )
 
 // GetJSON gets a JSON encoded state.

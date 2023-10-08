@@ -18,7 +18,7 @@ package ariestest
 import (
 	"testing"
 
-	"shanhu.io/pub/aries"
+	"shanhu.io/g/aries"
 )
 
 type testLog struct {

@@ -18,7 +18,7 @@ package creds
 import (
 	"crypto/rsa"
 
-	"shanhu.io/pub/rsautil"
+	"shanhu.io/g/rsautil"
 )
 
 func parsePrivateKey(name string, bs []byte, tty bool) (

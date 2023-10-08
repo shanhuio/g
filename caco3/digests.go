@@ -22,7 +22,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"shanhu.io/pub/errcode"
+	"shanhu.io/g/errcode"
 )
 
 // buildAction is a structure for creating the digest of the execution of a

@@ -18,8 +18,8 @@ package signin
 import (
 	"time"
 
-	"shanhu.io/pub/signin/signinapi"
-	"shanhu.io/pub/timeutil"
+	"shanhu.io/g/signin/signinapi"
+	"shanhu.io/g/timeutil"
 )
 
 // Token is a token with an expire time.

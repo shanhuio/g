@@ -16,7 +16,7 @@
 package settings
 
 import (
-	"shanhu.io/pub/pisces"
+	"shanhu.io/g/pisces"
 )
 
 // Table is a pisces.KV based settings implementation.

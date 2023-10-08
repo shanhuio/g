@@ -23,9 +23,9 @@ import (
 	"os"
 
 	"golang.org/x/crypto/ssh"
-	"shanhu.io/pub/errcode"
-	"shanhu.io/pub/osutil"
-	"shanhu.io/pub/termutil"
+	"shanhu.io/g/errcode"
+	"shanhu.io/g/osutil"
+	"shanhu.io/g/termutil"
 )
 
 var (

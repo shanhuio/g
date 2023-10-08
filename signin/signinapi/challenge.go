@@ -16,7 +16,7 @@
 package signinapi
 
 import (
-	"shanhu.io/pub/timeutil"
+	"shanhu.io/g/timeutil"
 )
 
 // ChallengeRequest is the request to get a challenge.

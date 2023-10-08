@@ -16,7 +16,7 @@
 package caco3
 
 import (
-	"shanhu.io/pub/jsonutil"
+	"shanhu.io/g/jsonutil"
 )
 
 type dockerSum struct {

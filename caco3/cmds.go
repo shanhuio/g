@@ -20,7 +20,7 @@ import (
 	"os"
 	"os/exec"
 
-	"shanhu.io/pub/osutil"
+	"shanhu.io/g/osutil"
 )
 
 type execJob struct {

@@ -25,8 +25,8 @@ import (
 	"time"
 
 	"github.com/gorilla/websocket"
-	"shanhu.io/pub/errcode"
-	"shanhu.io/pub/rand"
+	"shanhu.io/g/errcode"
+	"shanhu.io/g/rand"
 )
 
 type endpointServer struct {

@@ -18,7 +18,7 @@ package signinapi
 import (
 	"time"
 
-	"shanhu.io/pub/timeutil"
+	"shanhu.io/g/timeutil"
 )
 
 // Creds is the response for signing in. It saves the user credentials.

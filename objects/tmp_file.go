@@ -19,7 +19,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"shanhu.io/pub/rand"
+	"shanhu.io/g/rand"
 )
 
 func createTemp(dir string) (*os.File, error) {

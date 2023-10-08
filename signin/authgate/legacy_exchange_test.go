@@ -20,13 +20,13 @@ import (
 
 	"net/http/httptest"
 
-	"shanhu.io/pub/aries"
-	"shanhu.io/pub/httputil"
-	"shanhu.io/pub/keyreg"
-	"shanhu.io/pub/keyreg/testkeys"
-	"shanhu.io/pub/rsautil"
-	"shanhu.io/pub/signer"
-	"shanhu.io/pub/signin/signinapi"
+	"shanhu.io/g/aries"
+	"shanhu.io/g/httputil"
+	"shanhu.io/g/keyreg"
+	"shanhu.io/g/keyreg/testkeys"
+	"shanhu.io/g/rsautil"
+	"shanhu.io/g/signer"
+	"shanhu.io/g/signin/signinapi"
 )
 
 func TestLegacyExchange(t *testing.T) {

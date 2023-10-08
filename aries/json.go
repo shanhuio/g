@@ -19,7 +19,7 @@ import (
 	"encoding/json"
 	"log"
 
-	"shanhu.io/pub/errcode"
+	"shanhu.io/g/errcode"
 )
 
 // ReplyJSON replies a JSON marshable object over the response.

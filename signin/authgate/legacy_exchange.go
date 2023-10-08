@@ -18,12 +18,12 @@ package authgate
 import (
 	"time"
 
-	"shanhu.io/pub/aries"
-	"shanhu.io/pub/errcode"
-	"shanhu.io/pub/keyreg"
-	"shanhu.io/pub/signer"
-	"shanhu.io/pub/signin"
-	"shanhu.io/pub/signin/signinapi"
+	"shanhu.io/g/aries"
+	"shanhu.io/g/errcode"
+	"shanhu.io/g/keyreg"
+	"shanhu.io/g/signer"
+	"shanhu.io/g/signin"
+	"shanhu.io/g/signin/signinapi"
 )
 
 // LegacyExchange handles sign in using a public key registry. The request

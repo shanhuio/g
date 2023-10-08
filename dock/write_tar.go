@@ -21,7 +21,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"shanhu.io/pub/errcode"
+	"shanhu.io/g/errcode"
 )
 
 func createFile(r io.Reader, name string, mod os.FileMode) error {

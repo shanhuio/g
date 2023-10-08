@@ -18,8 +18,8 @@ package signinapi
 import (
 	"time"
 
-	"shanhu.io/pub/signer"
-	"shanhu.io/pub/timeutil"
+	"shanhu.io/g/signer"
+	"shanhu.io/g/timeutil"
 )
 
 // Request is the request for signing in and creating a session.

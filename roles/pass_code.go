@@ -19,9 +19,9 @@ import (
 	"crypto/subtle"
 	"time"
 
-	"shanhu.io/pub/errcode"
-	"shanhu.io/pub/roles/rolesapi"
-	"shanhu.io/pub/timeutil"
+	"shanhu.io/g/errcode"
+	"shanhu.io/g/roles/rolesapi"
+	"shanhu.io/g/timeutil"
 )
 
 const passCodeMaxTries = 10

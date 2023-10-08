@@ -22,8 +22,8 @@ import (
 	"go/types"
 	"sort"
 
-	"shanhu.io/pub/dags"
-	"shanhu.io/pub/lexing"
+	"shanhu.io/g/dags"
+	"shanhu.io/g/lexing"
 )
 
 type checker struct {

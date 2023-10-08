@@ -16,7 +16,7 @@
 package gosyntax
 
 import (
-	"shanhu.io/pub/strutil"
+	"shanhu.io/g/strutil"
 )
 
 var builtInTypes = []string{

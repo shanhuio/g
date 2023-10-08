@@ -20,7 +20,7 @@ import (
 	"net/url"
 
 	"github.com/gorilla/websocket"
-	"shanhu.io/pub/errcode"
+	"shanhu.io/g/errcode"
 )
 
 // DialOption provides addition option for dialing.

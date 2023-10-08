@@ -19,7 +19,7 @@ import (
 	"fmt"
 	"io"
 
-	"shanhu.io/pub/lexing"
+	"shanhu.io/g/lexing"
 )
 
 type parser struct {

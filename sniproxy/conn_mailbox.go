@@ -20,7 +20,7 @@ import (
 	"net"
 	"sync"
 
-	"shanhu.io/pub/errcode"
+	"shanhu.io/g/errcode"
 )
 
 type connMailBox struct {

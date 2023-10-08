@@ -18,7 +18,7 @@ package pisces
 import (
 	"fmt"
 
-	"shanhu.io/pub/sqlx"
+	"shanhu.io/g/sqlx"
 )
 
 // Sqlite3CreateTable creates a table for the given table for the given

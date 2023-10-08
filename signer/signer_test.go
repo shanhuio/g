@@ -20,7 +20,7 @@ import (
 
 	"reflect"
 
-	"shanhu.io/pub/rand"
+	"shanhu.io/g/rand"
 )
 
 func testSigner(t *testing.T, k []byte) {

@@ -20,7 +20,7 @@ import (
 	"net/url"
 	"strings"
 
-	"shanhu.io/pub/httputil"
+	"shanhu.io/g/httputil"
 )
 
 // FetchGitHubKeys fetches github ssh public keys of a user.

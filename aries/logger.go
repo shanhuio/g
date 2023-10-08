@@ -21,7 +21,7 @@ import (
 	"log"
 	"os"
 
-	"shanhu.io/pub/errcode"
+	"shanhu.io/g/errcode"
 )
 
 // LogPrinter is the interface for printing server logs.

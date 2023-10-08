@@ -21,8 +21,8 @@ import (
 	"path/filepath"
 	"strings"
 
-	"shanhu.io/pub/dock"
-	"shanhu.io/pub/errcode"
+	"shanhu.io/g/dock"
+	"shanhu.io/g/errcode"
 )
 
 type env struct {

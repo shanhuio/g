@@ -18,7 +18,7 @@ package sqlx
 import (
 	"database/sql"
 
-	"shanhu.io/pub/strutil"
+	"shanhu.io/g/strutil"
 )
 
 // DB is a wrapper that extends the sql.DB structure.

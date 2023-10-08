@@ -19,8 +19,8 @@ import (
 	"context"
 
 	"golang.org/x/crypto/acme/autocert"
-	"shanhu.io/pub/errcode"
-	"shanhu.io/pub/pisces"
+	"shanhu.io/g/errcode"
+	"shanhu.io/g/pisces"
 )
 
 // CertCache is a certificate cache, backed by a database table.

@@ -22,7 +22,7 @@ import (
 	"io"
 	"strings"
 
-	"shanhu.io/pub/pathutil"
+	"shanhu.io/g/pathutil"
 )
 
 func charsetReader(charset string, r io.Reader) (io.Reader, error) {

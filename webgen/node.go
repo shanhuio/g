@@ -17,7 +17,7 @@ package webgen
 
 import (
 	"golang.org/x/net/html"
-	"shanhu.io/pub/errcode"
+	"shanhu.io/g/errcode"
 )
 
 // Node wraps around an html node.

@@ -18,7 +18,7 @@ package pisces
 import (
 	"database/sql"
 
-	"shanhu.io/pub/sqlx"
+	"shanhu.io/g/sqlx"
 )
 
 func sqlResError(res sql.Result) error {

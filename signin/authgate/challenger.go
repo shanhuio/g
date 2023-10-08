@@ -20,10 +20,10 @@ import (
 	"io"
 	"time"
 
-	"shanhu.io/pub/aries"
-	"shanhu.io/pub/signer"
-	"shanhu.io/pub/signin/signinapi"
-	"shanhu.io/pub/timeutil"
+	"shanhu.io/g/aries"
+	"shanhu.io/g/signer"
+	"shanhu.io/g/signin/signinapi"
+	"shanhu.io/g/timeutil"
 )
 
 // ChallengerConfig is the configuration to create a challenge source.

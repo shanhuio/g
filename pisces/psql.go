@@ -18,7 +18,7 @@ package pisces
 import (
 	"fmt"
 
-	"shanhu.io/pub/sqlx"
+	"shanhu.io/g/sqlx"
 )
 
 // PsqlCreateTable creates a postgres table for the given table name and

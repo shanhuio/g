@@ -18,7 +18,7 @@ package dock
 import (
 	"encoding/json"
 
-	"shanhu.io/pub/errcode"
+	"shanhu.io/g/errcode"
 )
 
 func labelFilters(label string) (string, error) {

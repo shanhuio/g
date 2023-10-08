@@ -21,7 +21,7 @@ import (
 	"fmt"
 	"net/http/httptest"
 
-	"shanhu.io/pub/httputil"
+	"shanhu.io/g/httputil"
 )
 
 type testAuth struct{}

@@ -23,9 +23,9 @@ import (
 	"net/http"
 	"net/http/httptest"
 
-	"shanhu.io/pub/aries"
-	"shanhu.io/pub/https/httpstest"
-	"shanhu.io/pub/httputil"
+	"shanhu.io/g/aries"
+	"shanhu.io/g/https/httpstest"
+	"shanhu.io/g/httputil"
 )
 
 func TestProxy(t *testing.T) {

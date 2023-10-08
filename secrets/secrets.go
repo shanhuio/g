@@ -21,7 +21,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"shanhu.io/pub/errcode"
+	"shanhu.io/g/errcode"
 )
 
 // CheckKey checks if the secret key is a valid one.

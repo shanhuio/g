@@ -21,10 +21,10 @@ import (
 	"sort"
 	"strings"
 
-	"shanhu.io/pub/dock"
-	"shanhu.io/pub/errcode"
-	"shanhu.io/pub/strutil"
-	"shanhu.io/pub/tarutil"
+	"shanhu.io/g/dock"
+	"shanhu.io/g/errcode"
+	"shanhu.io/g/strutil"
+	"shanhu.io/g/tarutil"
 )
 
 type dockerRun struct {

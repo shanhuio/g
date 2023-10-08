@@ -16,7 +16,7 @@
 package heroku
 
 import (
-	"shanhu.io/pub/aries"
+	"shanhu.io/g/aries"
 )
 
 // RedirectHTTPS redirects incoming HTTPS requests to HTTPS.

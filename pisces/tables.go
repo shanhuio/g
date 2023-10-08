@@ -18,8 +18,8 @@ package pisces
 import (
 	"fmt"
 
-	"shanhu.io/pub/errcode"
-	"shanhu.io/pub/sqlx"
+	"shanhu.io/g/errcode"
+	"shanhu.io/g/sqlx"
 )
 
 // Tables saves a set of psql tables that are backed by a postgres

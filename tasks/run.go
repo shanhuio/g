@@ -20,7 +20,7 @@ import (
 	"log"
 	"path"
 
-	"shanhu.io/pub/creds"
+	"shanhu.io/g/creds"
 )
 
 // Run issues a list of tasks to a particular server.

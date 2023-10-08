@@ -16,7 +16,7 @@
 package oauth2
 
 import (
-	"shanhu.io/pub/aries"
+	"shanhu.io/g/aries"
 )
 
 // SignUp is an HTTP module that handles user signups.

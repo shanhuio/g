@@ -24,8 +24,8 @@ import (
 	"path"
 	"reflect"
 
-	"shanhu.io/pub/osutil"
-	"shanhu.io/pub/tempfile"
+	"shanhu.io/g/osutil"
+	"shanhu.io/g/tempfile"
 )
 
 func testDiffFile(t *testing.T, f1, f2 string) bool {

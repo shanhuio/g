@@ -19,7 +19,7 @@ import (
 	"archive/zip"
 	"io"
 
-	"shanhu.io/pub/tempfile"
+	"shanhu.io/g/tempfile"
 )
 
 // OpenInTemp copies all bytes of r into a temp file, and then opens the

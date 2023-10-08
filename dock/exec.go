@@ -18,7 +18,7 @@ package dock
 import (
 	"io"
 
-	"shanhu.io/pub/errcode"
+	"shanhu.io/g/errcode"
 )
 
 // ExecSetup contains the setup arguments to run a command inside a running

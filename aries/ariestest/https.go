@@ -18,8 +18,8 @@ package ariestest
 import (
 	"sort"
 
-	"shanhu.io/pub/aries"
-	"shanhu.io/pub/https/httpstest"
+	"shanhu.io/g/aries"
+	"shanhu.io/g/https/httpstest"
 )
 
 // HTTPSServers creates an HTTPS server that serves a set of

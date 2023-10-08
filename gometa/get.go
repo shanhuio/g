@@ -22,7 +22,7 @@ import (
 	"path"
 	"strings"
 
-	"shanhu.io/pub/pathutil"
+	"shanhu.io/g/pathutil"
 )
 
 func getBitBucketRepoType(c *http.Client, pkgParts []string) (

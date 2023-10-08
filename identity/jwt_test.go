@@ -21,7 +21,7 @@ import (
 
 	"time"
 
-	"shanhu.io/pub/jwt"
+	"shanhu.io/g/jwt"
 )
 
 func TestJWT(t *testing.T) {

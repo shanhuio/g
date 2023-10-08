@@ -21,7 +21,7 @@ import (
 
 	"time"
 
-	"shanhu.io/pub/rand"
+	"shanhu.io/g/rand"
 )
 
 func TestHS256(t *testing.T) {

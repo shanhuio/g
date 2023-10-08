@@ -24,7 +24,7 @@ import (
 	"strings"
 	"sync"
 
-	"shanhu.io/pub/netutil"
+	"shanhu.io/g/netutil"
 )
 
 type proxy struct {

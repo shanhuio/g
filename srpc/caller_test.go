@@ -21,8 +21,8 @@ import (
 	"net/url"
 	"testing"
 
-	"shanhu.io/pub/aries"
-	"shanhu.io/pub/srpc"
+	"shanhu.io/g/aries"
+	"shanhu.io/g/srpc"
 )
 
 func TestCaller(t *testing.T) {

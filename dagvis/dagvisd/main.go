@@ -16,7 +16,7 @@
 package main
 
 import (
-	"shanhu.io/pub/dagvis"
+	"shanhu.io/g/dagvis"
 )
 
 func main() { dagvis.Main() }

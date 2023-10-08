@@ -18,9 +18,9 @@ package oauth2
 import (
 	"time"
 
-	"shanhu.io/pub/aries"
-	"shanhu.io/pub/errcode"
-	"shanhu.io/pub/keyreg"
+	"shanhu.io/g/aries"
+	"shanhu.io/g/errcode"
+	"shanhu.io/g/keyreg"
 )
 
 // JSONConfig is a JSON marshallable config that is commonly used for

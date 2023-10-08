@@ -27,8 +27,8 @@ import (
 
 	minio "github.com/minio/minio-go/v7"
 	creds "github.com/minio/minio-go/v7/pkg/credentials"
-	"shanhu.io/pub/errcode"
-	"shanhu.io/pub/httputil"
+	"shanhu.io/g/errcode"
+	"shanhu.io/g/httputil"
 )
 
 func makeMinioClient(conf *Config, cred *Credential) (*minio.Client, error) {

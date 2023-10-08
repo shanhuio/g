@@ -16,7 +16,7 @@
 package rolesapi
 
 import (
-	"shanhu.io/pub/timeutil"
+	"shanhu.io/g/timeutil"
 )
 
 // Role contains the roles meta information.

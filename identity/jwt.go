@@ -24,9 +24,9 @@ import (
 	"encoding/pem"
 	"time"
 
-	"shanhu.io/pub/errcode"
-	"shanhu.io/pub/jwt"
-	"shanhu.io/pub/rsautil"
+	"shanhu.io/g/errcode"
+	"shanhu.io/g/jwt"
+	"shanhu.io/g/rsautil"
 )
 
 type jwtSigner struct {

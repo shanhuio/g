@@ -18,7 +18,7 @@ package pisces
 import (
 	"errors"
 
-	"shanhu.io/pub/errcode"
+	"shanhu.io/g/errcode"
 )
 
 // ErrCancel is the error when the operation is canclled.

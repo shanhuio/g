@@ -18,7 +18,7 @@ package sqlx
 import (
 	"fmt"
 
-	"shanhu.io/pub/errcode"
+	"shanhu.io/g/errcode"
 )
 
 type queryError struct {

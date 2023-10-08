@@ -24,9 +24,9 @@ import (
 	"sort"
 	"strings"
 
-	"shanhu.io/pub/errcode"
-	"shanhu.io/pub/idutil"
-	"shanhu.io/pub/osutil"
+	"shanhu.io/g/errcode"
+	"shanhu.io/g/idutil"
+	"shanhu.io/g/osutil"
 )
 
 func currentGitCommit(dir string) (string, error) {

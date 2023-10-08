@@ -19,7 +19,7 @@ import (
 	"fmt"
 	"strings"
 
-	"shanhu.io/pub/signer"
+	"shanhu.io/g/signer"
 )
 
 // Bearer returns the authorization token.

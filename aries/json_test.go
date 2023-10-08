@@ -20,8 +20,8 @@ import (
 
 	"net/http/httptest"
 
-	"shanhu.io/pub/errcode"
-	"shanhu.io/pub/httputil"
+	"shanhu.io/g/errcode"
+	"shanhu.io/g/httputil"
 )
 
 func TestJSONString(t *testing.T) {

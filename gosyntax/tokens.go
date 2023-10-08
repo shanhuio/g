@@ -19,7 +19,7 @@ import (
 	"go/scanner"
 	"go/token"
 
-	"shanhu.io/pub/syntax"
+	"shanhu.io/g/syntax"
 )
 
 func tokType(t token.Token, lit string) string {

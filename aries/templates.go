@@ -19,7 +19,7 @@ import (
 	"html/template"
 	"path/filepath"
 
-	"shanhu.io/pub/strutil"
+	"shanhu.io/g/strutil"
 )
 
 // Templates is a collection of templates.

@@ -21,12 +21,12 @@ import (
 	"path/filepath"
 
 	lintpkg "golang.org/x/lint"
-	"shanhu.io/pub/errcode"
-	"shanhu.io/pub/gocheck"
-	"shanhu.io/pub/goload"
-	"shanhu.io/pub/gomod"
-	"shanhu.io/pub/gotags"
-	"shanhu.io/pub/lexing"
+	"shanhu.io/g/errcode"
+	"shanhu.io/g/gocheck"
+	"shanhu.io/g/goload"
+	"shanhu.io/g/gomod"
+	"shanhu.io/g/gotags"
+	"shanhu.io/g/lexing"
 )
 
 func smlchkPkg(c *context, pkg *relPkg) []*lexing.Error {

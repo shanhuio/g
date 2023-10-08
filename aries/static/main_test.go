@@ -18,8 +18,8 @@ package static
 import (
 	"testing"
 
-	"shanhu.io/pub/aries/ariestest"
-	"shanhu.io/pub/httputil"
+	"shanhu.io/g/aries/ariestest"
+	"shanhu.io/g/httputil"
 )
 
 func TestMain(t *testing.T) {

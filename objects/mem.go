@@ -20,7 +20,7 @@ import (
 	"io"
 	"sync"
 
-	"shanhu.io/pub/hashutil"
+	"shanhu.io/g/hashutil"
 )
 
 type mem struct {

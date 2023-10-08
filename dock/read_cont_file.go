@@ -20,7 +20,7 @@ import (
 	"bytes"
 	"io"
 
-	"shanhu.io/pub/errcode"
+	"shanhu.io/g/errcode"
 )
 
 // ReadContFile reads out a single file from a container.

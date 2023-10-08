@@ -24,8 +24,8 @@ import (
 	"sort"
 	"strings"
 
-	"shanhu.io/pub/gomod"
-	"shanhu.io/pub/pathutil"
+	"shanhu.io/g/gomod"
+	"shanhu.io/g/pathutil"
 )
 
 // ScanOptions provides the options for scanning a Go language repository.

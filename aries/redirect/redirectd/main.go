@@ -16,7 +16,7 @@
 package main
 
 import (
-	"shanhu.io/pub/aries/redirect"
+	"shanhu.io/g/aries/redirect"
 )
 
 func main() { redirect.Main() }

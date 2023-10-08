@@ -23,11 +23,11 @@ import (
 	"sync"
 	"time"
 
-	"shanhu.io/pub/errcode"
-	"shanhu.io/pub/httputil"
-	"shanhu.io/pub/signer"
-	"shanhu.io/pub/signin/signinapi"
-	"shanhu.io/pub/timeutil"
+	"shanhu.io/g/errcode"
+	"shanhu.io/g/httputil"
+	"shanhu.io/g/signer"
+	"shanhu.io/g/signin/signinapi"
+	"shanhu.io/g/timeutil"
 )
 
 type signInRequest struct {

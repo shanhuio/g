@@ -18,9 +18,9 @@ package caco3
 import (
 	"time"
 
-	"shanhu.io/pub/errcode"
-	"shanhu.io/pub/pisces"
-	"shanhu.io/pub/timeutil"
+	"shanhu.io/g/errcode"
+	"shanhu.io/g/pisces"
+	"shanhu.io/g/timeutil"
 
 	_ "modernc.org/sqlite" // sqlite db driver
 )

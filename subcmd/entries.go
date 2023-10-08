@@ -21,7 +21,7 @@ import (
 	"os"
 	"sort"
 
-	"shanhu.io/pub/httputil"
+	"shanhu.io/g/httputil"
 )
 
 type command struct {

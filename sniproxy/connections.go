@@ -19,7 +19,7 @@ import (
 	"fmt"
 	"sync"
 
-	"shanhu.io/pub/errcode"
+	"shanhu.io/g/errcode"
 )
 
 type connections struct {

@@ -21,7 +21,7 @@ import (
 	"bytes"
 	"os"
 
-	"shanhu.io/pub/tempfile"
+	"shanhu.io/g/tempfile"
 )
 
 func TestOpenInTemp(t *testing.T) {

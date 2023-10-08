@@ -23,11 +23,11 @@ import (
 	"crypto/sha256"
 	"time"
 
-	"shanhu.io/pub/errcode"
-	"shanhu.io/pub/hashutil"
-	"shanhu.io/pub/jwt"
-	"shanhu.io/pub/rsautil"
-	"shanhu.io/pub/timeutil"
+	"shanhu.io/g/errcode"
+	"shanhu.io/g/hashutil"
+	"shanhu.io/g/jwt"
+	"shanhu.io/g/rsautil"
+	"shanhu.io/g/timeutil"
 )
 
 type simpleData struct {

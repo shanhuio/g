@@ -22,10 +22,10 @@ import (
 	"io/ioutil"
 	"log"
 
-	"shanhu.io/pub/aries"
-	"shanhu.io/pub/dags"
-	"shanhu.io/pub/errcode"
-	"shanhu.io/pub/osutil"
+	"shanhu.io/g/aries"
+	"shanhu.io/g/dags"
+	"shanhu.io/g/errcode"
+	"shanhu.io/g/osutil"
 )
 
 type server struct {

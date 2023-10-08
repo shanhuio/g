@@ -19,8 +19,8 @@ import (
 	"net/url"
 	"strings"
 
-	"shanhu.io/pub/aries"
-	"shanhu.io/pub/errcode"
+	"shanhu.io/g/aries"
+	"shanhu.io/g/errcode"
 )
 
 // ParseRedirect parses an in-site redirection URL.

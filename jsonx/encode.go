@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"io"
 
-	"shanhu.io/pub/errcode"
+	"shanhu.io/g/errcode"
 )
 
 func writeString(w io.Writer, s string) error {

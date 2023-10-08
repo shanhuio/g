@@ -22,10 +22,10 @@ import (
 	"path/filepath"
 	"strings"
 
-	"shanhu.io/pub/dock"
-	"shanhu.io/pub/errcode"
-	"shanhu.io/pub/lexing"
-	"shanhu.io/pub/osutil"
+	"shanhu.io/g/dock"
+	"shanhu.io/g/errcode"
+	"shanhu.io/g/lexing"
+	"shanhu.io/g/osutil"
 )
 
 // Config provide the configuration to start a builder.

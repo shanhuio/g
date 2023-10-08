@@ -22,7 +22,7 @@ import (
 	"path/filepath"
 
 	_ "modernc.org/sqlite" // sqlite db driver
-	"shanhu.io/pub/sqlx"
+	"shanhu.io/g/sqlx"
 )
 
 func TestSqlite3KV(t *testing.T) {

@@ -20,9 +20,9 @@ import (
 	"log"
 	"strings"
 
-	"shanhu.io/pub/dock"
-	"shanhu.io/pub/errcode"
-	"shanhu.io/pub/jsonutil"
+	"shanhu.io/g/dock"
+	"shanhu.io/g/errcode"
+	"shanhu.io/g/jsonutil"
 )
 
 type dockerPull struct {

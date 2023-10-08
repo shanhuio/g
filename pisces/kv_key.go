@@ -18,7 +18,7 @@ package pisces
 import (
 	"fmt"
 
-	"shanhu.io/pub/hashutil"
+	"shanhu.io/g/hashutil"
 )
 
 // MaxKeyLen is the maximum length of a hashed KV.

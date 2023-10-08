@@ -18,7 +18,7 @@ package dock
 import (
 	"path"
 
-	"shanhu.io/pub/errcode"
+	"shanhu.io/g/errcode"
 )
 
 // VolumeConfig is the configuration of a new volume.

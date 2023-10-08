@@ -22,8 +22,8 @@ import (
 	"sort"
 	"strings"
 
-	"shanhu.io/pub/goenv"
-	"shanhu.io/pub/goload"
+	"shanhu.io/g/goenv"
+	"shanhu.io/g/goload"
 )
 
 func absGOPATH() (string, error) {

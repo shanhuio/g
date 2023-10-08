@@ -18,7 +18,7 @@ package jsonx
 import (
 	"strconv"
 
-	"shanhu.io/pub/lexing"
+	"shanhu.io/g/lexing"
 )
 
 func parseStringValue(p *parser, t *lexing.Token) string {

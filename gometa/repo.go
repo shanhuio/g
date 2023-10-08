@@ -21,8 +21,8 @@ import (
 	"net/http"
 	"strings"
 
-	"shanhu.io/pub/aries"
-	"shanhu.io/pub/errcode"
+	"shanhu.io/g/aries"
+	"shanhu.io/g/errcode"
 )
 
 // Repo is a Golang repository that this handler will handle.

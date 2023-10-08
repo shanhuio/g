@@ -18,8 +18,8 @@ package oauth2
 import (
 	"github.com/digitalocean/godo"
 	"golang.org/x/oauth2"
-	"shanhu.io/pub/aries"
-	"shanhu.io/pub/signer"
+	"shanhu.io/g/aries"
+	"shanhu.io/g/signer"
 )
 
 type digitalOcean struct{ c *Client }

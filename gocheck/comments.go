@@ -22,7 +22,7 @@ import (
 	"io/ioutil"
 	"strings"
 
-	"shanhu.io/pub/lexing"
+	"shanhu.io/g/lexing"
 )
 
 func validLineCommentContent(s string) bool {

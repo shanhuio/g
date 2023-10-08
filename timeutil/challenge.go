@@ -20,7 +20,7 @@ import (
 	"io"
 	"time"
 
-	"shanhu.io/pub/errcode"
+	"shanhu.io/g/errcode"
 )
 
 // Challenge is a timestamp with a crypto random nonce. A server can provide

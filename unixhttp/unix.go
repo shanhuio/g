@@ -20,7 +20,7 @@ import (
 	"net/http"
 	"os"
 
-	"shanhu.io/pub/osutil"
+	"shanhu.io/g/osutil"
 )
 
 // Listen creates a listener at the given unix domain socket address.

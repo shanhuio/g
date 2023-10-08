@@ -23,7 +23,7 @@ import (
 	"log"
 	"os"
 
-	"shanhu.io/pub/errcode"
+	"shanhu.io/g/errcode"
 )
 
 type progressDetail struct {

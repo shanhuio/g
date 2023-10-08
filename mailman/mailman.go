@@ -26,11 +26,11 @@ import (
 	"time"
 
 	goauth2 "golang.org/x/oauth2"
-	"shanhu.io/pub/aries"
-	"shanhu.io/pub/errcode"
-	"shanhu.io/pub/httputil"
-	"shanhu.io/pub/oauth2"
-	"shanhu.io/pub/signer"
+	"shanhu.io/g/aries"
+	"shanhu.io/g/errcode"
+	"shanhu.io/g/httputil"
+	"shanhu.io/g/oauth2"
+	"shanhu.io/g/signer"
 )
 
 // Tokens is an interface that gets and fetches an OAuth2 refresh token.

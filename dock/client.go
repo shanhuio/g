@@ -20,7 +20,7 @@ import (
 	"net/http"
 	"net/url"
 
-	"shanhu.io/pub/httputil"
+	"shanhu.io/g/httputil"
 )
 
 // Socket is the default socket location.

@@ -22,7 +22,7 @@ import (
 	"net/url"
 	"strings"
 
-	"shanhu.io/pub/errcode"
+	"shanhu.io/g/errcode"
 )
 
 func makeTokenRequest(host, id, secret string) *http.Request {

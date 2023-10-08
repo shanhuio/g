@@ -16,7 +16,7 @@
 package oauth2
 
 import (
-	"shanhu.io/pub/aries"
+	"shanhu.io/g/aries"
 )
 
 // UserMeta returns the meta data returned by a sign in.

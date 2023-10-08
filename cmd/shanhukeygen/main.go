@@ -20,10 +20,10 @@ import (
 	"log"
 	"os"
 
-	"shanhu.io/pub/errcode"
-	"shanhu.io/pub/osutil"
-	"shanhu.io/pub/rsautil"
-	"shanhu.io/pub/termutil"
+	"shanhu.io/g/errcode"
+	"shanhu.io/g/osutil"
+	"shanhu.io/g/rsautil"
+	"shanhu.io/g/termutil"
 )
 
 type config struct {

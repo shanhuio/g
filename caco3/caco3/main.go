@@ -16,7 +16,7 @@
 package main
 
 import (
-	"shanhu.io/pub/caco3/caco3bin"
+	"shanhu.io/g/caco3/caco3bin"
 )
 
 func main() { caco3bin.Main() }

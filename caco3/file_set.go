@@ -23,9 +23,9 @@ import (
 	"sort"
 	"strings"
 
-	"shanhu.io/pub/errcode"
-	"shanhu.io/pub/jsonutil"
-	"shanhu.io/pub/strutil"
+	"shanhu.io/g/errcode"
+	"shanhu.io/g/jsonutil"
+	"shanhu.io/g/strutil"
 )
 
 func listAllFiles(dir string) ([]string, error) {

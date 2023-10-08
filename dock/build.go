@@ -20,8 +20,8 @@ import (
 	"io"
 	"net/url"
 
-	"shanhu.io/pub/errcode"
-	"shanhu.io/pub/tarutil"
+	"shanhu.io/g/errcode"
+	"shanhu.io/g/tarutil"
 )
 
 // BuildConfig is the configuration for building an image.

@@ -22,7 +22,7 @@ import (
 	"net/url"
 	"time"
 
-	"shanhu.io/pub/signin/signinapi"
+	"shanhu.io/g/signin/signinapi"
 )
 
 // Creds is the credential that is cached after logging in. This can also be

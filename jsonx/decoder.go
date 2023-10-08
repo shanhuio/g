@@ -22,8 +22,8 @@ import (
 	"io"
 	"os"
 
-	"shanhu.io/pub/errcode"
-	"shanhu.io/pub/lexing"
+	"shanhu.io/g/errcode"
+	"shanhu.io/g/lexing"
 )
 
 // Decoder is a decoder that is capable of parsing a stream.

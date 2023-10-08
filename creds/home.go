@@ -22,8 +22,8 @@ import (
 	"os/user"
 	"path/filepath"
 
-	"shanhu.io/pub/jsonutil"
-	"shanhu.io/pub/osutil"
+	"shanhu.io/g/jsonutil"
+	"shanhu.io/g/osutil"
 )
 
 const homeDir = ".shanhu"

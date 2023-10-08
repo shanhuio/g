@@ -1,4 +1,4 @@
-module shanhu.io/pub
+module shanhu.io/g
 
 go 1.21
 

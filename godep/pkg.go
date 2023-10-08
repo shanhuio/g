@@ -22,7 +22,7 @@ import (
 	"strings"
 
 	"golang.org/x/tools/go/buildutil"
-	"shanhu.io/pub/dags"
+	"shanhu.io/g/dags"
 )
 
 func skipPkg(p string) bool {

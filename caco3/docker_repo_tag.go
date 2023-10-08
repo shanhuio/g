@@ -18,7 +18,7 @@ package caco3
 import (
 	"fmt"
 
-	"shanhu.io/pub/dock"
+	"shanhu.io/g/dock"
 )
 
 func parseRepoTag(repoTag string) (string, string) {

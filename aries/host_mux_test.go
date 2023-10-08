@@ -18,8 +18,8 @@ package aries
 import (
 	"testing"
 
-	"shanhu.io/pub/https/httpstest"
-	"shanhu.io/pub/httputil"
+	"shanhu.io/g/https/httpstest"
+	"shanhu.io/g/httputil"
 )
 
 func TestHostMux(t *testing.T) {

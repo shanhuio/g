@@ -22,8 +22,8 @@ import (
 	"log"
 	"os"
 
-	"shanhu.io/pub/dags"
-	"shanhu.io/pub/errcode"
+	"shanhu.io/g/dags"
+	"shanhu.io/g/errcode"
 )
 
 func readInput(in string) ([]byte, error) {

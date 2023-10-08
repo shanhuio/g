@@ -18,8 +18,8 @@ package objects
 import (
 	"testing"
 
-	"shanhu.io/pub/errcode"
-	"shanhu.io/pub/hashutil"
+	"shanhu.io/g/errcode"
+	"shanhu.io/g/hashutil"
 )
 
 func testStore(t *testing.T, s Store) {

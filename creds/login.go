@@ -21,9 +21,9 @@ import (
 	"net/url"
 	"time"
 
-	"shanhu.io/pub/errcode"
-	"shanhu.io/pub/httputil"
-	"shanhu.io/pub/timeutil"
+	"shanhu.io/g/errcode"
+	"shanhu.io/g/httputil"
+	"shanhu.io/g/timeutil"
 )
 
 // LoginWithKey uses the given PEM file to login a server, and returns the creds

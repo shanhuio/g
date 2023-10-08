@@ -22,7 +22,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"shanhu.io/pub/https"
+	"shanhu.io/g/https"
 )
 
 // TLSConfigs creates the certificate setup required for a set of domains.

@@ -25,7 +25,7 @@ import (
 	"fmt"
 	"time"
 
-	"shanhu.io/pub/rsautil"
+	"shanhu.io/g/rsautil"
 )
 
 // SignedRSABlock is a signed RSA block.

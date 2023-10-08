@@ -18,7 +18,7 @@ package errcodetest
 import (
 	"testing"
 
-	"shanhu.io/pub/errcode"
+	"shanhu.io/g/errcode"
 )
 
 // CheckError checks whether the error has expected error code for tests

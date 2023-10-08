@@ -19,7 +19,7 @@ import (
 	"fmt"
 	"log"
 
-	"shanhu.io/pub/errcode"
+	"shanhu.io/g/errcode"
 )
 
 // RunTask runs a command line.

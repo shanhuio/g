@@ -20,8 +20,8 @@ import (
 	"path/filepath"
 	"sync"
 
-	"shanhu.io/pub/errcode"
-	"shanhu.io/pub/rsautil"
+	"shanhu.io/g/errcode"
+	"shanhu.io/g/rsautil"
 )
 
 func errUserNotFound(u string) error {

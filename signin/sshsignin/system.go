@@ -21,7 +21,7 @@ import (
 	osuser "os/user"
 
 	"golang.org/x/crypto/ssh/agent"
-	"shanhu.io/pub/errcode"
+	"shanhu.io/g/errcode"
 )
 
 // SysUser returns the default system user. It returns the value of

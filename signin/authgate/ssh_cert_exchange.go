@@ -21,13 +21,13 @@ import (
 	"time"
 
 	"golang.org/x/crypto/ssh"
-	"shanhu.io/pub/aries"
-	"shanhu.io/pub/errcode"
-	"shanhu.io/pub/rsautil"
-	"shanhu.io/pub/signer"
-	"shanhu.io/pub/signin"
-	"shanhu.io/pub/signin/signinapi"
-	"shanhu.io/pub/timeutil"
+	"shanhu.io/g/aries"
+	"shanhu.io/g/errcode"
+	"shanhu.io/g/rsautil"
+	"shanhu.io/g/signer"
+	"shanhu.io/g/signin"
+	"shanhu.io/g/signin/signinapi"
+	"shanhu.io/g/timeutil"
 )
 
 // SSHCertExchangeConfig is the configuration to create an SSH certificate

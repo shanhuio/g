@@ -16,8 +16,8 @@
 package caco3bin
 
 import (
-	"shanhu.io/pub/caco3"
-	"shanhu.io/pub/flagutil"
+	"shanhu.io/g/caco3"
+	"shanhu.io/g/flagutil"
 )
 
 var cmdFlags = flagutil.NewFactory("caco3")

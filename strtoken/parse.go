@@ -23,7 +23,7 @@ import (
 	"strconv"
 	"strings"
 
-	"shanhu.io/pub/lexing"
+	"shanhu.io/g/lexing"
 )
 
 func lexShell(x *lexing.Lexer) *lexing.Token {

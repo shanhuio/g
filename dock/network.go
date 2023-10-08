@@ -18,7 +18,7 @@ package dock
 import (
 	"path"
 
-	"shanhu.io/pub/errcode"
+	"shanhu.io/g/errcode"
 )
 
 // CreateNetwork creates a network with the given name.

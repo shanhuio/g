@@ -18,13 +18,13 @@ package authgate
 import (
 	"time"
 
-	"shanhu.io/pub/aries"
-	"shanhu.io/pub/errcode"
-	"shanhu.io/pub/identity"
-	"shanhu.io/pub/jwt"
-	"shanhu.io/pub/signin"
-	"shanhu.io/pub/signin/signinapi"
-	"shanhu.io/pub/timeutil"
+	"shanhu.io/g/aries"
+	"shanhu.io/g/errcode"
+	"shanhu.io/g/identity"
+	"shanhu.io/g/jwt"
+	"shanhu.io/g/signin"
+	"shanhu.io/g/signin/signinapi"
+	"shanhu.io/g/timeutil"
 )
 
 // ExchangeConfig is the config for creating an session exchanger

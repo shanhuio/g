@@ -21,10 +21,10 @@ import (
 	"path"
 	"strings"
 
-	"shanhu.io/pub/aries"
-	"shanhu.io/pub/errcode"
-	"shanhu.io/pub/httputil"
-	"shanhu.io/pub/strutil"
+	"shanhu.io/g/aries"
+	"shanhu.io/g/errcode"
+	"shanhu.io/g/httputil"
+	"shanhu.io/g/strutil"
 )
 
 // Config contiains configuration for the paypal module.

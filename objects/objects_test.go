@@ -21,8 +21,8 @@ import (
 	"bytes"
 	"io"
 
-	"shanhu.io/pub/errcode"
-	"shanhu.io/pub/hashutil"
+	"shanhu.io/g/errcode"
+	"shanhu.io/g/hashutil"
 )
 
 func testObjects(t *testing.T, b Objects) {

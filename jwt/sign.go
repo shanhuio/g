@@ -20,7 +20,7 @@ import (
 	"context"
 	"io"
 
-	"shanhu.io/pub/errcode"
+	"shanhu.io/g/errcode"
 )
 
 // Signer signs the token, returns the signature and the header.

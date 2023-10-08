@@ -18,9 +18,9 @@ package roles
 import (
 	"time"
 
-	"shanhu.io/pub/aries"
-	"shanhu.io/pub/signin"
-	"shanhu.io/pub/signin/signinapi"
+	"shanhu.io/g/aries"
+	"shanhu.io/g/signin"
+	"shanhu.io/g/signin/signinapi"
 )
 
 // SignInRequest signs in with a self-signed token.

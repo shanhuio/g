@@ -16,7 +16,7 @@
 package main
 
 import (
-	"shanhu.io/pub/aries/static"
+	"shanhu.io/g/aries/static"
 )
 
 func main() { static.Main() }

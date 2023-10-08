@@ -16,7 +16,7 @@
 package identity
 
 import (
-	"shanhu.io/pub/aries"
+	"shanhu.io/g/aries"
 )
 
 type service struct {

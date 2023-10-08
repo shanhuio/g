@@ -22,8 +22,8 @@ import (
 	"reflect"
 	"strings"
 
-	"shanhu.io/pub/aries"
-	"shanhu.io/pub/aries/ariestest"
+	"shanhu.io/g/aries"
+	"shanhu.io/g/aries/ariestest"
 )
 
 type testServer struct {

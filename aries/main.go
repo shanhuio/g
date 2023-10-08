@@ -26,7 +26,7 @@ import (
 	"os"
 	"strings"
 
-	"shanhu.io/pub/unixhttp"
+	"shanhu.io/g/unixhttp"
 )
 
 // ListenAndServe serves on the address. If the address ends

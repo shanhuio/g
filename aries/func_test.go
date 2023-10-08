@@ -20,7 +20,7 @@ import (
 
 	"net/http/httptest"
 
-	"shanhu.io/pub/httputil"
+	"shanhu.io/g/httputil"
 )
 
 func TestFunc(t *testing.T) {

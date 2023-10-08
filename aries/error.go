@@ -16,7 +16,7 @@
 package aries
 
 import (
-	"shanhu.io/pub/errcode"
+	"shanhu.io/g/errcode"
 )
 
 const nothingHere = "nothing here"

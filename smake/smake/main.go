@@ -16,7 +16,7 @@
 package main
 
 import (
-	"shanhu.io/pub/smake"
+	"shanhu.io/g/smake"
 )
 
 func main() { smake.Main() }

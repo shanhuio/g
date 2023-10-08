@@ -21,9 +21,9 @@ import (
 	"context"
 	"time"
 
-	"shanhu.io/pub/identity"
-	"shanhu.io/pub/pisces"
-	"shanhu.io/pub/timeutil"
+	"shanhu.io/g/identity"
+	"shanhu.io/g/pisces"
+	"shanhu.io/g/timeutil"
 )
 
 func TestRoles(t *testing.T) {

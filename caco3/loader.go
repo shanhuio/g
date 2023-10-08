@@ -20,8 +20,8 @@ import (
 	"os"
 	"sort"
 
-	"shanhu.io/pub/errcode"
-	"shanhu.io/pub/lexing"
+	"shanhu.io/g/errcode"
+	"shanhu.io/g/lexing"
 )
 
 type loader struct {

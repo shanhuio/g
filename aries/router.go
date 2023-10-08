@@ -18,8 +18,8 @@ package aries
 import (
 	"net/http"
 
-	"shanhu.io/pub/errcode"
-	"shanhu.io/pub/trie"
+	"shanhu.io/g/errcode"
+	"shanhu.io/g/trie"
 )
 
 // Router is a path router. Similar to mux, but routing base on

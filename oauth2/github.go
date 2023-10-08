@@ -20,9 +20,9 @@ import (
 	"fmt"
 
 	"golang.org/x/oauth2"
-	"shanhu.io/pub/aries"
-	"shanhu.io/pub/signer"
-	"shanhu.io/pub/strutil"
+	"shanhu.io/g/aries"
+	"shanhu.io/g/signer"
+	"shanhu.io/g/strutil"
 )
 
 type gitHub struct {

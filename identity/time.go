@@ -18,7 +18,7 @@ package identity
 import (
 	"time"
 
-	"shanhu.io/pub/errcode"
+	"shanhu.io/g/errcode"
 )
 
 func publicKeyValid(k *PublicKey, now time.Time) error {

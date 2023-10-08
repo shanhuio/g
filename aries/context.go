@@ -21,7 +21,7 @@ import (
 	"strings"
 	"time"
 
-	"shanhu.io/pub/errcode"
+	"shanhu.io/g/errcode"
 )
 
 // C provides the request context for a web application.

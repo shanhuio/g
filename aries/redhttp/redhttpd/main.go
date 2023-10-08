@@ -16,7 +16,7 @@
 package main
 
 import (
-	"shanhu.io/pub/aries/redhttp"
+	"shanhu.io/g/aries/redhttp"
 )
 
 func main() { redhttp.Main() }

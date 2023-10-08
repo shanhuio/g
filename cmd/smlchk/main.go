@@ -20,9 +20,9 @@ import (
 	"fmt"
 	"os"
 
-	"shanhu.io/pub/gocheck"
-	"shanhu.io/pub/goload"
-	"shanhu.io/pub/lexing"
+	"shanhu.io/g/gocheck"
+	"shanhu.io/g/goload"
+	"shanhu.io/g/lexing"
 )
 
 func errExit(err error) {

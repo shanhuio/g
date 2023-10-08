@@ -20,8 +20,8 @@ import (
 	"go/token"
 
 	"golang.org/x/tools/go/packages"
-	"shanhu.io/pub/errcode"
-	"shanhu.io/pub/lexing"
+	"shanhu.io/g/errcode"
+	"shanhu.io/g/lexing"
 )
 
 // ModCheckAll performs all checks on the package.

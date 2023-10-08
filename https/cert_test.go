@@ -18,7 +18,7 @@ package https
 import (
 	"testing"
 
-	"shanhu.io/pub/errcode"
+	"shanhu.io/g/errcode"
 )
 
 func TestNewCACert(t *testing.T) {

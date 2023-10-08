@@ -24,9 +24,9 @@ import (
 	"io"
 	"time"
 
-	"shanhu.io/pub/errcode"
-	"shanhu.io/pub/rand"
-	"shanhu.io/pub/timeutil"
+	"shanhu.io/g/errcode"
+	"shanhu.io/g/rand"
+	"shanhu.io/g/timeutil"
 )
 
 // Signer is a signer that contains a secrect key.

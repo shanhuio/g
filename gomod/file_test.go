@@ -25,7 +25,7 @@ func TestModulePath(t *testing.T) {
 	}{
 		{`module shanhu.io/pub`, "shanhu.io/pub"},
 		{"  module    shanhu.io/pub\t\t\t\n\nextra", "shanhu.io/pub"},
-		{`module "shanhu.io/pub/v1"`, "shanhu.io/pub/v1"},
+		{`module "shanhu.io/g/v1"`, "shanhu.io/g/v1"},
 		{`module "shanhu.io/pub"`, "shanhu.io/pub"},
 		{"// comment\nmodule x // tail\nnext line", "x"},
 		{"module `x` // tail", "x"},

@@ -24,7 +24,7 @@ import (
 	"net/url"
 	"path/filepath"
 
-	"shanhu.io/pub/httputil"
+	"shanhu.io/g/httputil"
 )
 
 func TestDefaultAddr(t *testing.T) {

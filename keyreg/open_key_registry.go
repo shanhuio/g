@@ -18,7 +18,7 @@ package keyreg
 import (
 	"net/url"
 
-	"shanhu.io/pub/errcode"
+	"shanhu.io/g/errcode"
 )
 
 // OpenKeyRegistry connects to a keystore based on the given URL string.

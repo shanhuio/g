@@ -19,7 +19,7 @@ import (
 	"context"
 	"time"
 
-	"shanhu.io/pub/timeutil"
+	"shanhu.io/g/timeutil"
 )
 
 // Tokener in an interface that issues token for authentication.

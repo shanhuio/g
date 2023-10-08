@@ -16,7 +16,7 @@
 package nameutil
 
 import (
-	"shanhu.io/pub/errcode"
+	"shanhu.io/g/errcode"
 )
 
 // CheckLabel checks whether a string can be safely used as a

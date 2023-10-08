@@ -18,9 +18,9 @@ package caco3
 import (
 	"path/filepath"
 
-	"shanhu.io/pub/jsonx"
-	"shanhu.io/pub/lexing"
-	"shanhu.io/pub/osutil"
+	"shanhu.io/g/jsonx"
+	"shanhu.io/g/lexing"
+	"shanhu.io/g/osutil"
 )
 
 const buildFileName = "BUILD.caco3"

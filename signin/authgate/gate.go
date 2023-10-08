@@ -18,10 +18,10 @@ package authgate
 import (
 	"time"
 
-	"shanhu.io/pub/aries"
-	"shanhu.io/pub/signer"
-	"shanhu.io/pub/signin"
-	"shanhu.io/pub/timeutil"
+	"shanhu.io/g/aries"
+	"shanhu.io/g/signer"
+	"shanhu.io/g/signin"
+	"shanhu.io/g/timeutil"
 )
 
 const cookieKey = "session"

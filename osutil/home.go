@@ -20,7 +20,7 @@ import (
 	"path"
 	"path/filepath"
 
-	"shanhu.io/pub/errcode"
+	"shanhu.io/g/errcode"
 )
 
 // Home is a directory for referecing files under a directory.

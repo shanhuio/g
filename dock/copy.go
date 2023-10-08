@@ -18,8 +18,8 @@ package dock
 import (
 	"os"
 
-	"shanhu.io/pub/errcode"
-	"shanhu.io/pub/tarutil"
+	"shanhu.io/g/errcode"
+	"shanhu.io/g/tarutil"
 )
 
 // CopyInTarGz copies a gzipped tarball into the container.

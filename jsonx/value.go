@@ -16,7 +16,7 @@
 package jsonx
 
 import (
-	"shanhu.io/pub/lexing"
+	"shanhu.io/g/lexing"
 )
 
 type value interface{}

@@ -21,8 +21,8 @@ import (
 	"sync"
 	"time"
 
-	"shanhu.io/pub/errcode"
-	"shanhu.io/pub/httputil"
+	"shanhu.io/g/errcode"
+	"shanhu.io/g/httputil"
 )
 
 // RemoteCard is a remote identity.

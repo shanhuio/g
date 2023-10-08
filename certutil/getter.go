@@ -23,7 +23,7 @@ import (
 	"sync"
 	"time"
 
-	"shanhu.io/pub/timeutil"
+	"shanhu.io/g/timeutil"
 )
 
 type timeEntry struct {

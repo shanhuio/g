@@ -18,7 +18,7 @@ package idutil
 import (
 	"time"
 
-	"shanhu.io/pub/rand"
+	"shanhu.io/g/rand"
 )
 
 // TimeRandID generates a timestamp based unique ID.

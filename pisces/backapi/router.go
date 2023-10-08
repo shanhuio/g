@@ -16,8 +16,8 @@
 package backapi
 
 import (
-	"shanhu.io/pub/aries"
-	"shanhu.io/pub/pisces"
+	"shanhu.io/g/aries"
+	"shanhu.io/g/pisces"
 )
 
 // Router provides an API service router for the given PsqlTables.

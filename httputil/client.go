@@ -23,7 +23,7 @@ import (
 	"net/http"
 	"net/url"
 
-	"shanhu.io/pub/errcode"
+	"shanhu.io/g/errcode"
 )
 
 // Client performs client that calls to a remote server with an optional token.

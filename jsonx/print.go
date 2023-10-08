@@ -23,7 +23,7 @@ import (
 	"sort"
 	"strconv"
 
-	"shanhu.io/pub/fmtutil"
+	"shanhu.io/g/fmtutil"
 )
 
 type printer struct {

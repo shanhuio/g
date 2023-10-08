@@ -21,7 +21,7 @@ import (
 	"io"
 	"net/http"
 
-	"shanhu.io/pub/aries"
+	"shanhu.io/g/aries"
 )
 
 func checkBody(t *testing.T, resp *http.Response, msg string) {

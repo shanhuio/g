@@ -19,7 +19,7 @@ import (
 	"flag"
 	"log"
 
-	"shanhu.io/pub/aries"
+	"shanhu.io/g/aries"
 )
 
 func makeService(root string) aries.Service {

@@ -16,9 +16,9 @@
 package objects
 
 import (
-	"shanhu.io/pub/hashutil"
-	"shanhu.io/pub/pathutil"
-	"shanhu.io/pub/sqlx"
+	"shanhu.io/g/hashutil"
+	"shanhu.io/g/pathutil"
+	"shanhu.io/g/sqlx"
 )
 
 type psql struct {

@@ -21,7 +21,7 @@ import (
 	"os"
 
 	_ "github.com/lib/pq"
-	"shanhu.io/pub/sqlx"
+	"shanhu.io/g/sqlx"
 )
 
 func TestPsqlKV(t *testing.T) {

@@ -19,8 +19,8 @@ import (
 	"bytes"
 	"fmt"
 
-	"shanhu.io/pub/objects"
-	"shanhu.io/pub/sqlx"
+	"shanhu.io/g/objects"
+	"shanhu.io/g/sqlx"
 )
 
 // DumpPsqlDB dumps a psql database into a streaming object store.

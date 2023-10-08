@@ -18,9 +18,9 @@ package caco3bin
 import (
 	"os"
 
-	"shanhu.io/pub/caco3"
-	"shanhu.io/pub/errcode"
-	"shanhu.io/pub/lexing"
+	"shanhu.io/g/caco3"
+	"shanhu.io/g/errcode"
+	"shanhu.io/g/lexing"
 )
 
 const sumsFile = "sums.jsonx"

@@ -19,7 +19,8 @@ import (
 	"net/url"
 
 	"encoding/json"
-	"shanhu.io/pub/errcode"
+
+	"shanhu.io/g/errcode"
 )
 
 // Options is a the JSON marshalable options for dialing an endpoint.

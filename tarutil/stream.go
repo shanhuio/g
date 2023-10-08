@@ -21,7 +21,7 @@ import (
 	"os"
 	"time"
 
-	"shanhu.io/pub/errcode"
+	"shanhu.io/g/errcode"
 )
 
 // streamFile is a file (or a zip archive) to stream into a tar stream.

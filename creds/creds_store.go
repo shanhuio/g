@@ -16,7 +16,7 @@
 package creds
 
 import (
-	"shanhu.io/pub/errcode"
+	"shanhu.io/g/errcode"
 )
 
 type credsStore interface {

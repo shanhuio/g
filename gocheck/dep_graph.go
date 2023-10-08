@@ -18,8 +18,8 @@ package gocheck
 import (
 	"go/build"
 
+	"shanhu.io/g/dags"
 	"shanhu.io/gcimporter"
-	"shanhu.io/pub/dags"
 )
 
 // DepGraph returns the dependency graph for files in a package.

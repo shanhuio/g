@@ -16,7 +16,7 @@
 package signinapi
 
 import (
-	"shanhu.io/pub/timeutil"
+	"shanhu.io/g/timeutil"
 )
 
 // SSHSignInRecord is the record that is being signed

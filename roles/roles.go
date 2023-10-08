@@ -20,13 +20,13 @@ import (
 	"sort"
 	"time"
 
-	"shanhu.io/pub/errcode"
-	"shanhu.io/pub/identity"
-	"shanhu.io/pub/jwt"
-	"shanhu.io/pub/pisces"
-	"shanhu.io/pub/rand"
-	"shanhu.io/pub/roles/rolesapi"
-	"shanhu.io/pub/timeutil"
+	"shanhu.io/g/errcode"
+	"shanhu.io/g/identity"
+	"shanhu.io/g/jwt"
+	"shanhu.io/g/pisces"
+	"shanhu.io/g/rand"
+	"shanhu.io/g/roles/rolesapi"
+	"shanhu.io/g/timeutil"
 )
 
 // Roles contains tables that saves user's identity.

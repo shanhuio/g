@@ -18,7 +18,7 @@ package osutil
 import (
 	"os"
 
-	"shanhu.io/pub/errcode"
+	"shanhu.io/g/errcode"
 )
 
 // CheckPrivateFile checks if the file is of the right permission bits.

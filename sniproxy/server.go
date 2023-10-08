@@ -22,8 +22,8 @@ import (
 	"sync"
 
 	"github.com/gorilla/websocket"
-	"shanhu.io/pub/aries"
-	"shanhu.io/pub/errcode"
+	"shanhu.io/g/aries"
+	"shanhu.io/g/errcode"
 )
 
 // Dest specifies a destination.
