@@ -5,15 +5,15 @@ go 1.21
 toolchain go1.21.1
 
 require (
-	github.com/digitalocean/godo v1.103.0
+	github.com/digitalocean/godo v1.104.1
 	github.com/gorilla/websocket v1.5.0
 	github.com/lib/pq v1.10.7
-	github.com/microcosm-cc/bluemonday v1.0.25
+	github.com/microcosm-cc/bluemonday v1.0.26
 	github.com/minio/minio-go/v7 v7.0.63
 	github.com/russross/blackfriday v1.6.0
 	golang.org/x/crypto v0.14.0
 	golang.org/x/lint v0.0.0-20210508222113-6edffad5e616
-	golang.org/x/net v0.16.0
+	golang.org/x/net v0.17.0
 	golang.org/x/oauth2 v0.13.0
 	golang.org/x/term v0.13.0
 	golang.org/x/tools v0.14.0
@@ -33,7 +33,7 @@ require (
 	github.com/hashicorp/go-retryablehttp v0.7.4 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/kballard/go-shellquote v0.0.0-20180428030007-95032a82bc51 // indirect
-	github.com/klauspost/compress v1.17.0 // indirect
+	github.com/klauspost/compress v1.17.1 // indirect
 	github.com/klauspost/cpuid/v2 v2.2.5 // indirect
 	github.com/kr/pretty v0.3.0 // indirect
 	github.com/mattn/go-isatty v0.0.19 // indirect
