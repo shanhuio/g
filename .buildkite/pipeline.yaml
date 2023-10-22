@@ -1,0 +1,12 @@
+steps:
+  - label: "build and test"
+    commands:
+      - "go mod tidy"
+      - "go fmt ./..."
+      - "git diff --quiet"
+      - "go test ./..."
+      - "go run ./smake/smake"
+    plugins:
+      - docker#v5.9.0:
+          image: "golang:1.21.3-bookworm"
+          shell: ["bash", "-elic"]
