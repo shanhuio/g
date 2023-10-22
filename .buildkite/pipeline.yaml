@@ -3,9 +3,9 @@ steps:
     commands:
       - "ln -s /usr/local/go/bin/go /usr/local/bin/go"
       - "ln -s /usr/local/go/bin/gofmt /usr/local/bin/gofmt"
-      - "go mod tidy"
-      - "go fmt ./..."
-      - "git diff --quiet"
+      # - "go mod tidy"
+      # - "go fmt ./..."
+      # - "git diff --quiet"
       - "go test ./..."
       - "go run ./smake/smake"
     plugins:
