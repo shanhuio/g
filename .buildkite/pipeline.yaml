@@ -9,3 +9,4 @@ steps:
       - docker#v5.9.0:
           image: "golang:1.21.3-bookworm"
           shell: ["/bin/bash", "-elic"]
+          propagate-uid-gid: true
