@@ -245,7 +245,7 @@ func TestServer_kick(t *testing.T) {
 	var wg sync.WaitGroup
 	defer wg.Wait()
 
-	localhost := &net.TCPAddr{IP: net.IPv6loopback}
+	localhost := &net.TCPAddr{IP: net.IPv4(127, 0, 0, 1)}
 	lis, err := net.ListenTCP("tcp", localhost)
 	if err != nil {
 		t.Fatal(err)
