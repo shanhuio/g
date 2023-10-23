@@ -4,7 +4,7 @@ steps:
       - "ln -s /usr/local/go/bin/go /usr/local/bin/go"
       - "ln -s /usr/local/go/bin/gofmt /usr/local/bin/gofmt"
       - echo "$(pwd)"
-      - ls
+      - ls -al
       - "go mod tidy"
       - "go fmt ./..."
       - "git diff --quiet"
