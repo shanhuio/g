@@ -31,6 +31,8 @@ import (
 	"shanhu.io/g/httputil"
 )
 
+var localhostIP = net.IPv4(127, 0, 0, 1)
+
 func dialTestEndpoint(
 	ctx context.Context, addr net.Addr, path string,
 ) (*Endpoint, error) {
@@ -137,7 +139,7 @@ func TestServer_proxy(t *testing.T) {
 	var wg sync.WaitGroup
 	defer wg.Wait()
 
-	localhost := &net.TCPAddr{IP: net.IPv6loopback}
+	localhost := &net.TCPAddr{IP: localhostIP}
 	lis, err := net.ListenTCP("tcp", localhost)
 	if err != nil {
 		t.Fatal(err)
@@ -245,7 +247,7 @@ func TestServer_kick(t *testing.T) {
 	var wg sync.WaitGroup
 	defer wg.Wait()
 
-	localhost := &net.TCPAddr{IP: net.IPv4(127, 0, 0, 1)}
+	localhost := &net.TCPAddr{IP: localhostIP}
 	lis, err := net.ListenTCP("tcp", localhost)
 	if err != nil {
 		t.Fatal(err)
