@@ -133,7 +133,7 @@ func smake(c *context) error {
 		return nil
 	}
 
-	installCmd := []string{"go", "install"}
+	installCmd := []string{"go", "install", "-buildvcs=false", "-trimpath"}
 
 	if err := c.execPkgs(pkgs, []string{
 		"gofmt", "-s", "-w", "-l",

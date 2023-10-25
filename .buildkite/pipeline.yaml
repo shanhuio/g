@@ -1,0 +1,10 @@
+steps:
+  - label: "build and test"
+    commands:
+      - "go run ./smake/smake"
+      - "go test ./..."
+    plugins:
+      - docker#v5.9.0:
+          image: "shanhu/bkgo"
+          shell: ["/bin/bash", "-eic"]
+          propagate-uid-gid: true
