@@ -1,8 +1,8 @@
 steps:
   - label: "build and test"
     commands:
-      - "go test ./..."
       - "go run ./smake/smake"
+      - "go test ./..."
     plugins:
       - docker#v5.9.0:
           image: "shanhu/bkgo"
