@@ -6,5 +6,5 @@ steps:
     plugins:
       - docker#v5.9.0:
           image: "shanhu/bkgo"
-          shell: ["/bin/bash", "-elic"]
+          shell: ["/bin/bash", "-eic"]
           propagate-uid-gid: true
