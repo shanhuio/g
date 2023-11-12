@@ -1,5 +1,6 @@
 package dock
 
+// VersionInfo saves the response of the `/version` docker endpoint.
 type VersionInfo struct {
 	Version       string `json:"Version"`
 	APIVersion    string `json:"ApiVersion"`
