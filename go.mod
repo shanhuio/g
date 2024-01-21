@@ -5,7 +5,7 @@ go 1.21
 toolchain go1.21.1
 
 require (
-	github.com/digitalocean/godo v1.107.0
+	github.com/digitalocean/godo v1.108.0
 	github.com/gorilla/websocket v1.5.1
 	github.com/lib/pq v1.10.7
 	github.com/microcosm-cc/bluemonday v1.0.26
@@ -55,7 +55,7 @@ require (
 	lukechampine.com/uint128 v1.3.0 // indirect
 	modernc.org/cc/v3 v3.41.0 // indirect
 	modernc.org/ccgo/v3 v3.16.15 // indirect
-	modernc.org/libc v1.40.3 // indirect
+	modernc.org/libc v1.40.6 // indirect
 	modernc.org/mathutil v1.6.0 // indirect
 	modernc.org/memory v1.7.2 // indirect
 	modernc.org/opt v0.1.3 // indirect
