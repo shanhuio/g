@@ -13,10 +13,9 @@ require (
 	github.com/russross/blackfriday v1.6.0
 	golang.org/x/crypto v0.25.0
 	golang.org/x/lint v0.0.0-20210508222113-6edffad5e616
-	golang.org/x/net v0.27.0
 	golang.org/x/oauth2 v0.21.0
 	golang.org/x/term v0.22.0
-	golang.org/x/tools v0.22.0
+	golang.org/x/tools v0.23.0
 	gopkg.in/yaml.v2 v2.4.0
 	modernc.org/sqlite v1.30.1
 	shanhu.io/gcimporter v0.0.0-20230206104318-38ca03fa3ae1
@@ -42,6 +41,7 @@ require (
 	github.com/remyoudompheng/bigfft v0.0.0-20230129092748-24d4a6f8daec // indirect
 	github.com/rs/xid v1.5.0 // indirect
 	golang.org/x/mod v0.19.0 // indirect
+	golang.org/x/net v0.27.0 // indirect
 	golang.org/x/sync v0.7.0 // indirect
 	golang.org/x/sys v0.22.0 // indirect
 	golang.org/x/text v0.16.0 // indirect
