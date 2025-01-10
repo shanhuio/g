@@ -5,17 +5,17 @@ go 1.22.0
 toolchain go1.22.6
 
 require (
-	github.com/digitalocean/godo v1.131.1
+	github.com/digitalocean/godo v1.132.0
 	github.com/gorilla/websocket v1.5.3
 	github.com/lib/pq v1.10.7
-	github.com/minio/minio-go/v7 v7.0.82
-	golang.org/x/crypto v0.31.0
+	github.com/minio/minio-go/v7 v7.0.83
+	golang.org/x/crypto v0.32.0
 	golang.org/x/lint v0.0.0-20241112194109-818c5a804067
-	golang.org/x/oauth2 v0.24.0
-	golang.org/x/term v0.27.0
-	golang.org/x/tools v0.28.0
+	golang.org/x/oauth2 v0.25.0
+	golang.org/x/term v0.28.0
+	golang.org/x/tools v0.29.0
 	gopkg.in/yaml.v2 v2.4.0
-	modernc.org/sqlite v1.34.2
+	modernc.org/sqlite v1.34.4
 	shanhu.io/gcimporter v0.0.0-20230206104318-38ca03fa3ae1
 )
 
@@ -36,18 +36,18 @@ require (
 	github.com/ncruces/go-strftime v0.1.9 // indirect
 	github.com/remyoudompheng/bigfft v0.0.0-20230129092748-24d4a6f8daec // indirect
 	github.com/rs/xid v1.6.0 // indirect
-	golang.org/x/exp v0.0.0-20241215155358-4a5509556b9e // indirect
+	golang.org/x/exp v0.0.0-20250106191152-7588d65b2ba8 // indirect
 	golang.org/x/mod v0.22.0 // indirect
-	golang.org/x/net v0.32.0 // indirect
+	golang.org/x/net v0.34.0 // indirect
 	golang.org/x/sync v0.10.0 // indirect
-	golang.org/x/sys v0.28.0 // indirect
+	golang.org/x/sys v0.29.0 // indirect
 	golang.org/x/text v0.21.0 // indirect
-	golang.org/x/time v0.8.0 // indirect
+	golang.org/x/time v0.9.0 // indirect
 	gopkg.in/check.v1 v1.0.0-20180628173108-788fd7840127 // indirect
-	modernc.org/gc/v3 v3.0.0-20241213165251-3bc300f6d0c9 // indirect
-	modernc.org/libc v1.61.4 // indirect
-	modernc.org/mathutil v1.6.0 // indirect
-	modernc.org/memory v1.8.0 // indirect
-	modernc.org/strutil v1.2.0 // indirect
+	modernc.org/gc/v3 v3.0.0-20250105121824-520be1a3aee6 // indirect
+	modernc.org/libc v1.61.7 // indirect
+	modernc.org/mathutil v1.7.1 // indirect
+	modernc.org/memory v1.8.1 // indirect
+	modernc.org/strutil v1.2.1 // indirect
 	modernc.org/token v1.1.0 // indirect
 )
