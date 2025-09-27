@@ -150,9 +150,9 @@ func (m *Map) makeLayers() ([][]*MapNode, error) {
 		fmt.Fprintf(msg, "graph has circle: ")
 		for i, node := range circle {
 			if i != 0 {
-				fmt.Fprintf(msg, "->")
+				fmt.Fprint(msg, "->")
 			}
-			fmt.Fprintf(msg, node.Name)
+			fmt.Fprint(msg, node.Name)
 		}
 		return nil, errors.New(msg.String())
 	}
