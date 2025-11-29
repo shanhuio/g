@@ -2,7 +2,7 @@ module shanhu.io/g
 
 go 1.25
 
-toolchain go1.25.1
+toolchain go1.25.4
 
 require (
 	github.com/digitalocean/godo v1.169.0
