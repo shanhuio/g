@@ -5,7 +5,7 @@ go 1.25.0
 toolchain go1.25.4
 
 require (
-	github.com/digitalocean/godo v1.186.0
+	github.com/digitalocean/godo v1.187.0
 	github.com/gorilla/websocket v1.5.3
 	github.com/lib/pq v1.10.7
 	github.com/minio/minio-go/v7 v7.0.100
@@ -15,7 +15,7 @@ require (
 	golang.org/x/term v0.42.0
 	golang.org/x/tools v0.44.0
 	gopkg.in/yaml.v2 v2.4.0
-	modernc.org/sqlite v1.49.1
+	modernc.org/sqlite v1.50.0
 	shanhu.io/gcimporter v0.0.0-20230206104318-38ca03fa3ae1
 )
 
@@ -46,7 +46,7 @@ require (
 	golang.org/x/text v0.36.0 // indirect
 	golang.org/x/time v0.15.0 // indirect
 	gopkg.in/check.v1 v1.0.0-20180628173108-788fd7840127 // indirect
-	modernc.org/libc v1.72.0 // indirect
+	modernc.org/libc v1.72.1 // indirect
 	modernc.org/mathutil v1.7.1 // indirect
 	modernc.org/memory v1.11.0 // indirect
 )
