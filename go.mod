@@ -5,7 +5,7 @@ go 1.25.0
 toolchain go1.25.4
 
 require (
-	github.com/digitalocean/godo v1.188.0
+	github.com/digitalocean/godo v1.189.0
 	github.com/gorilla/websocket v1.5.3
 	github.com/lib/pq v1.10.7
 	github.com/minio/minio-go/v7 v7.1.0
