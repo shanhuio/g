@@ -38,10 +38,6 @@ func newLogSink(stdout, stderr io.Writer) *logSink {
 	return ret
 }
 
-func newStdLogSink() *logSink {
-	return newLogSink(nil, nil)
-}
-
 func (s *logSink) waitDone() error {
 	if err := s.w.Close(); err != nil {
 		return err
