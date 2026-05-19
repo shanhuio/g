@@ -1,8 +1,8 @@
 module shanhu.io/g
 
-go 1.25.0
+go 1.26.0
 
-toolchain go1.25.4
+toolchain go1.26.3
 
 require (
 	github.com/digitalocean/godo v1.191.0
