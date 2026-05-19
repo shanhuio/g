@@ -69,8 +69,4 @@ func decodeRemoteErr(dec *decoder) *remoteErr {
 var (
 	remoteErrNotAccepting = newRemoteErrString(errAccept, "not accepting")
 	remoteErrSiding       = newRemoteErrString(errSiding, "tunnel is siding")
-
-	remoteErrSessionNotFound = newRemoteErrString(
-		errSessionNotFound, "session not found",
-	)
 )

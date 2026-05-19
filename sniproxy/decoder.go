@@ -22,10 +22,6 @@ func (d *decoder) Err() error { return d.err }
 
 func (d *decoder) count() int64 { return d.n }
 
-func (d *decoder) overread() bool {
-	return d.err == io.ErrUnexpectedEOF
-}
-
 func (d *decoder) read(buf []byte) {
 	if d.err != nil {
 		return
@@ -37,16 +33,6 @@ func (d *decoder) read(buf []byte) {
 	} else if err != nil {
 		d.err = err
 	}
-}
-
-func (d *decoder) rest() []byte {
-	if d.err != nil {
-		return nil
-	}
-	bs, err := io.ReadAll(d.r)
-	d.n += int64(len(bs))
-	d.err = err
-	return bs
 }
 
 func (d *decoder) u8() byte {
@@ -116,7 +102,6 @@ func (d *decoder) end() {
 	}
 
 	d.err = d.tailError()
-	return
 }
 
 type tailError struct {
