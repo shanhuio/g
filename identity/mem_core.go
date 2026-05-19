@@ -15,7 +15,7 @@ func (s *memStore) Check() (bool, error) {
 	return s.bs != nil, nil
 }
 
-func (s *memStore) Save(v interface{}) error {
+func (s *memStore) Save(v any) error {
 	bs, err := json.Marshal(v)
 	if err != nil {
 		return errcode.Annotate(err, "marshal")
@@ -24,7 +24,7 @@ func (s *memStore) Save(v interface{}) error {
 	return nil
 }
 
-func (s *memStore) Load(v interface{}) error {
+func (s *memStore) Load(v any) error {
 	if len(s.bs) == 0 {
 		return errcode.NotFoundf("identity not initialized")
 	}

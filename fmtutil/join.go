@@ -8,7 +8,7 @@ import (
 
 // Join joins a slice of stuff into a string with sep as the
 // separator.
-func Join(slice interface{}, sep string) string {
+func Join(slice any, sep string) string {
 	t := reflect.TypeOf(slice)
 	if t.Kind() != reflect.Slice {
 		return fmt.Sprint(slice)

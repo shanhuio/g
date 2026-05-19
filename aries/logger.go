@@ -63,12 +63,12 @@ func (l *Logger) Exit(err error) error {
 }
 
 // Print prints a message to the logger.
-func (l *Logger) Print(args ...interface{}) {
+func (l *Logger) Print(args ...any) {
 	l.p.Print(fmt.Sprint(args...))
 }
 
 // Printf prints a formatted message to the logger.
-func (l *Logger) Printf(f string, args ...interface{}) {
+func (l *Logger) Printf(f string, args ...any) {
 	l.p.Print(fmt.Sprintf(f, args...))
 }
 

@@ -61,7 +61,7 @@ func WriteHomeFile(f string, bs []byte) error {
 
 // WriteHomeJSONFile updates a file under the home directory with a
 // JSON marshallable blob.
-func WriteHomeJSONFile(f string, v interface{}) error {
+func WriteHomeJSONFile(f string, v any) error {
 	buf := new(bytes.Buffer)
 	if err := jsonutil.Fprint(buf, v); err != nil {
 		return err
@@ -71,7 +71,7 @@ func WriteHomeJSONFile(f string, v interface{}) error {
 
 // ReadHomeJSONFile reads a file under the home directory into a JSON
 // marshallable structure.
-func ReadHomeJSONFile(f string, v interface{}) error {
+func ReadHomeJSONFile(f string, v any) error {
 	bs, err := ReadHomeFile(f)
 	if err != nil {
 		return err

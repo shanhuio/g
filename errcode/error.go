@@ -75,13 +75,13 @@ func IsTimeOut(err error) bool {
 }
 
 // Errorf creates an Error with the given error code.
-func Errorf(code string, f string, args ...interface{}) *Error {
+func Errorf(code string, f string, args ...any) *Error {
 	return Add(code, fmt.Errorf(f, args...))
 }
 
 // AltErrorf replaces the message of err to be the formatted message, but keeps
 // the error code.
-func AltErrorf(err error, f string, args ...interface{}) error {
+func AltErrorf(err error, f string, args ...any) error {
 	msg := fmt.Sprintf(f, args...)
 	return &Error{
 		Err:     err,
@@ -97,31 +97,31 @@ func Annotate(err error, msg string) error {
 
 // Annotatef annotates an error with a formatted message but keeps the error
 // code.
-func Annotatef(err error, f string, args ...interface{}) error {
+func Annotatef(err error, f string, args ...any) error {
 	return Annotate(err, fmt.Sprintf(f, args...))
 }
 
 // NotFoundf creates a new not-found error.
-func NotFoundf(f string, args ...interface{}) *Error {
+func NotFoundf(f string, args ...any) *Error {
 	return Errorf(NotFound, f, args...)
 }
 
 // InvalidArgf creates a new invalid arugment error.
-func InvalidArgf(f string, args ...interface{}) *Error {
+func InvalidArgf(f string, args ...any) *Error {
 	return Errorf(InvalidArg, f, args...)
 }
 
 // Internalf creates a new internal error.
-func Internalf(f string, args ...interface{}) *Error {
+func Internalf(f string, args ...any) *Error {
 	return Errorf(Internal, f, args...)
 }
 
 // Unauthorizedf returns an error caused by an unauthrozied request.
-func Unauthorizedf(f string, args ...interface{}) *Error {
+func Unauthorizedf(f string, args ...any) *Error {
 	return Errorf(Unauthorized, f, args...)
 }
 
 // TimeOutf returns a new time-out error.
-func TimeOutf(f string, args ...interface{}) *Error {
+func TimeOutf(f string, args ...any) *Error {
 	return Errorf(TimeOut, f, args...)
 }

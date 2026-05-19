@@ -102,8 +102,8 @@ func (b *Roles) Enable(name string) error {
 func (b *Roles) List() ([]*rolesapi.Role, error) {
 	items := make([]*rolesapi.Role, 0)
 	it := &pisces.Iter{
-		Make: func() interface{} { return new(role) },
-		Do: func(_ string, v interface{}) error {
+		Make: func() any { return new(role) },
+		Do: func(_ string, v any) error {
 			item := v.(*role).Role
 			if item == nil {
 				item = new(rolesapi.Role)
@@ -140,7 +140,7 @@ func (b *Roles) SetHostDomain(domain string) { b.host = domain }
 
 func (b *Roles) mutate(name string, f func(r *role) error) error {
 	r := new(role)
-	return b.t.Mutate(name, r, func(v interface{}) error {
+	return b.t.Mutate(name, r, func(v any) error {
 		return f(v.(*role))
 	})
 }

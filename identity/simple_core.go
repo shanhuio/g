@@ -32,10 +32,10 @@ type SimpleStore interface {
 	Check() (bool, error)
 
 	// Save saves the data.
-	Save(v interface{}) error
+	Save(v any) error
 
 	// Load loads the data.
-	Load(v interface{}) error
+	Load(v any) error
 }
 
 type simpleCore struct {

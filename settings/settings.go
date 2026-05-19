@@ -6,10 +6,10 @@ package settings
 type Settings interface {
 	// Get gets a setting. Returns errcode.NotFound error when the
 	// key is missing.
-	Get(key string, v interface{}) error
+	Get(key string, v any) error
 
 	// Set sets a setting.
-	Set(key string, v interface{}) error
+	Set(key string, v any) error
 
 	// Has checks if a key exists. It does not have to read the key.
 	Has(key string) (bool, error)

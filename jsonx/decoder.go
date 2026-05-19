@@ -36,7 +36,7 @@ func (d *Decoder) More() bool {
 
 // Decode decodes a JSON value from the parser. When there is
 // error on parsing JSONx, v is always unchanged.
-func (d *Decoder) Decode(v interface{}) []*lexing.Error {
+func (d *Decoder) Decode(v any) []*lexing.Error {
 	value := parseValue(d.p)
 	if errs := d.p.Errs(); errs != nil {
 		return errs
@@ -55,7 +55,7 @@ func (d *Decoder) Decode(v interface{}) []*lexing.Error {
 	return nil
 }
 
-func jsonUnmarshalStrict(bs []byte, v interface{}) error {
+func jsonUnmarshalStrict(bs []byte, v any) error {
 	dec := json.NewDecoder(bytes.NewReader(bs))
 	dec.DisallowUnknownFields()
 	return dec.Decode(v)
@@ -117,11 +117,11 @@ func (d *Decoder) DecodeSeries(tm TypeMaker) (
 
 // Unmarshal unmarshals a value into a JSON object. When there is an error on
 // parsing JSONx, v is always unchagned.
-func Unmarshal(bs []byte, v interface{}) error {
+func Unmarshal(bs []byte, v any) error {
 	return unmarshalFile("", bs, v)
 }
 
-func unmarshalFile(file string, bs []byte, v interface{}) error {
+func unmarshalFile(file string, bs []byte, v any) error {
 	dec := NewFileDecoder(file, bytes.NewReader(bs))
 	if errs := dec.Decode(v); errs != nil {
 		return errs[0]
@@ -133,7 +133,7 @@ func unmarshalFile(file string, bs []byte, v interface{}) error {
 }
 
 // ReadFile reads a file and unmarshals the content into the JSON object.
-func ReadFile(file string, v interface{}) error {
+func ReadFile(file string, v any) error {
 	bs, err := os.ReadFile(file)
 	if err != nil {
 		return err
@@ -142,7 +142,7 @@ func ReadFile(file string, v interface{}) error {
 }
 
 // ReadFileMaybeJSON reads a file that might be JSONx or JSON.
-func ReadFileMaybeJSON(file string, v interface{}) error {
+func ReadFileMaybeJSON(file string, v any) error {
 	bs, err := os.ReadFile(file)
 	if err != nil {
 		return err

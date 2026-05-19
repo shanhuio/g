@@ -46,7 +46,7 @@ func (s *Signer) Sign(dat []byte) []byte {
 
 // SignJSON signs a JSON marshalable blob and returns the combination of the
 // data and the signature.
-func (s *Signer) SignJSON(dat interface{}) ([]byte, error) {
+func (s *Signer) SignJSON(dat any) ([]byte, error) {
 	bs, err := json.Marshal(dat)
 	if err != nil {
 		return nil, err
@@ -63,7 +63,7 @@ func (s *Signer) SignHex(dat []byte) string {
 
 // SignHexJSON signs a JSON marshalable blob and returns the data along with
 // the signature in a hex string.
-func (s *Signer) SignHexJSON(dat interface{}) (string, error) {
+func (s *Signer) SignHexJSON(dat any) (string, error) {
 	bs, err := s.SignJSON(dat)
 	if err != nil {
 		return "", err
@@ -90,7 +90,7 @@ func (s *Signer) Check(bs []byte) (bool, []byte) {
 
 // CheckJSON verifies if the signed blob is valid, and if it is, unmarshals
 // the original data into dat.
-func (s *Signer) CheckJSON(bs []byte, dat interface{}) (bool, error) {
+func (s *Signer) CheckJSON(bs []byte, dat any) (bool, error) {
 	ok, checked := s.Check(bs)
 	if !ok {
 		return false, nil
@@ -100,7 +100,7 @@ func (s *Signer) CheckJSON(bs []byte, dat interface{}) (bool, error) {
 
 // CheckHexJSON verifies if the signed blob is valid, and if it is, unmarshals
 // the original data into dat.
-func (s *Signer) CheckHexJSON(str string, dat interface{}) (bool, error) {
+func (s *Signer) CheckHexJSON(str string, dat any) (bool, error) {
 	ok, bs := s.CheckHex(str)
 	if !ok {
 		return false, nil

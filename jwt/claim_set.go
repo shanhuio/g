@@ -19,7 +19,7 @@ type ClaimSet struct {
 
 	Sub string `json:"sub"`
 
-	Extra map[string]interface{} `json:"-"`
+	Extra map[string]any `json:"-"`
 }
 
 // ExtraString reads an extra string field from the claim set.
@@ -39,7 +39,7 @@ func (c *ClaimSet) ExtraString(k string) (string, bool) {
 }
 
 func (c *ClaimSet) encode() (string, error) {
-	m := make(map[string]interface{})
+	m := make(map[string]any)
 
 	for _, entry := range []struct {
 		k, v     string
@@ -76,7 +76,7 @@ func decodeClaimSet(s string) (*ClaimSet, error) {
 	if err := json.Unmarshal(bs, c); err != nil {
 		return nil, err
 	}
-	m := make(map[string]interface{})
+	m := make(map[string]any)
 	if err := json.Unmarshal(bs, &m); err != nil {
 		return nil, err
 	}

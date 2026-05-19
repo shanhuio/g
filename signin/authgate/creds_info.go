@@ -13,7 +13,7 @@ type CredsInfo struct {
 	User      string
 	UserLevel int
 
-	Data interface{}
+	Data any
 }
 
 // ApplyCredsInfo applies the credential into the aries context.

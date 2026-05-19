@@ -16,29 +16,29 @@ func TestDecoder(t *testing.T) {
 
 	type testCase struct {
 		en   func(enc *encoder)
-		de   func(dec *decoder) interface{}
-		want interface{}
+		de   func(dec *decoder) any
+		want any
 	}
 
 	for _, c := range []*testCase{{
 		en:   func(enc *encoder) { enc.u64(32) },
-		de:   func(dec *decoder) interface{} { return dec.u64() },
+		de:   func(dec *decoder) any { return dec.u64() },
 		want: uint64(32),
 	}, {
 		en:   func(enc *encoder) { enc.str("hello") },
-		de:   func(dec *decoder) interface{} { return dec.str() },
+		de:   func(dec *decoder) any { return dec.str() },
 		want: "hello",
 	}, {
 		en:   func(enc *encoder) { enc.u8(3) },
-		de:   func(dec *decoder) interface{} { return dec.u8() },
+		de:   func(dec *decoder) any { return dec.u8() },
 		want: uint8(3),
 	}, {
 		en:   func(enc *encoder) { enc.bytes([]byte{0xfa, 0xce}) },
-		de:   func(dec *decoder) interface{} { return dec.bytes(nil) },
+		de:   func(dec *decoder) any { return dec.bytes(nil) },
 		want: []byte{0xfa, 0xce},
 	}, {
 		en:   func(enc *encoder) { enc.bytes(bigTrunk) },
-		de:   func(dec *decoder) interface{} { return dec.bytes(nil) },
+		de:   func(dec *decoder) any { return dec.bytes(nil) },
 		want: bigTrunk,
 	}} {
 		buf := new(bytes.Buffer)

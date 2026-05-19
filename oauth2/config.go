@@ -39,7 +39,7 @@ func (c *JSONConfig) Config() *Config {
 func (c *JSONConfig) SimpleGitHubConfig() *Config {
 	ret := c.Config()
 	ret.SignInCheck = MapGitHub
-	ret.Check = func(name string) (interface{}, int, error) {
+	ret.Check = func(name string) (any, int, error) {
 		if _, isAdmin := c.PublicKeys[name]; isAdmin {
 			return nil, 1, nil
 		}
@@ -68,7 +68,7 @@ type Config struct {
 	SignInCheck func(c *aries.C, u *UserMeta, purpose string) (string, error)
 
 	// Check checks the user id and returns the user account structure.
-	Check func(user string) (interface{}, int, error)
+	Check func(user string) (any, int, error)
 
 	PreSignOut func(c *aries.C) error
 }

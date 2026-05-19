@@ -56,12 +56,12 @@ func (lst *ErrorList) InJail() bool { return lst.inJail }
 func (lst *ErrorList) BailOut() { lst.inJail = false }
 
 // Errorf appends a new error with particular position and format.
-func (lst *ErrorList) Errorf(p *Pos, f string, args ...interface{}) {
+func (lst *ErrorList) Errorf(p *Pos, f string, args ...any) {
 	lst.Add(&Error{p, fmt.Errorf(f, args...), ""})
 }
 
 // CodeErrorf appends a new error with a ErrorCode.
-func (lst *ErrorList) CodeErrorf(p *Pos, c, f string, args ...interface{}) {
+func (lst *ErrorList) CodeErrorf(p *Pos, c, f string, args ...any) {
 	lst.Add(&Error{p, fmt.Errorf(f, args...), c})
 }
 

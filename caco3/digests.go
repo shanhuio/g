@@ -25,7 +25,7 @@ type buildAction struct {
 	OutputOf string `json:",omitempty"` // Get the output from a rule.
 }
 
-func makeDigest(t, name string, v interface{}) (string, error) {
+func makeDigest(t, name string, v any) (string, error) {
 	buf := new(bytes.Buffer)
 	fmt.Fprintln(buf, t)
 	fmt.Fprintln(buf, name)

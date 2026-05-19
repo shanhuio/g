@@ -18,7 +18,7 @@ func parseS3Endpoint(host string) (bucket, endpoint string) {
 }
 
 // Dial connects to a States storage using the given URL address.
-func Dial(addr *url.URL, creds interface{}) (States, error) {
+func Dial(addr *url.URL, creds any) (States, error) {
 	switch addr.Scheme {
 	case "file", "":
 		return newDirBack(addr.Path), nil
@@ -45,7 +45,7 @@ func Dial(addr *url.URL, creds interface{}) (States, error) {
 }
 
 // DialSpec connects to a States storage using the given URL string.
-func DialSpec(s string, creds interface{}) (States, error) {
+func DialSpec(s string, creds any) (States, error) {
 	u, err := url.Parse(s)
 	if err != nil {
 		return nil, fmt.Errorf("parse url %q: %s", s, err)

@@ -13,7 +13,7 @@ func decodeSegmentBytes(s string) ([]byte, error) {
 	return base64.RawURLEncoding.DecodeString(s)
 }
 
-func encodeSegment(v interface{}) (string, error) {
+func encodeSegment(v any) (string, error) {
 	bs, err := json.Marshal(v)
 	if err != nil {
 		return "", err
@@ -21,7 +21,7 @@ func encodeSegment(v interface{}) (string, error) {
 	return encodeSegmentBytes(bs), nil
 }
 
-func decodeSegment(s string, v interface{}) error {
+func decodeSegment(s string, v any) error {
 	bs, err := decodeSegmentBytes(s)
 	if err != nil {
 		return err

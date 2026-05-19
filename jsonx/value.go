@@ -4,7 +4,7 @@ import (
 	"shanhu.io/g/lexing"
 )
 
-type value interface{}
+type value any
 
 type null struct {
 	token *lexing.Token
@@ -13,7 +13,7 @@ type null struct {
 type basic struct {
 	lead  *lexing.Token
 	token *lexing.Token
-	value interface{}
+	value any
 }
 
 type boolean struct {
@@ -28,7 +28,7 @@ type object struct {
 
 type objectKey struct {
 	token *lexing.Token
-	value interface{}
+	value any
 }
 
 type objectEntry struct {

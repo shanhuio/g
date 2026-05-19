@@ -20,7 +20,7 @@ func NewTable(b *pisces.Tables) *Table {
 }
 
 // Get gets a settings.
-func (b *Table) Get(key string, v interface{}) error {
+func (b *Table) Get(key string, v any) error {
 	return b.t.Get(key, v)
 }
 
@@ -30,6 +30,6 @@ func (b *Table) Has(key string) (bool, error) {
 }
 
 // Set sets the value of a settings key.
-func (b *Table) Set(key string, v interface{}) error {
+func (b *Table) Set(key string, v any) error {
 	return b.t.Replace(key, v)
 }

@@ -13,7 +13,7 @@ func writeString(w io.Writer, s string) error {
 	return err
 }
 
-func encodeJSON(w io.Writer, v interface{}) error {
+func encodeJSON(w io.Writer, v any) error {
 	bs, err := json.Marshal(v)
 	if err != nil {
 		return err

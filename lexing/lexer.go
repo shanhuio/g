@@ -100,12 +100,12 @@ func (x *Lexer) Token() *Token {
 }
 
 // Errorf adds an error into the error list with current postion.
-func (x *Lexer) Errorf(f string, args ...interface{}) {
+func (x *Lexer) Errorf(f string, args ...any) {
 	x.errs.CodeErrorf(x.s.startPos(), "", f, args...)
 }
 
 // CodeErrorf adds an error into the error list with error code.
-func (x *Lexer) CodeErrorf(c, f string, args ...interface{}) {
+func (x *Lexer) CodeErrorf(c, f string, args ...any) {
 	x.errs.CodeErrorf(x.s.startPos(), c, f, args...)
 }
 

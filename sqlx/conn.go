@@ -5,7 +5,7 @@ import (
 )
 
 type conn interface {
-	Exec(q string, args ...interface{}) (sql.Result, error)
-	Query(q string, args ...interface{}) (*sql.Rows, error)
-	QueryRow(q string, args ...interface{}) *sql.Row
+	Exec(q string, args ...any) (sql.Result, error)
+	Query(q string, args ...any) (*sql.Rows, error)
+	QueryRow(q string, args ...any) *sql.Row
 }

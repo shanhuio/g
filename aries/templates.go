@@ -34,7 +34,7 @@ func (ts *Templates) tmpl(f string) string {
 const TemplatesJSON = "!JSON"
 
 // Serve serves a data page using a particular template.
-func (ts *Templates) Serve(c *C, p string, dat interface{}) error {
+func (ts *Templates) Serve(c *C, p string, dat any) error {
 	if ts.path == TemplatesJSON {
 		return ReplyJSON(c, dat)
 	}

@@ -24,7 +24,7 @@ func (p *printer) writeString(s string) {
 	io.WriteString(p.p, strconv.Quote(s))
 }
 
-func (p *printer) write(v interface{}) {
+func (p *printer) write(v any) {
 	switch v := v.(type) {
 	case bool:
 		io.WriteString(p.p, strconv.FormatBool(v))
@@ -33,16 +33,16 @@ func (p *printer) write(v interface{}) {
 		io.WriteString(p.p, s)
 	case string:
 		p.writeString(v)
-	case []interface{}:
+	case []any:
 		p.writeArray(v)
-	case map[string]interface{}:
+	case map[string]any:
 		p.writeObject(v)
 	case nil:
 		io.WriteString(p.p, "null")
 	}
 }
 
-func (p *printer) writeArrayItems(array []interface{}) {
+func (p *printer) writeArrayItems(array []any) {
 	p.p.Tab()
 	defer p.p.ShiftTab()
 
@@ -52,7 +52,7 @@ func (p *printer) writeArrayItems(array []interface{}) {
 	}
 }
 
-func (p *printer) writeArray(array []interface{}) {
+func (p *printer) writeArray(array []any) {
 	if len(array) == 0 {
 		io.WriteString(p.p, "[]")
 		return
@@ -88,7 +88,7 @@ func isIdent(s string) bool {
 	return true
 }
 
-func (p *printer) writeObjectItems(obj map[string]interface{}) {
+func (p *printer) writeObjectItems(obj map[string]any) {
 	var keys []string
 	identKeys := true
 	for k := range obj {
@@ -114,7 +114,7 @@ func (p *printer) writeObjectItems(obj map[string]interface{}) {
 	}
 }
 
-func (p *printer) writeObject(obj map[string]interface{}) {
+func (p *printer) writeObject(obj map[string]any) {
 	if len(obj) == 0 {
 		io.WriteString(p.p, "{}")
 		return
@@ -128,13 +128,13 @@ func (p *printer) writeObject(obj map[string]interface{}) {
 func (p *printer) err() error { return p.p.Err() }
 
 // Fprint formats v in JSONX and prints it into w.
-func Fprint(w io.Writer, v interface{}) error {
+func Fprint(w io.Writer, v any) error {
 	bs, err := json.Marshal(v)
 	if err != nil {
 		return err
 	}
 
-	var g interface{}
+	var g any
 	if err := json.Unmarshal(bs, &g); err != nil {
 		return err
 	}
@@ -149,12 +149,12 @@ func Fprint(w io.Writer, v interface{}) error {
 }
 
 // Print formats v in JSONX and prints it into stdout.
-func Print(v interface{}) error {
+func Print(v any) error {
 	return Fprint(os.Stdout, v)
 }
 
 // Sprint formats v in JSONX and returns the formatted string.
-func Sprint(v interface{}) (string, error) {
+func Sprint(v any) (string, error) {
 	buf := new(bytes.Buffer)
 	if err := Fprint(buf, v); err != nil {
 		return "", err
@@ -163,7 +163,7 @@ func Sprint(v interface{}) (string, error) {
 }
 
 // Marshal formats v in JSONX.
-func Marshal(v interface{}) ([]byte, error) {
+func Marshal(v any) ([]byte, error) {
 	buf := new(bytes.Buffer)
 	if err := Fprint(buf, v); err != nil {
 		return nil, err
@@ -172,7 +172,7 @@ func Marshal(v interface{}) ([]byte, error) {
 }
 
 // WriteFile writes a JSONX object into a file.
-func WriteFile(p string, v interface{}) error {
+func WriteFile(p string, v any) error {
 	bs, err := Marshal(v)
 	if err != nil {
 		return err

@@ -15,7 +15,7 @@ func NewIdentity(s Settings, k string) *Identity {
 }
 
 // Load loads a value.
-func (s *Identity) Load(v interface{}) error {
+func (s *Identity) Load(v any) error {
 	return s.settings.Get(s.key, v)
 }
 
@@ -25,6 +25,6 @@ func (s *Identity) Check() (bool, error) {
 }
 
 // Save saves the value into the store.
-func (s *Identity) Save(v interface{}) error {
+func (s *Identity) Save(v any) error {
 	return s.settings.Set(s.key, v)
 }

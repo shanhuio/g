@@ -121,7 +121,7 @@ func (c *Client) GetInto(ctx C, p string, w io.Writer) error {
 }
 
 // GetJSON gets a JSON object.
-func (c *Client) GetJSON(ctx C, p string, v interface{}) error {
+func (c *Client) GetJSON(ctx C, p string, v any) error {
 	bs, err := c.GetBytes(ctx, p)
 	if err != nil {
 		return err
@@ -181,7 +181,7 @@ func (c *Client) PutBytes(ctx C, p string, data []byte) error {
 }
 
 // PutJSON puts a JSON object.
-func (c *Client) PutJSON(ctx C, p string, v interface{}) error {
+func (c *Client) PutJSON(ctx C, p string, v any) error {
 	bs, err := json.Marshal(v)
 	if err != nil {
 		return err

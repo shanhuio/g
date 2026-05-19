@@ -7,7 +7,7 @@ import (
 )
 
 // GetJSON gets a JSON encoded state.
-func GetJSON(ctx C, s States, key string, v interface{}) error {
+func GetJSON(ctx C, s States, key string, v any) error {
 	bs, err := s.Get(ctx, key)
 	if err != nil {
 		return err
@@ -16,7 +16,7 @@ func GetJSON(ctx C, s States, key string, v interface{}) error {
 }
 
 // GetJSONX gets a JSONX encoded state.
-func GetJSONX(ctx C, s States, key string, v interface{}) error {
+func GetJSONX(ctx C, s States, key string, v any) error {
 	bs, err := s.Get(ctx, key)
 	if err != nil {
 		return err
@@ -25,7 +25,7 @@ func GetJSONX(ctx C, s States, key string, v interface{}) error {
 }
 
 // PutJSON puts a JSON encoded state.
-func PutJSON(ctx C, s States, key string, v interface{}) error {
+func PutJSON(ctx C, s States, key string, v any) error {
 	bs, err := json.Marshal(v)
 	if err != nil {
 		return err

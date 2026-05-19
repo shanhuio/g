@@ -102,8 +102,8 @@ type testValueIter struct {
 
 func (it *testValueIter) iter() *Iter {
 	return &Iter{
-		Make: func() interface{} { return new(testData) },
-		Do: func(_ string, v interface{}) error {
+		Make: func() any { return new(testData) },
+		Do: func(_ string, v any) error {
 			it.values = append(it.values, v.(*testData).Value)
 			return nil
 		},
@@ -212,7 +212,7 @@ func testKVAppendBytes(t *testing.T, kv *KV) {
 func testKVMutate(t *testing.T, kv *KV) {
 	testAdd(t, kv, "k", "v")
 
-	if err := kv.Mutate("k", new(testData), func(v interface{}) error {
+	if err := kv.Mutate("k", new(testData), func(v any) error {
 		d := v.(*testData)
 		d.Value = "new-value"
 		return nil
@@ -226,7 +226,7 @@ func testKVMutate(t *testing.T, kv *KV) {
 func testKVMutateCancel(t *testing.T, kv *KV) {
 	testAdd(t, kv, "k", "v")
 
-	if err := kv.Mutate("k", new(testData), func(v interface{}) error {
+	if err := kv.Mutate("k", new(testData), func(v any) error {
 		d := v.(*testData)
 		d.Value = "new-value"
 		return ErrCancel
@@ -242,7 +242,7 @@ func testKVMutateError(t *testing.T, kv *KV) {
 
 	var errCustom = errors.New("custom")
 
-	if err := kv.Mutate("k", new(testData), func(v interface{}) error {
+	if err := kv.Mutate("k", new(testData), func(v any) error {
 		d := v.(*testData)
 		d.Value = "new-value"
 		return errCustom

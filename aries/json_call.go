@@ -19,7 +19,7 @@ var (
 	contextType = reflect.TypeOf((*C)(nil))
 )
 
-func newJSONCall(f interface{}) (*jsonCall, error) {
+func newJSONCall(f any) (*jsonCall, error) {
 	t := reflect.TypeOf(f)
 	if k := t.Kind(); k != reflect.Func {
 		return nil, fmt.Errorf("input is %s, not a function", k)
@@ -103,7 +103,7 @@ func (j *jsonCall) call(c *C) error {
 // JSONCall wraps a function of form
 // `func(c *aries.C, req *RequestType) (resp *ResponseType, error)`
 // into a JSON marshalled RPC call.
-func JSONCall(f interface{}) Func {
+func JSONCall(f any) Func {
 	call, err := newJSONCall(f)
 	if err != nil {
 		panic(err)

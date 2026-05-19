@@ -8,7 +8,7 @@ import (
 )
 
 func TestMarshal_loopback(t *testing.T) {
-	for _, obj := range []interface{}{
+	for _, obj := range []any{
 		"something",
 		1.234,
 		1234,
@@ -31,7 +31,7 @@ func TestMarshal_loopback(t *testing.T) {
 			continue
 		}
 
-		var box interface{}
+		var box any
 		if err := Unmarshal(x, &box); err != nil {
 			t.Errorf("unmarshal %q: %v", x, err)
 			continue

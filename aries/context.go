@@ -15,7 +15,7 @@ type C struct {
 
 	User      string
 	UserLevel int // 0 for normal user. 0 with empty User is anonymous.
-	UserData  interface{}
+	UserData  any
 
 	Req     *http.Request
 	Resp    http.ResponseWriter
@@ -23,7 +23,7 @@ type C struct {
 
 	HTTPS bool
 
-	Data map[string]interface{}
+	Data map[string]any
 
 	route    *route
 	routePos int
@@ -45,7 +45,7 @@ func NewContext(w http.ResponseWriter, req *http.Request) *C {
 		Req:     req,
 		Context: req.Context(),
 		HTTPS:   isHTTPS,
-		Data:    make(map[string]interface{}),
+		Data:    make(map[string]any),
 
 		route: newRoute(u.Path),
 	}

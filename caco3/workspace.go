@@ -26,7 +26,7 @@ type RepoMap struct {
 }
 
 func readWorkspace(f string) (*Workspace, []*lexing.Error) {
-	tm := func(t string) interface{} {
+	tm := func(t string) any {
 		switch t {
 		case "repo_map":
 			return new(RepoMap)

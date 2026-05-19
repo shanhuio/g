@@ -14,6 +14,6 @@ func AltInternal(err error, s string) error {
 }
 
 // AltInternalf printe the formatted error to TheLogger.
-func AltInternalf(err error, f string, args ...interface{}) error {
+func AltInternalf(err error, f string, args ...any) error {
 	return TheLogger.AltInternal(err, fmt.Sprintf(f, args...))
 }

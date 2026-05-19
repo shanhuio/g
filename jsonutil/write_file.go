@@ -7,7 +7,7 @@ import (
 )
 
 // WriteFile marshals a JSON object and writes it into a file.
-func WriteFile(file string, obj interface{}) error {
+func WriteFile(file string, obj any) error {
 	bs, err := json.Marshal(obj)
 	if err != nil {
 		return err
@@ -17,7 +17,7 @@ func WriteFile(file string, obj interface{}) error {
 
 // WriteFileReadable marshals a JSON object with indents and writes it into a
 // file.
-func WriteFileReadable(f string, v interface{}) error {
+func WriteFileReadable(f string, v any) error {
 	buf := new(bytes.Buffer)
 	bs, err := json.MarshalIndent(v, "", formatIndent)
 	if err != nil {

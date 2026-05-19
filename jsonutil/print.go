@@ -12,7 +12,7 @@ import (
 const formatIndent = "  "
 
 // Fprint pretty prints a JSON data blob into a writer.
-func Fprint(w io.Writer, v interface{}) error {
+func Fprint(w io.Writer, v any) error {
 	bs, err := json.MarshalIndent(v, "", formatIndent)
 	if err != nil {
 		return err
@@ -25,7 +25,7 @@ func Fprint(w io.Writer, v interface{}) error {
 }
 
 // Print pretty prints a JSON data blob into stdout.
-func Print(v interface{}) {
+func Print(v any) {
 	if err := Fprint(os.Stdout, v); err != nil {
 		log.Println(err)
 	}

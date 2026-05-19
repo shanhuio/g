@@ -112,7 +112,7 @@ func (c *Client) PutBytes(p string, bs []byte) error {
 }
 
 // JSONPut puts an object in JSON encoding.
-func (c *Client) JSONPut(p string, v interface{}) error {
+func (c *Client) JSONPut(p string, v any) error {
 	bs, err := json.Marshal(v)
 	if err != nil {
 		return err
@@ -195,7 +195,7 @@ func (c *Client) GetBytes(p string) ([]byte, error) {
 
 // JSONGet gets the content of a path and decodes the response
 // into resp as JSON.
-func (c *Client) JSONGet(p string, resp interface{}) error {
+func (c *Client) JSONGet(p string, resp any) error {
 	req, err := c.reqJSON(http.MethodGet, p, nil)
 	if err != nil {
 		return nil
@@ -230,7 +230,7 @@ func (c *Client) Post(p string, r io.Reader, w io.Writer) error {
 	return copyRespBody(resp, w)
 }
 
-func (c *Client) jsonPost(ctx context.Context, p string, req interface{}) (
+func (c *Client) jsonPost(ctx context.Context, p string, req any) (
 	*http.Response, error,
 ) {
 	bs, err := json.Marshal(req)
@@ -246,7 +246,7 @@ func (c *Client) jsonPost(ctx context.Context, p string, req interface{}) (
 
 // JSONPost posts a JSON object as the request body and writes the body
 // into the given writer.
-func (c *Client) JSONPost(p string, req interface{}, w io.Writer) error {
+func (c *Client) JSONPost(p string, req any, w io.Writer) error {
 	resp, err := c.jsonPost(context.TODO(), p, req)
 	if err != nil {
 		return err
@@ -257,7 +257,7 @@ func (c *Client) JSONPost(p string, req interface{}, w io.Writer) error {
 // CallContext performs a call with the request as a marshalled JSON object,
 // and the response unmarshalled as a JSON object.
 func (c *Client) CallContext(
-	ctx context.Context, p string, req, resp interface{},
+	ctx context.Context, p string, req, resp any,
 ) error {
 	httpResp, err := c.jsonPost(ctx, p, req)
 	if err != nil {
@@ -276,12 +276,12 @@ func (c *Client) CallContext(
 }
 
 // Call performs a CallContext with context.TODO().
-func (c *Client) Call(p string, req, resp interface{}) error {
+func (c *Client) Call(p string, req, resp any) error {
 	return c.CallContext(context.TODO(), p, req, resp)
 }
 
 // JSONCall is an alias to Call.
-func (c *Client) JSONCall(p string, req, resp interface{}) error {
+func (c *Client) JSONCall(p string, req, resp any) error {
 	return c.Call(p, req, resp)
 }
 

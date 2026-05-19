@@ -11,7 +11,7 @@ type Row struct {
 }
 
 // Scan scans a row into values.
-func (r *Row) Scan(dest ...interface{}) (bool, error) {
+func (r *Row) Scan(dest ...any) (bool, error) {
 	err := r.Row.Scan(dest...)
 	if err == nil {
 		return true, nil
@@ -39,6 +39,6 @@ func (r *Rows) Err() error {
 }
 
 // Scan scans a row into values.
-func (r *Rows) Scan(dest ...interface{}) error {
+func (r *Rows) Scan(dest ...any) error {
 	return Error(r.Query, r.Rows.Scan(dest...))
 }

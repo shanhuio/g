@@ -13,7 +13,7 @@ func (err *codeError) Error() string {
 	return err.err.Error()
 }
 
-func codeErrorf(code string, f string, args ...interface{}) error {
+func codeErrorf(code string, f string, args ...any) error {
 	err := fmt.Errorf(f, args...)
 	return &codeError{
 		code: code,

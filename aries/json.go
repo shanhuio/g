@@ -8,7 +8,7 @@ import (
 )
 
 // ReplyJSON replies a JSON marshable object over the response.
-func ReplyJSON(c *C, v interface{}) error {
+func ReplyJSON(c *C, v any) error {
 	c.Resp.Header().Set("Content-Type", "application/json")
 
 	bs, err := json.Marshal(v)
@@ -23,7 +23,7 @@ func ReplyJSON(c *C, v interface{}) error {
 }
 
 // UnmarshalJSONBody unmarshals the body into a JSON object.
-func UnmarshalJSONBody(c *C, v interface{}) error {
+func UnmarshalJSONBody(c *C, v any) error {
 	dec := json.NewDecoder(c.Req.Body)
 	if err := dec.Decode(v); err != nil {
 		return errcode.Add(errcode.InvalidArg, err)
@@ -33,7 +33,7 @@ func UnmarshalJSONBody(c *C, v interface{}) error {
 
 // PrintJSON replies a JSON marshaable object over the reponse with
 // pretty printing.
-func PrintJSON(c *C, v interface{}) error {
+func PrintJSON(c *C, v any) error {
 	bs, err := json.MarshalIndent(v, "", "    ")
 	if err != nil {
 		return errcode.Internalf("response encode error: %s", err)

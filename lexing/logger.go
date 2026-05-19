@@ -2,7 +2,7 @@ package lexing
 
 // Logger is an error logging interface
 type Logger interface {
-	Errorf(p *Pos, fmt string, args ...interface{})
+	Errorf(p *Pos, fmt string, args ...any)
 }
 
 // LogError adds a error to the logger if the error is not nil and returns

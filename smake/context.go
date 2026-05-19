@@ -85,10 +85,10 @@ func (c *context) execPkgs(
 	return cmd.Run()
 }
 
-func (c *context) logf(f string, args ...interface{}) {
+func (c *context) logf(f string, args ...any) {
 	fmt.Fprintf(c.errLog, f, args...)
 }
 
-func (c *context) logln(args ...interface{}) {
+func (c *context) logln(args ...any) {
 	fmt.Fprintln(c.errLog, args...)
 }

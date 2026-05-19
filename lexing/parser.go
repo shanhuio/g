@@ -23,22 +23,22 @@ func NewParser(t Tokener, types *Types) *Parser {
 
 // Errorf adds a new parser error to the parser's error list at a particular
 // position.
-func (p *Parser) Errorf(pos *Pos, f string, args ...interface{}) {
+func (p *Parser) Errorf(pos *Pos, f string, args ...any) {
 	p.errs.CodeErrorf(pos, "", f, args...)
 }
 
 // CodeErrorf adds a new parser error with a error code
-func (p *Parser) CodeErrorf(pos *Pos, c, f string, args ...interface{}) {
+func (p *Parser) CodeErrorf(pos *Pos, c, f string, args ...any) {
 	p.errs.CodeErrorf(pos, c, f, args...)
 }
 
 // ErrorfHere adds a new parser error at the current token position
-func (p *Parser) ErrorfHere(f string, args ...interface{}) {
+func (p *Parser) ErrorfHere(f string, args ...any) {
 	p.Errorf(p.t.Pos, f, args...)
 }
 
 // CodeErrorfHere adds a new parser error at the current token position
-func (p *Parser) CodeErrorfHere(c, f string, args ...interface{}) {
+func (p *Parser) CodeErrorfHere(c, f string, args ...any) {
 	p.CodeErrorf(p.t.Pos, c, f, args...)
 }
 

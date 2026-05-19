@@ -6,7 +6,7 @@ import (
 )
 
 // ReadFile reads and unmarshals a JSON file.
-func ReadFile(file string, obj interface{}) error {
+func ReadFile(file string, obj any) error {
 	bs, err := os.ReadFile(file)
 	if err != nil {
 		return err

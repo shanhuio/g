@@ -55,7 +55,7 @@ func TestDecoder_series(t *testing.T) {
 	}
 
 	dec := NewDecoder(input)
-	tm := func(t string) interface{} {
+	tm := func(t string) any {
 		switch t {
 		case "str":
 			return new(string)
@@ -110,7 +110,7 @@ func TestDecoder_series_error(t *testing.T) {
 	input := strings.NewReader(s)
 	dec := NewDecoder(input)
 	type structType struct{}
-	tm := func(t string) interface{} {
+	tm := func(t string) any {
 		return new(structType)
 	}
 	if _, errs := dec.DecodeSeries(tm); errs == nil {

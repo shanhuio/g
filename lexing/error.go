@@ -41,7 +41,7 @@ func (e *Error) ErrorRelFile(workDir string) string {
 }
 
 // JSON returns a JSON marshable object of the error.
-func (e *Error) JSON() interface{} {
+func (e *Error) JSON() any {
 	var ret struct {
 		File string `json:"file"`
 		Line int    `json:"line"`
@@ -62,13 +62,13 @@ func (e *Error) JSON() interface{} {
 }
 
 // CodeErrorf creates a lex8.Error with ErrCode
-func CodeErrorf(c string, f string, args ...interface{}) *Error {
+func CodeErrorf(c string, f string, args ...any) *Error {
 	e := fmt.Errorf(f, args...)
 	return &Error{Err: e, Code: c}
 }
 
 // Errorf creates a lex8.Error similar to fmt.Errorf
-func Errorf(f, c string, args ...interface{}) *Error {
+func Errorf(f, c string, args ...any) *Error {
 	return CodeErrorf("", f, args...)
 }
 

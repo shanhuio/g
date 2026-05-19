@@ -56,7 +56,7 @@ func (s *Sessions) New(data []byte, ttl time.Duration) (string, time.Time) {
 }
 
 // NewJSON creates a new session with a JSON marshallabe data.
-func (s *Sessions) NewJSON(data interface{}) (string, time.Time, error) {
+func (s *Sessions) NewJSON(data any) (string, time.Time, error) {
 	bs, err := json.Marshal(data)
 	if err != nil {
 		var t time.Time
@@ -91,7 +91,7 @@ func (s *Sessions) Check(session string) ([]byte, time.Duration, bool) {
 
 // CheckJSON checks if the session is valid and unmarshals if it is.
 // It will return false if it is fails to unmarshal.
-func (s *Sessions) CheckJSON(session string, dat interface{}) bool {
+func (s *Sessions) CheckJSON(session string, dat any) bool {
 	bs, _, ok := s.Check(session)
 	if !ok {
 		return false

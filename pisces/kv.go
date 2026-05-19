@@ -41,7 +41,7 @@ func (b *KV) Destroy() error { return b.ops.Destroy() }
 func (b *KV) Clear() error { return b.ops.Clear() }
 
 // AddClass adds an entry with a particular class.
-func (b *KV) AddClass(k, cls string, v interface{}) error {
+func (b *KV) AddClass(k, cls string, v any) error {
 	bs, err := json.Marshal(v)
 	if err != nil {
 		return err
@@ -63,7 +63,7 @@ func (b *KV) SetClass(k, cls string) error {
 }
 
 // Add is a short-hand for AddClass but with cls set to empty string.
-func (b *KV) Add(k string, v interface{}) error {
+func (b *KV) Add(k string, v any) error {
 	return b.AddClass(k, "", v)
 }
 
@@ -86,7 +86,7 @@ func (b *KV) GetBytes(k string) ([]byte, error) {
 }
 
 // Get gets the value and JSON marshals it into v.
-func (b *KV) Get(k string, v interface{}) error {
+func (b *KV) Get(k string, v any) error {
 	bs, err := b.GetBytes(k)
 	if err != nil {
 		return err
@@ -105,7 +105,7 @@ func (b *KV) Has(k string) (bool, error) {
 
 // Emplace sets the value for a particular key.
 // Does nothing if the key already exists.
-func (b *KV) Emplace(k string, v interface{}) error {
+func (b *KV) Emplace(k string, v any) error {
 	mk, err := b.mapKey(k)
 	if err != nil {
 		return err
@@ -119,7 +119,7 @@ func (b *KV) Emplace(k string, v interface{}) error {
 
 // Replace sets the value for a particular key. Creates the key if not
 // exist.
-func (b *KV) Replace(k string, v interface{}) error {
+func (b *KV) Replace(k string, v any) error {
 	mk, err := b.mapKey(k)
 	if err != nil {
 		return err
@@ -151,7 +151,7 @@ func (b *KV) SetBytes(k string, bs []byte) error {
 }
 
 // Set updates the JSON value of a particular entry.
-func (b *KV) Set(k string, v interface{}) error {
+func (b *KV) Set(k string, v any) error {
 	bs, err := json.Marshal(v)
 	if err != nil {
 		return err
@@ -161,7 +161,7 @@ func (b *KV) Set(k string, v interface{}) error {
 
 // Mutate applies a function to an entry's value.
 func (b *KV) Mutate(
-	k string, v interface{}, f func(v interface{}) error,
+	k string, v any, f func(v any) error,
 ) error {
 	mk, err := b.mapKey(k)
 	if err != nil {

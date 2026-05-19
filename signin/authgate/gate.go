@@ -11,7 +11,7 @@ import (
 
 const cookieKey = "session"
 
-func defaultCheck(user string) (interface{}, int, error) {
+func defaultCheck(user string) (any, int, error) {
 	lvl := 0
 	if user != "" {
 		lvl = 1
@@ -26,7 +26,7 @@ type Config struct {
 	SessionKey      []byte
 	SessionLifeTime time.Duration
 
-	Check func(user string) (interface{}, int, error)
+	Check func(user string) (any, int, error)
 }
 
 // Gate is a token checking gate that checks the session token and saves the
@@ -34,7 +34,7 @@ type Config struct {
 type Gate struct {
 	sessions *signer.Sessions
 
-	check func(user string) (interface{}, int, error)
+	check func(user string) (any, int, error)
 }
 
 // New creates a new session token checking gate.

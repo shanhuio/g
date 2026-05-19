@@ -6,8 +6,8 @@ import (
 
 // Iter is an interator.
 type Iter struct {
-	Make func() interface{}
-	Do   func(cls string, v interface{}) error
+	Make func() any
+	Do   func(cls string, v any) error
 }
 
 // KVPartial specifies a part of a query result.

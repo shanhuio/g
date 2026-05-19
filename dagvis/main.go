@@ -27,7 +27,7 @@ func (s *server) serveIndex(c *aries.C) error {
 	}
 
 	dat := struct {
-		PageData interface{}
+		PageData any
 	}{
 		PageData: &pageData,
 	}

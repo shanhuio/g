@@ -68,19 +68,19 @@ func (r *Router) Post(p string, f Func) error {
 // `func(c *aries.C, req *RequestType) (resp *ResponseType, error)`,
 // where RequestType
 // and ResponseType are both JSON marshallable.
-func (r *Router) JSONCall(p string, f interface{}) error {
+func (r *Router) JSONCall(p string, f any) error {
 	return r.Post(p, JSONCall(f))
 }
 
 // JSONCallMust is the same as JSONCall, but panics if there is an error.
-func (r *Router) JSONCallMust(p string, f interface{}) {
+func (r *Router) JSONCallMust(p string, f any) {
 	if err := r.JSONCall(p, f); err != nil {
 		panic(err)
 	}
 }
 
 // Call is an alias of JSONCallMust
-func (r *Router) Call(p string, f interface{}) { r.JSONCallMust(p, f) }
+func (r *Router) Call(p string, f any) { r.JSONCallMust(p, f) }
 
 // Dir adds a routing directory node into the routing tree.
 func (r *Router) Dir(p string, f Func) error { return r.DirService(p, f) }
