@@ -12,11 +12,11 @@ type Error = stderrcode.Error
 
 // Common general error codes
 const (
-	NotFound     = "not-found"
-	InvalidArg   = "invalid-arg"
-	Internal     = "internal"
-	Unauthorized = "unauthorized"
-	TimeOut      = "time-out"
+	NotFound     = stderrcode.NotFound
+	InvalidArg   = stderrcode.InvalidArg
+	Internal     = stderrcode.Internal
+	Unauthorized = stderrcode.Unauthorized
+	TimeOut      = stderrcode.TimeOut
 )
 
 // Add creates a new error with code as the error code.
