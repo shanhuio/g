@@ -1,8 +1,6 @@
 module shanhu.io/g
 
-go 1.26
-
-toolchain go1.26.3
+go 1.26.3
 
 require (
 	github.com/digitalocean/godo v1.191.0
@@ -17,6 +15,7 @@ require (
 	gopkg.in/yaml.v2 v2.4.0
 	modernc.org/sqlite v1.50.1
 	shanhu.io/gcimporter v0.0.0-20230206104318-38ca03fa3ae1
+	shanhu.io/std v0.0.0-20260526124544-ba0f0bc80867
 )
 
 require (

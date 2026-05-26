@@ -3,24 +3,12 @@ package errcode
 import (
 	"errors"
 	"fmt"
+
+	stderrcode "shanhu.io/std/errcode"
 )
 
 // Error is a generic error with a string error code.
-type Error struct {
-	Code    string // code is the type of the error.
-	Err     error  // error is the error message, human friendly.
-	Message string // alternative message.
-}
-
-// Unwrap returns the unwrapped error.
-func (e *Error) Unwrap() error { return e.Err }
-
-func (e *Error) Error() string {
-	if e.Message != "" {
-		return e.Message
-	}
-	return e.Err.Error()
-}
+type Error = stderrcode.Error
 
 // Common general error codes
 const (
