@@ -1,9 +1,6 @@
 package errcode
 
 import (
-	"errors"
-	"fmt"
-
 	stderrcode "shanhu.io/std/errcode"
 )
 
@@ -20,96 +17,68 @@ const (
 )
 
 // Add creates a new error with code as the error code.
-func Add(code string, err error) *Error {
-	return &Error{
-		Code: code,
-		Err:  err,
-	}
-}
+func Add(code string, err error) *Error { return stderrcode.Add(code, err) }
 
 // Of returns the code of the error. For errors that
 // do not have a code, it returns empty string.
-func Of(err error) string {
-	codeErr := new(Error)
-	if errors.As(err, &codeErr) {
-		return codeErr.Code
-	}
-	return ""
-}
+func Of(err error) string { return stderrcode.Of(err) }
 
 // IsNotFound checks if it is a not-found error.
-func IsNotFound(err error) bool {
-	return Of(err) == NotFound
-}
+func IsNotFound(err error) bool { return stderrcode.IsNotFound(err) }
 
 // IsInvalidArg checks if it is an invalid argument error.
-func IsInvalidArg(err error) bool {
-	return Of(err) == InvalidArg
-}
+func IsInvalidArg(err error) bool { return stderrcode.IsInvalidArg(err) }
 
 // IsInternal checks if it is an internal error.
-func IsInternal(err error) bool {
-	return Of(err) == Internal
-}
+func IsInternal(err error) bool { return stderrcode.IsInternal(err) }
 
 // IsUnauthorized checks if it is an unauthorized error.
-func IsUnauthorized(err error) bool {
-	return Of(err) == Unauthorized
-}
+func IsUnauthorized(err error) bool { return stderrcode.IsUnauthorized(err) }
 
 // IsTimeOut checks if it is a time-out error.
-func IsTimeOut(err error) bool {
-	return Of(err) == TimeOut
-}
+func IsTimeOut(err error) bool { return stderrcode.IsTimeOut(err) }
 
 // Errorf creates an Error with the given error code.
 func Errorf(code string, f string, args ...any) *Error {
-	return Add(code, fmt.Errorf(f, args...))
+	return stderrcode.Errorf(code, f, args...)
 }
 
 // AltErrorf replaces the message of err to be the formatted message, but keeps
 // the error code.
 func AltErrorf(err error, f string, args ...any) error {
-	msg := fmt.Sprintf(f, args...)
-	return &Error{
-		Err:     err,
-		Message: msg,
-		Code:    Of(err),
-	}
+	return stderrcode.AltErrorf(err, f, args...)
 }
 
 // Annotate annotates an error but keeps the error code.
-func Annotate(err error, msg string) error {
-	return fmt.Errorf("%s: %w", msg, err)
-}
+func Annotate(err error, msg string) error { return stderrcode.Annotate(err, msg) }
 
 // Annotatef annotates an error with a formatted message but keeps the error
 // code.
 func Annotatef(err error, f string, args ...any) error {
-	return Annotate(err, fmt.Sprintf(f, args...))
+	return stderrcode.Annotatef(err, f, args...)
 }
 
 // NotFoundf creates a new not-found error.
 func NotFoundf(f string, args ...any) *Error {
-	return Errorf(NotFound, f, args...)
+	return stderrcode.NotFoundf(f, args...)
 }
 
 // InvalidArgf creates a new invalid arugment error.
 func InvalidArgf(f string, args ...any) *Error {
-	return Errorf(InvalidArg, f, args...)
+	return stderrcode.InvalidArgf(f, args...)
 }
 
 // Internalf creates a new internal error.
 func Internalf(f string, args ...any) *Error {
-	return Errorf(Internal, f, args...)
+	return stderrcode.Internalf(f, args...)
 }
 
 // Unauthorizedf returns an error caused by an unauthrozied request.
 func Unauthorizedf(f string, args ...any) *Error {
-	return Errorf(Unauthorized, f, args...)
+	return stderrcode.Unauthorizedf(f, args...)
 }
 
 // TimeOutf returns a new time-out error.
 func TimeOutf(f string, args ...any) *Error {
-	return Errorf(TimeOut, f, args...)
+	return stderrcode.TimeOutf(f, args...)
 }
