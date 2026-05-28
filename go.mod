@@ -4,7 +4,6 @@ go 1.26.3
 
 require (
 	github.com/digitalocean/godo v1.191.0
-	github.com/gorilla/websocket v1.5.3
 	github.com/lib/pq v1.10.7
 	github.com/minio/minio-go/v7 v7.1.0
 	golang.org/x/crypto v0.51.0
