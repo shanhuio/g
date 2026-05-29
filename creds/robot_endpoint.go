@@ -5,10 +5,10 @@ import (
 	"net/http"
 	"net/url"
 
-	"shanhu.io/g/errcode"
 	"shanhu.io/g/httputil"
 	"shanhu.io/g/osutil"
 	"shanhu.io/g/rsautil"
+	"shanhu.io/std/errcode"
 )
 
 // RobotEndpoint is an endpoint for robots.

@@ -8,7 +8,7 @@ import (
 	"reflect"
 	"sort"
 
-	"shanhu.io/g/errcode"
+	"shanhu.io/std/errcode"
 )
 
 type testData struct {

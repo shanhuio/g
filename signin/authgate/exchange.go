@@ -4,12 +4,12 @@ import (
 	"time"
 
 	"shanhu.io/g/aries"
-	"shanhu.io/g/errcode"
 	"shanhu.io/g/identity"
 	"shanhu.io/g/jwt"
 	"shanhu.io/g/signin"
 	"shanhu.io/g/signin/signinapi"
 	"shanhu.io/g/timeutil"
+	"shanhu.io/std/errcode"
 )
 
 // ExchangeConfig is the config for creating an session exchanger

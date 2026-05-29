@@ -5,7 +5,7 @@ import (
 	"strings"
 	"time"
 
-	"shanhu.io/g/errcode"
+	"shanhu.io/std/errcode"
 )
 
 // Verifier verifies the token.

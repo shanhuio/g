@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"strings"
 
-	"shanhu.io/g/errcode"
+	"shanhu.io/std/errcode"
 )
 
 func isSuccess(resp *http.Response) bool {

@@ -5,10 +5,10 @@ import (
 	"log"
 	"os"
 
-	"shanhu.io/g/errcode"
 	"shanhu.io/g/osutil"
 	"shanhu.io/g/rsautil"
 	"shanhu.io/g/termutil"
+	"shanhu.io/std/errcode"
 )
 
 type config struct {

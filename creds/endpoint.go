@@ -6,7 +6,7 @@ import (
 	"os"
 	"os/user"
 
-	"shanhu.io/g/errcode"
+	"shanhu.io/std/errcode"
 )
 
 // Endpoint contains the login stub configuration.

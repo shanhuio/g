@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"time"
 
-	"shanhu.io/g/errcode"
+	"shanhu.io/std/errcode"
 )
 
 type memStore struct {

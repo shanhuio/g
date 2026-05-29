@@ -4,8 +4,8 @@ import (
 	"context"
 	"time"
 
-	"shanhu.io/g/errcode"
 	"shanhu.io/g/jwt"
+	"shanhu.io/std/errcode"
 )
 
 // Self use this to indicate self signing as the issuer.

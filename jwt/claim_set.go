@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"strings"
 
-	"shanhu.io/g/errcode"
 	"shanhu.io/g/strutil"
+	"shanhu.io/std/errcode"
 )
 
 // ClaimSet contains the JWT claims

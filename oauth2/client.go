@@ -8,9 +8,9 @@ import (
 
 	"golang.org/x/oauth2"
 	"shanhu.io/g/aries"
-	"shanhu.io/g/errcode"
 	"shanhu.io/g/httputil"
 	"shanhu.io/g/signer"
+	"shanhu.io/std/errcode"
 )
 
 func stateCode(req *http.Request) (state, code string) {

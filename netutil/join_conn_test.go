@@ -9,7 +9,7 @@ import (
 	"io"
 	"net"
 
-	"shanhu.io/g/errcode"
+	"shanhu.io/std/errcode"
 )
 
 func serveEchoBack(c net.Conn, messageLen int) error {

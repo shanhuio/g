@@ -9,8 +9,8 @@ import (
 
 	"shanhu.io/g/aries"
 	"shanhu.io/g/dags"
-	"shanhu.io/g/errcode"
 	"shanhu.io/g/osutil"
+	"shanhu.io/std/errcode"
 )
 
 type server struct {

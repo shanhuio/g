@@ -3,8 +3,8 @@ package smake
 import (
 	"path/filepath"
 
-	"shanhu.io/g/errcode"
 	"shanhu.io/g/osutil"
+	"shanhu.io/std/errcode"
 )
 
 func findGoModuleRoot(d string) (string, error) {

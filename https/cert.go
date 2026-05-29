@@ -14,7 +14,7 @@ import (
 	"net"
 	"time"
 
-	"shanhu.io/g/errcode"
+	"shanhu.io/std/errcode"
 )
 
 // Cert contains a certificate in memory.

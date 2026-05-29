@@ -4,9 +4,9 @@ import (
 	"crypto/subtle"
 	"time"
 
-	"shanhu.io/g/errcode"
 	"shanhu.io/g/roles/rolesapi"
 	"shanhu.io/g/timeutil"
+	"shanhu.io/std/errcode"
 )
 
 const passCodeMaxTries = 10

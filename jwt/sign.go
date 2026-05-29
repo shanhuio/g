@@ -5,7 +5,7 @@ import (
 	"context"
 	"io"
 
-	"shanhu.io/g/errcode"
+	"shanhu.io/std/errcode"
 )
 
 // Signer signs the token, returns the signature and the header.

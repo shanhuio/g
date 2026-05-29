@@ -8,11 +8,11 @@ import (
 	"sync"
 	"time"
 
-	"shanhu.io/g/errcode"
 	"shanhu.io/g/httputil"
 	"shanhu.io/g/signer"
 	"shanhu.io/g/signin/signinapi"
 	"shanhu.io/g/timeutil"
+	"shanhu.io/std/errcode"
 )
 
 type signInRequest struct {

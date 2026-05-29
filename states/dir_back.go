@@ -5,7 +5,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"shanhu.io/g/errcode"
+	"shanhu.io/std/errcode"
 )
 
 type dirBack struct {

@@ -9,9 +9,9 @@ import (
 	"encoding/pem"
 	"time"
 
-	"shanhu.io/g/errcode"
 	"shanhu.io/g/jwt"
 	"shanhu.io/g/rsautil"
+	"shanhu.io/std/errcode"
 )
 
 type jwtSigner struct {

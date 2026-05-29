@@ -7,7 +7,7 @@ import (
 	"log"
 
 	"shanhu.io/g/aries"
-	"shanhu.io/g/errcode"
+	"shanhu.io/std/errcode"
 )
 
 // Redirect redirects the incoming request to https.

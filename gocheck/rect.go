@@ -3,8 +3,8 @@ package gocheck
 import (
 	"os"
 
-	"shanhu.io/std/lexing"
 	"shanhu.io/g/textbox"
+	"shanhu.io/std/lexing"
 )
 
 // CheckRect checks if all the files are within the given rectangle.

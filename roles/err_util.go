@@ -2,7 +2,7 @@ package roles
 
 import (
 	"shanhu.io/g/aries"
-	"shanhu.io/g/errcode"
+	"shanhu.io/std/errcode"
 )
 
 func altAuthErr(err error, msg string) error {

@@ -4,7 +4,7 @@ import (
 	"sort"
 	"sync"
 
-	"shanhu.io/g/errcode"
+	"shanhu.io/std/errcode"
 )
 
 type memKV struct {

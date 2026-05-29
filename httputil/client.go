@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"net/url"
 
-	"shanhu.io/g/errcode"
+	"shanhu.io/std/errcode"
 )
 
 // Client performs client that calls to a remote server with an optional token.

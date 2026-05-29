@@ -3,7 +3,7 @@ package jwt
 import (
 	"time"
 
-	"shanhu.io/g/errcode"
+	"shanhu.io/std/errcode"
 )
 
 // CheckTime checks if the token's claims is in valid at time now.

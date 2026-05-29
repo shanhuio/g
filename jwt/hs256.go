@@ -6,7 +6,7 @@ import (
 	"crypto/sha256"
 	"time"
 
-	"shanhu.io/g/errcode"
+	"shanhu.io/std/errcode"
 )
 
 // HS256 implements the HS256 signing algorithm. It uses SHA256 hash and HMAC

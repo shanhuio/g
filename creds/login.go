@@ -6,9 +6,9 @@ import (
 	"net/url"
 	"time"
 
-	"shanhu.io/g/errcode"
 	"shanhu.io/g/httputil"
 	"shanhu.io/g/timeutil"
+	"shanhu.io/std/errcode"
 )
 
 // LoginWithKey uses the given PEM file to login a server, and returns the creds

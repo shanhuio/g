@@ -8,8 +8,8 @@ import (
 	"os"
 
 	"shanhu.io/g/aries"
-	"shanhu.io/g/errcode"
 	"shanhu.io/g/rsautil"
+	"shanhu.io/std/errcode"
 )
 
 func TestMemKeyRegistry(t *testing.T) {

@@ -4,8 +4,8 @@ import (
 	"os"
 
 	"shanhu.io/g/creds"
-	"shanhu.io/g/errcode"
 	"shanhu.io/g/httputil"
+	"shanhu.io/std/errcode"
 )
 
 // Login log into a server and fetch the token for the given user.

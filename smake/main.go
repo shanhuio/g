@@ -7,7 +7,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"shanhu.io/g/errcode"
+	"shanhu.io/std/errcode"
 )
 
 func workDir() (string, error) {

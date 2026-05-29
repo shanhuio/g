@@ -6,10 +6,10 @@ import (
 
 	"golang.org/x/crypto/ssh"
 	"golang.org/x/crypto/ssh/agent"
-	"shanhu.io/g/errcode"
 	"shanhu.io/g/httputil"
 	"shanhu.io/g/signin/signinapi"
 	"shanhu.io/g/strutil"
+	"shanhu.io/std/errcode"
 )
 
 // Config contains the configuration to sign in with an SSH

@@ -7,12 +7,12 @@ import (
 
 	"golang.org/x/crypto/ssh"
 	"shanhu.io/g/aries"
-	"shanhu.io/g/errcode"
 	"shanhu.io/g/rsautil"
 	"shanhu.io/g/signer"
 	"shanhu.io/g/signin"
 	"shanhu.io/g/signin/signinapi"
 	"shanhu.io/g/timeutil"
+	"shanhu.io/std/errcode"
 )
 
 // SSHCertExchangeConfig is the configuration to create an SSH certificate

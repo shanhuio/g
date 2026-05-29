@@ -3,7 +3,7 @@ package states
 import (
 	"strings"
 
-	"shanhu.io/g/errcode"
+	"shanhu.io/std/errcode"
 )
 
 // GetToken gets a token string from the given key. The fetched value is

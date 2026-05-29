@@ -8,7 +8,7 @@ import (
 	"os"
 
 	"shanhu.io/g/dags"
-	"shanhu.io/g/errcode"
+	"shanhu.io/std/errcode"
 )
 
 func readInput(in string) ([]byte, error) {

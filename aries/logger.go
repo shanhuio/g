@@ -6,7 +6,7 @@ import (
 	"log"
 	"os"
 
-	"shanhu.io/g/errcode"
+	"shanhu.io/std/errcode"
 )
 
 // LogPrinter is the interface for printing server logs.

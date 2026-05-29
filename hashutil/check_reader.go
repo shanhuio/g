@@ -8,7 +8,7 @@ import (
 	"io"
 	"strings"
 
-	"shanhu.io/g/errcode"
+	"shanhu.io/std/errcode"
 )
 
 // CheckReader is a reader that checks the content of a reader, and returns

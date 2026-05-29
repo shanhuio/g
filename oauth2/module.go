@@ -7,10 +7,10 @@ import (
 	"time"
 
 	"shanhu.io/g/aries"
-	"shanhu.io/g/errcode"
 	"shanhu.io/g/signer"
 	"shanhu.io/g/signin"
 	"shanhu.io/g/signin/authgate"
+	"shanhu.io/std/errcode"
 )
 
 // Module is a module that handles stuff related to oauth.

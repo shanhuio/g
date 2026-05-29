@@ -3,7 +3,7 @@ package osutil
 import (
 	"os"
 
-	"shanhu.io/g/errcode"
+	"shanhu.io/std/errcode"
 )
 
 // CheckPrivateFile checks if the file is of the right permission bits.

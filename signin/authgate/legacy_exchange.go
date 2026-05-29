@@ -4,11 +4,11 @@ import (
 	"time"
 
 	"shanhu.io/g/aries"
-	"shanhu.io/g/errcode"
 	"shanhu.io/g/keyreg"
 	"shanhu.io/g/signer"
 	"shanhu.io/g/signin"
 	"shanhu.io/g/signin/signinapi"
+	"shanhu.io/std/errcode"
 )
 
 // LegacyExchange handles sign in using a public key registry. The request

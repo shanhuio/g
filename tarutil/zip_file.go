@@ -6,7 +6,7 @@ import (
 	"io"
 	"path"
 
-	"shanhu.io/g/errcode"
+	"shanhu.io/std/errcode"
 )
 
 func copyZipFile(w io.Writer, f *zip.File) error {

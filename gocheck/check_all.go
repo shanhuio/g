@@ -5,7 +5,7 @@ import (
 	"go/token"
 
 	"golang.org/x/tools/go/packages"
-	"shanhu.io/g/errcode"
+	"shanhu.io/std/errcode"
 	"shanhu.io/std/lexing"
 )
 

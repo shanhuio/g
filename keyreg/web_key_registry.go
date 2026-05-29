@@ -3,9 +3,9 @@ package keyreg
 import (
 	"net/url"
 
-	"shanhu.io/g/errcode"
 	"shanhu.io/g/httputil"
 	"shanhu.io/g/rsautil"
+	"shanhu.io/std/errcode"
 )
 
 // WebKeyRegistry is a storage of public keys backed by a web site.

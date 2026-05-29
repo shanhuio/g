@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"log"
 
-	"shanhu.io/g/errcode"
+	"shanhu.io/std/errcode"
 )
 
 // ReplyJSON replies a JSON marshable object over the response.

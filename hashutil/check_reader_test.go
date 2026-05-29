@@ -7,7 +7,7 @@ import (
 	"crypto/sha256"
 	"io"
 
-	"shanhu.io/g/errcode"
+	"shanhu.io/std/errcode"
 )
 
 func TestCheckReader(t *testing.T) {

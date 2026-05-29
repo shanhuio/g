@@ -4,8 +4,8 @@ import (
 	"time"
 
 	"shanhu.io/g/aries"
-	"shanhu.io/g/errcode"
 	"shanhu.io/g/keyreg"
+	"shanhu.io/std/errcode"
 )
 
 // JSONConfig is a JSON marshallable config that is commonly used for

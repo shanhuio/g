@@ -3,7 +3,7 @@ package pisces
 import (
 	"errors"
 
-	"shanhu.io/g/errcode"
+	"shanhu.io/std/errcode"
 )
 
 // ErrCancel is the error when the operation is canclled.

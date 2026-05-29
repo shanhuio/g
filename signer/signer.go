@@ -9,9 +9,9 @@ import (
 	"io"
 	"time"
 
-	"shanhu.io/g/errcode"
 	"shanhu.io/g/rand"
 	"shanhu.io/g/timeutil"
+	"shanhu.io/std/errcode"
 )
 
 // Signer is a signer that contains a secrect key.

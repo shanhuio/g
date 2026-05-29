@@ -3,8 +3,8 @@ package pisces
 import (
 	"fmt"
 
-	"shanhu.io/g/errcode"
 	"shanhu.io/g/sqlx"
+	"shanhu.io/std/errcode"
 )
 
 type psqlKV struct {

@@ -1,7 +1,7 @@
 package creds
 
 import (
-	"shanhu.io/g/errcode"
+	"shanhu.io/std/errcode"
 )
 
 type credsStore interface {

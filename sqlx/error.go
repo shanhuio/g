@@ -3,7 +3,7 @@ package sqlx
 import (
 	"fmt"
 
-	"shanhu.io/g/errcode"
+	"shanhu.io/std/errcode"
 )
 
 type queryError struct {

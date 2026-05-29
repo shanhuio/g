@@ -3,7 +3,7 @@ package identity
 import (
 	"time"
 
-	"shanhu.io/g/errcode"
+	"shanhu.io/std/errcode"
 )
 
 func publicKeyValid(k *PublicKey, now time.Time) error {

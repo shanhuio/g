@@ -8,11 +8,11 @@ import (
 	"crypto/sha256"
 	"time"
 
-	"shanhu.io/g/errcode"
 	"shanhu.io/g/hashutil"
 	"shanhu.io/g/jwt"
 	"shanhu.io/g/rsautil"
 	"shanhu.io/g/timeutil"
+	"shanhu.io/std/errcode"
 )
 
 type simpleData struct {

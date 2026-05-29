@@ -6,11 +6,11 @@ import (
 	"path/filepath"
 
 	lintpkg "golang.org/x/lint"
-	"shanhu.io/g/errcode"
 	"shanhu.io/g/gocheck"
 	"shanhu.io/g/goload"
 	"shanhu.io/g/gomod"
 	"shanhu.io/g/gotags"
+	"shanhu.io/std/errcode"
 	"shanhu.io/std/lexing"
 )
 

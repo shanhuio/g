@@ -5,8 +5,8 @@ import (
 	"path/filepath"
 	"sync"
 
-	"shanhu.io/g/errcode"
 	"shanhu.io/g/rsautil"
+	"shanhu.io/std/errcode"
 )
 
 func errUserNotFound(u string) error {

@@ -5,8 +5,8 @@ import (
 
 	"net/http/httptest"
 
-	"shanhu.io/g/errcode"
 	"shanhu.io/g/httputil"
+	"shanhu.io/std/errcode"
 )
 
 func TestJSONCallString(t *testing.T) {
