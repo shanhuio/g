@@ -3,7 +3,7 @@ package states
 import (
 	"encoding/json"
 
-	"shanhu.io/g/jsonx"
+	"shanhu.io/std/jsonx"
 )
 
 // GetJSON gets a JSON encoded state.

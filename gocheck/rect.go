@@ -3,7 +3,7 @@ package gocheck
 import (
 	"os"
 
-	"shanhu.io/g/lexing"
+	"shanhu.io/std/lexing"
 	"shanhu.io/g/textbox"
 )
 

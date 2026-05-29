@@ -11,7 +11,7 @@ import (
 	"shanhu.io/g/goload"
 	"shanhu.io/g/gomod"
 	"shanhu.io/g/gotags"
-	"shanhu.io/g/lexing"
+	"shanhu.io/std/lexing"
 )
 
 func smlchkPkg(c *context, pkg *relPkg) []*lexing.Error {

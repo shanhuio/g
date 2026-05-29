@@ -8,7 +8,7 @@ import (
 	"sort"
 
 	"shanhu.io/g/dags"
-	"shanhu.io/g/lexing"
+	"shanhu.io/std/lexing"
 )
 
 type checker struct {

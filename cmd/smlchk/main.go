@@ -7,7 +7,7 @@ import (
 
 	"shanhu.io/g/gocheck"
 	"shanhu.io/g/goload"
-	"shanhu.io/g/lexing"
+	"shanhu.io/std/lexing"
 )
 
 func errExit(err error) {

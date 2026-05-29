@@ -4,7 +4,7 @@ import (
 	"bufio"
 	"io"
 
-	"shanhu.io/g/lexing"
+	"shanhu.io/std/lexing"
 )
 
 // TabSize is the indent size for each tab
