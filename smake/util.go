@@ -3,7 +3,7 @@ package smake
 import (
 	"fmt"
 	"go/build"
-	"io/ioutil"
+	"os"
 	"path/filepath"
 )
 
@@ -29,7 +29,7 @@ func fileSourceMap(pkg *relPkg) (map[string][]byte, error) {
 
 	for _, f := range files {
 		path := filepath.Join(pkg.pkg.Dir, f)
-		src, err := ioutil.ReadFile(path)
+		src, err := os.ReadFile(path)
 		if err != nil {
 			return nil, fmt.Errorf("read %q: %s", path, err)
 		}

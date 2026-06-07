@@ -4,8 +4,8 @@ package dagvis
 import (
 	"encoding/json"
 	"flag"
-	"io/ioutil"
 	"log"
+	"os"
 
 	"shanhu.io/g/aries"
 	"shanhu.io/g/dags"
@@ -42,7 +42,7 @@ func makeService(home string) (aries.Service, error) {
 	}
 
 	m := new(dags.M)
-	dagBytes, err := ioutil.ReadFile(h.Var("dagview.json"))
+	dagBytes, err := os.ReadFile(h.Var("dagview.json"))
 	if err != nil {
 		return nil, errcode.Annotate(err, "read dagview.json")
 	}

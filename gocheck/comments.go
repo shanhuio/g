@@ -4,7 +4,7 @@ import (
 	"go/ast"
 	"go/scanner"
 	"go/token"
-	"io/ioutil"
+	"os"
 	"strings"
 
 	"shanhu.io/std/lexing"
@@ -50,7 +50,7 @@ func CheckLineComment(
 		tokFile := fset.File(f.Pos())
 		s := new(scanner.Scanner)
 
-		bs, err := ioutil.ReadFile(tokFile.Name())
+		bs, err := os.ReadFile(tokFile.Name())
 		if lexing.LogError(errs, err) {
 			continue
 		}
