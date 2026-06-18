@@ -3,18 +3,18 @@ module shanhu.io/g
 go 1.26.3
 
 require (
-	github.com/digitalocean/godo v1.193.0
+	github.com/digitalocean/godo v1.196.0
 	github.com/lib/pq v1.10.7
 	github.com/minio/minio-go/v7 v7.2.0
-	golang.org/x/crypto v0.52.0
+	golang.org/x/crypto v0.53.0
 	golang.org/x/lint v0.0.0-20241112194109-818c5a804067
 	golang.org/x/oauth2 v0.36.0
-	golang.org/x/term v0.43.0
-	golang.org/x/tools v0.45.0
+	golang.org/x/term v0.44.0
+	golang.org/x/tools v0.46.0
 	gopkg.in/yaml.v2 v2.4.0
 	modernc.org/sqlite v1.50.1
 	shanhu.io/gcimporter v0.0.0-20230206104318-38ca03fa3ae1
-	shanhu.io/std v0.0.0-20260530234352-ed01c7af6140
+	shanhu.io/std v0.0.0-20260612232620-c5a277ad5225
 )
 
 require (
@@ -38,14 +38,14 @@ require (
 	github.com/tinylib/msgp v1.6.4 // indirect
 	github.com/zeebo/xxh3 v1.1.0 // indirect
 	go.yaml.in/yaml/v3 v3.0.4 // indirect
-	golang.org/x/mod v0.36.0 // indirect
-	golang.org/x/net v0.55.0 // indirect
-	golang.org/x/sync v0.20.0 // indirect
-	golang.org/x/sys v0.45.0 // indirect
-	golang.org/x/text v0.37.0 // indirect
+	golang.org/x/mod v0.37.0 // indirect
+	golang.org/x/net v0.56.0 // indirect
+	golang.org/x/sync v0.21.0 // indirect
+	golang.org/x/sys v0.46.0 // indirect
+	golang.org/x/text v0.38.0 // indirect
 	golang.org/x/time v0.15.0 // indirect
 	gopkg.in/check.v1 v1.0.0-20180628173108-788fd7840127 // indirect
-	gopkg.in/ini.v1 v1.67.2 // indirect
+	gopkg.in/ini.v1 v1.67.3 // indirect
 	modernc.org/libc v1.72.3 // indirect
 	modernc.org/mathutil v1.7.1 // indirect
 	modernc.org/memory v1.11.0 // indirect
