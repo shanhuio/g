@@ -33,7 +33,7 @@ func testSigner(t *testing.T, k []byte) {
 	os("something")
 	os("            ")
 
-	for i := 0; i < 5; i++ {
+	for range 5 {
 		o(rand.Bytes(10))
 	}
 }
@@ -41,7 +41,7 @@ func testSigner(t *testing.T, k []byte) {
 func TestSigner(t *testing.T) {
 	testSigner(t, nil)
 	testSigner(t, []byte{})
-	for i := 0; i < 3; i++ {
+	for range 3 {
 		testSigner(t, rand.Bytes(8))
 	}
 }

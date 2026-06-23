@@ -15,8 +15,8 @@ type jsonCall struct {
 }
 
 var (
-	errType     = reflect.TypeOf((*error)(nil)).Elem()
-	contextType = reflect.TypeOf((*C)(nil))
+	errType     = reflect.TypeFor[error]()
+	contextType = reflect.TypeFor[*C]()
 )
 
 func newJSONCall(f any) (*jsonCall, error) {
@@ -65,7 +65,7 @@ func (j *jsonCall) call(c *C) error {
 
 	var ret []reflect.Value
 	if !j.noRequest {
-		if j.req.Kind() != reflect.Ptr {
+		if j.req.Kind() != reflect.Pointer {
 			req := reflect.New(j.req)
 			if err := UnmarshalJSONBody(c, req.Interface()); err != nil {
 				return err

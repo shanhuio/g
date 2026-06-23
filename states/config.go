@@ -10,11 +10,11 @@ import (
 
 func parseS3Endpoint(host string) (bucket, endpoint string) {
 	host = strings.TrimSuffix(host, ".") // Trims ending dot in domain name.
-	firstDot := strings.Index(host, ".")
-	if firstDot < 0 {
+	before, after, ok := strings.Cut(host, ".")
+	if !ok {
 		return "", host
 	}
-	return host[:firstDot], host[firstDot+1:]
+	return before, after
 }
 
 // Dial connects to a States storage using the given URL address.

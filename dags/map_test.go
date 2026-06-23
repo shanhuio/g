@@ -8,7 +8,7 @@ import (
 
 func makeFullTestGraph(n int) (*Graph, []string) {
 	names := make([]string, n)
-	for i := 0; i < n; i++ {
+	for i := range n {
 		names[i] = fmt.Sprintf("node-%04d", i)
 	}
 
@@ -16,7 +16,7 @@ func makeFullTestGraph(n int) (*Graph, []string) {
 	for _, name := range names {
 		nodes[name] = nil
 	}
-	for i := 0; i < n; i++ {
+	for i := range n {
 		from := names[i]
 		for j := i + 1; j < n; j++ {
 			to := names[j]

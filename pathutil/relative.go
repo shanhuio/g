@@ -11,8 +11,8 @@ func DotRelative(base, full string) string {
 	if base == full {
 		return "."
 	}
-	if strings.HasPrefix(full, base+"/") {
-		return "./" + strings.TrimPrefix(full, base+"/")
+	if after, ok := strings.CutPrefix(full, base+"/"); ok {
+		return "./" + after
 	}
 	return full
 }
@@ -25,8 +25,8 @@ func Relative(base, full string) string {
 	if base == full {
 		return "."
 	}
-	if strings.HasPrefix(full, base+"/") {
-		return strings.TrimPrefix(full, base+"/")
+	if after, ok := strings.CutPrefix(full, base+"/"); ok {
+		return after
 	}
 	return ""
 }

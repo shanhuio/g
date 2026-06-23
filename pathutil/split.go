@@ -2,6 +2,7 @@ package pathutil
 
 import (
 	"fmt"
+	"slices"
 	"strings"
 )
 
@@ -12,10 +13,8 @@ func Split(path string) ([]string, error) {
 	}
 
 	parts := strings.Split(path, "/")
-	for _, part := range parts {
-		if part == "" {
-			return nil, fmt.Errorf("invalid path: %q", path)
-		}
+	if slices.Contains(parts, "") {
+		return nil, fmt.Errorf("invalid path: %q", path)
 	}
 	return parts, nil
 }

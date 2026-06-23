@@ -2,6 +2,7 @@ package jwt
 
 import (
 	"encoding/json"
+	"maps"
 	"strings"
 
 	"shanhu.io/g/strutil"
@@ -59,9 +60,7 @@ func (c *ClaimSet) encode() (string, error) {
 	m["exp"] = c.Exp
 	m["iat"] = c.Iat
 
-	for k, v := range c.Extra {
-		m[k] = v
-	}
+	maps.Copy(m, c.Extra)
 
 	return encodeSegment(m)
 }

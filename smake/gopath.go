@@ -51,8 +51,8 @@ func relPkgs(rootPkg string, scanRes *goload.ScanResult) ([]*relPkg, error) {
 			continue
 		}
 
-		if strings.HasPrefix(pkg, prefix) {
-			rel.rel = "./" + strings.TrimPrefix(pkg, prefix)
+		if after, ok := strings.CutPrefix(pkg, prefix); ok {
+			rel.rel = "./" + after
 			ret = append(ret, rel)
 			continue
 		}

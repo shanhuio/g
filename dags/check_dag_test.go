@@ -9,12 +9,12 @@ import (
 
 func makeRandomDAG(n int, p float64) *Graph {
 	names := make([]string, n)
-	for i := 0; i < n; i++ {
+	for i := range n {
 		names[i] = fmt.Sprintf("node%d", i)
 	}
 
 	nodes := make(map[string][]string)
-	for i := 0; i < n; i++ {
+	for i := range n {
 		from := names[i]
 		var edges []string
 		for j := i + 1; j < n; j++ {
@@ -51,12 +51,12 @@ func TestCheckDAG(t *testing.T) {
 func TestCheckDAGCircle(t *testing.T) {
 	for _, n := range []int{2, 5, 10, 50} {
 		names := make([]string, n)
-		for i := 0; i < n; i++ {
+		for i := range n {
 			names[i] = fmt.Sprintf("node%d", i)
 		}
 
 		nodes := make(map[string][]string)
-		for i := 0; i < n; i++ {
+		for i := range n {
 			if i == 0 {
 				nodes[names[i]] = []string{names[n-1]}
 			} else {

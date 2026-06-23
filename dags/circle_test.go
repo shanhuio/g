@@ -104,7 +104,7 @@ func TestMinCircle(t *testing.T) {
 		"8": {"1"},
 	}
 	// add a bunch of empty nodes
-	for i := 0; i < 100; i++ {
+	for i := range 100 {
 		k := fmt.Sprintf(":%d", i)
 		nodes[k] = []string{}
 	}
@@ -117,7 +117,7 @@ func TestMinCircle(t *testing.T) {
 		"3": {"1"},
 	}
 
-	for i := 0; i < 5; i++ {
+	for i := range 5 {
 		k1 := fmt.Sprintf("a%d", i)
 		k2 := fmt.Sprintf("b%d", i)
 		nodes["1"] = append(nodes["1"], k1)
@@ -125,7 +125,7 @@ func TestMinCircle(t *testing.T) {
 		nodes[k2] = []string{"2"}
 	}
 
-	for i := 0; i < 5; i++ {
+	for i := range 5 {
 		k1 := fmt.Sprintf("c%d", i)
 		k2 := fmt.Sprintf("d%d", i)
 		nodes["2"] = append(nodes["2"], k1)
@@ -133,7 +133,7 @@ func TestMinCircle(t *testing.T) {
 		nodes[k2] = []string{"3"}
 	}
 
-	for i := 0; i < 5; i++ {
+	for i := range 5 {
 		k1 := fmt.Sprintf("e%d", i)
 		k2 := fmt.Sprintf("f%d", i)
 		nodes["3"] = append(nodes["3"], k1)
@@ -143,7 +143,7 @@ func TestMinCircle(t *testing.T) {
 
 	// because iterations on maps are random, we do it for several times so
 	// that it will iterate with different random permutations.
-	for i := 0; i < 5; i++ {
+	for range 5 {
 		o(nodes, []string{"1", "2", "3"})
 	}
 }

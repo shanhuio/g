@@ -23,7 +23,7 @@ func Join(slice any, sep string) string {
 	}
 
 	buf := new(bytes.Buffer)
-	for i := 0; i < n; i++ {
+	for i := range n {
 		x := v.Index(i).Interface()
 		if i > 0 {
 			fmt.Fprint(buf, sep)

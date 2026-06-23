@@ -28,8 +28,8 @@ func ValidPath(p string) bool {
 	}
 
 	p = strings.TrimPrefix(p, "/")
-	subs := strings.Split(p, "/")
-	for _, s := range subs {
+	subs := strings.SplitSeq(p, "/")
+	for s := range subs {
 		if s == "" {
 			return false
 		}

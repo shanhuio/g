@@ -8,8 +8,8 @@ import (
 // RemoteIP returns the remote IP address.
 func RemoteIP(c *C) net.IP {
 	forwardedFor := c.Req.Header.Get("X-Forwarded-For")
-	ips := strings.Split(forwardedFor, ",")
-	for _, ip := range ips {
+	ips := strings.SplitSeq(forwardedFor, ",")
+	for ip := range ips {
 		if parsed := net.ParseIP(ip); parsed != nil {
 			return parsed
 		}

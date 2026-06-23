@@ -9,14 +9,12 @@ func TestCounterGet(t *testing.T) {
 	c := Counter{0}
 	var wg sync.WaitGroup
 
-	for i := 0; i < 10; i++ {
-		wg.Add(1)
-		go func() {
-			defer wg.Done()
-			for j := 0; j < 1000; j++ {
+	for range 10 {
+		wg.Go(func() {
+			for range 1000 {
 				c.Add(1)
 			}
-		}()
+		})
 	}
 	wg.Wait()
 	if c.Count() != 10000 {

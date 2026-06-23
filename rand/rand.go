@@ -41,7 +41,7 @@ func LowerLetters(n int) string {
 	r := New()
 	var ret bytes.Buffer
 
-	for i := 0; i < n; i++ {
+	for range n {
 		x := r.Int31n(26)
 		ret.WriteRune('a' + x)
 	}
@@ -54,7 +54,7 @@ func Letters(n int) string {
 	r := New()
 	var ret bytes.Buffer
 
-	for i := 0; i < n; i++ {
+	for range n {
 		x := r.Int31n(52)
 		if x < 26 {
 			ret.WriteRune('a' + x)
@@ -69,7 +69,7 @@ func Letters(n int) string {
 func Digits(n int) string {
 	r := New()
 	var ret bytes.Buffer
-	for i := 0; i < 10; i++ {
+	for range 10 {
 		x := r.Int31n(10)
 		ret.WriteRune('0' + x)
 	}

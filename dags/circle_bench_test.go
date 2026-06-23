@@ -15,9 +15,9 @@ func BenchmarkFindCircle(b *testing.B) {
 func benchmarkFindCircle() []*MapNode {
 	ret := make(map[string][]string)
 
-	for i := 0; i < 1000; i++ {
+	for i := range 1000 {
 		var edge []string
-		for j := 0; j < 1000; j++ {
+		for j := range 1000 {
 			if i == j {
 				continue
 			}

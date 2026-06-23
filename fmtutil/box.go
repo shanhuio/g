@@ -9,18 +9,18 @@ func isIndent(r rune) bool {
 }
 
 func indentWithSpace(s string) string {
-	ret := ""
+	var ret strings.Builder
 	for i, c := range s {
 		if c == ' ' {
-			ret += " "
+			ret.WriteString(" ")
 		} else if c == '\t' {
-			ret += "    "
+			ret.WriteString("    ")
 		} else {
-			return ret + s[i:]
+			return ret.String() + s[i:]
 		}
 	}
 
-	return ret
+	return ret.String()
 }
 
 func allIndents(s string) bool {

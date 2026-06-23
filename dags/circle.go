@@ -10,7 +10,7 @@ type searchNode struct {
 func traceCircle(trace []*searchNode, snode *searchNode) []*MapNode {
 	n := snode.length
 	ret := make([]*MapNode, n)
-	for i := 0; i < n; i++ {
+	for i := range n {
 		ret[n-1-i] = snode.this
 		snode = snode.last
 	}
