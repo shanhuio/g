@@ -11,10 +11,9 @@ require (
 	golang.org/x/oauth2 v0.36.0
 	golang.org/x/term v0.44.0
 	golang.org/x/tools v0.46.0
-	gopkg.in/yaml.v2 v2.4.0
 	modernc.org/sqlite v1.50.1
 	shanhu.io/gcimporter v0.0.0-20230206104318-38ca03fa3ae1
-	shanhu.io/std v0.0.0-20260612232620-c5a277ad5225
+	shanhu.io/std v0.0.0-20260623070910-a946ba6fee46
 )
 
 require (
