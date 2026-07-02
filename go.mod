@@ -3,17 +3,17 @@ module shanhu.io/g
 go 1.26.3
 
 require (
-	github.com/digitalocean/godo v1.196.0
+	github.com/digitalocean/godo v1.197.0
 	github.com/lib/pq v1.10.7
-	github.com/minio/minio-go/v7 v7.2.0
+	github.com/minio/minio-go/v7 v7.2.1
 	golang.org/x/crypto v0.53.0
 	golang.org/x/lint v0.0.0-20241112194109-818c5a804067
 	golang.org/x/oauth2 v0.36.0
 	golang.org/x/term v0.44.0
-	golang.org/x/tools v0.46.0
+	golang.org/x/tools v0.47.0
 	modernc.org/sqlite v1.50.1
 	shanhu.io/gcimporter v0.0.0-20230206104318-38ca03fa3ae1
-	shanhu.io/std v0.0.0-20260623070910-a946ba6fee46
+	shanhu.io/std v0.0.0-20260623230418-93bfc8e6f678
 )
 
 require (
@@ -23,8 +23,8 @@ require (
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/hashicorp/go-cleanhttp v0.5.2 // indirect
 	github.com/hashicorp/go-retryablehttp v0.7.8 // indirect
-	github.com/klauspost/compress v1.18.6 // indirect
-	github.com/klauspost/cpuid/v2 v2.3.0 // indirect
+	github.com/klauspost/compress v1.19.0 // indirect
+	github.com/klauspost/cpuid/v2 v2.4.0 // indirect
 	github.com/klauspost/crc32 v1.3.0 // indirect
 	github.com/kr/pretty v0.3.0 // indirect
 	github.com/mattn/go-isatty v0.0.22 // indirect
