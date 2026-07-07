@@ -7,7 +7,7 @@ type searchNode struct {
 	length int
 }
 
-func traceCircle(trace []*searchNode, snode *searchNode) []*MapNode {
+func traceCircle(snode *searchNode) []*MapNode {
 	n := snode.length
 	ret := make([]*MapNode, n)
 	for i := range n {
@@ -57,7 +57,7 @@ func minCircle(nodes map[string]*MapNode) []*MapNode {
 		vmap := visited[start.Name]
 		for name, out := range snode.this.Outs {
 			if name == start.Name {
-				return traceCircle(trace, snode)
+				return traceCircle(snode)
 			}
 
 			if vmap[name] {
