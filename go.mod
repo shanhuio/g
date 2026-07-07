@@ -13,7 +13,7 @@ require (
 	golang.org/x/tools v0.47.0
 	modernc.org/sqlite v1.50.1
 	shanhu.io/gcimporter v0.0.0-20230206104318-38ca03fa3ae1
-	shanhu.io/std v0.0.0-20260623230418-93bfc8e6f678
+	shanhu.io/std v0.0.0-20260706233856-1f1ba0b64642
 )
 
 require (
@@ -41,7 +41,7 @@ require (
 	golang.org/x/net v0.56.0 // indirect
 	golang.org/x/sync v0.21.0 // indirect
 	golang.org/x/sys v0.46.0 // indirect
-	golang.org/x/text v0.38.0 // indirect
+	golang.org/x/text v0.39.0 // indirect
 	golang.org/x/time v0.15.0 // indirect
 	gopkg.in/check.v1 v1.0.0-20180628173108-788fd7840127 // indirect
 	gopkg.in/ini.v1 v1.67.3 // indirect
